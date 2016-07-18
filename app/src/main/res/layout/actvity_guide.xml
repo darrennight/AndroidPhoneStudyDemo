@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/black"
+            android:padding="13dp"
+            android:text="使用须知:使用此工具需要获取无障碍权限(或者辅助功能),
+        此权限需要用户手动授权,滑动开关开启时会监测此权限,如果没有此权限会自动跳转到设置界面,
+        此时用户需要在列表中找到本应用(com.breadtrip.tool)开启权限"/>
+
+        <ImageView
+            android:id="@+id/iv_guide2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/guide2"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/guide1"/>
+
+
+    </LinearLayout>
+
+</ScrollView>

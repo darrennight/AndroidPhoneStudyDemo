@@ -1,0 +1,501 @@
+defer操作符
+
+defer操作符是直到有订阅者订阅时，才通过Observable的工厂方法创建Observable并执行，
+defer操作符能够保证Observable的状态是最新的
+
+
+timer操作符
+//每隔两秒产生一个数字
+        Observable.timer(2, 2, TimeUnit.SECONDS).subscribe(new Subscriber<Long>() {
+            @Override
+            public void onCompleted() {
+                System.out.println("Sequence complete.");
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                System.out.println("error:" + e.getMessage());
+            }
+
+            @Override
+            public void onNext(Long aLong) {
+                System.out.println("Next:" + aLong.toString());
+            }
+        });
+
+interval操作符
+
+range操作符
+range操作符是创建一组在从n开始，个数为m的连续数字，比如range(3,10)，就是创建3、4、5…12的一组数字，其流程实例如下：
+
+//产生从3开始，个数为10个的连续数字
+        Observable.range(3,10).subscribe(new Subscriber<Integer>() {
+            @Override
+            public void onCompleted() {
+                System.out.println("Sequence complete.");
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                System.out.println("error:" + e.getMessage());
+            }
+
+            @Override
+            public void onNext(Integer i) {
+                System.out.println("Next:" + i.toString());
+            }
+        });
+
+
+ repeat/repeatWhen操作符
+
+ repeat操作符是对某一个Observable，重复产生多次结果
+ repeatWhen操作符是对某一个Observable，有条件地重新订阅从而产生多次结果
+
+ //连续产生两组(3,4,5)的数字
+         Observable.range(3,3).repeat(2).subscribe(new Subscriber<Integer>() {
+             @Override
+             public void onCompleted() {
+                 System.out.println("Sequence complete.");
+             }
+
+             @Override
+             public void onError(Throwable e) {
+                 System.out.println("error:" + e.getMessage());
+             }
+
+             @Override
+             public void onNext(Integer i) {
+                 System.out.println("Next:" + i.toString());
+             }
+         });
+
+         Next:3
+         Next:4
+         Next:5
+         Next:3
+         Next:4
+         Next:5
+
+   Observable.just(1,2,3).repeatWhen(new Func1<Observable<? extends Void>, Observable<?>>() {
+               @Override
+               public Observable<?> call(Observable<? extends Void> observable) {
+                   //重复3次
+                   return observable.zipWith(Observable.range(1, 3), new Func2<Void, Integer, Integer>() {
+                       @Override
+                       public Integer call(Void aVoid, Integer integer) {
+                           return integer;
+                       }
+                   }).flatMap(new Func1<Integer, Observable<?>>() {
+                       @Override
+                       public Observable<?> call(Integer integer) {
+                           System.out.println("delay repeat the " + integer + " count");
+                           //1秒钟重复一次
+                           return Observable.timer(1, TimeUnit.SECONDS);
+                       }
+                   });
+               }
+           }).subscribe(new Subscriber<Integer>() {
+               @Override
+               public void onCompleted() {
+                   System.out.println("Sequence complete.");
+               }
+
+               @Override
+               public void onError(Throwable e) {
+                   System.err.println("Error: " + e.getMessage());
+               }
+
+               @Override
+               public void onNext(Integer value) {
+                   System.out.println("Next:" + value);
+               }
+           });
+
+
+
+
+  buffer操作符
+   buffer操作符周期性地收集源Observable产生的结果到列表中，并把这个列表提交给订阅者，订阅者处理后，
+   清空buffer列表，同时接收下一次收集的结果并提交给订阅者，周而复始。
+   需要注意的是，一旦源Observable在产生结果的过程中出现异常，即使buffer已经存在收集到的结果，
+   订阅者也会马上收到这个异常，并结束整个过程。
+
+   //定义邮件内容
+           final String[] mails = new String[]{"Here is an email!", "Another email!", "Yet another email!"};
+           //每隔1秒就随机发布一封邮件
+           Observable<String> endlessMail = Observable.create(new Observable.OnSubscribe<String>() {
+               @Override
+               public void call(Subscriber<? super String> subscriber) {
+                   try {
+                       if (subscriber.isUnsubscribed()) return;
+                       Random random = new Random();
+                       while (true) {
+                           String mail = mails[random.nextInt(mails.length)];
+                           subscriber.onNext(mail);
+                           Thread.sleep(1000);
+                       }
+                   } catch (Exception ex) {
+                       subscriber.onError(ex);
+                   }
+               }
+           }).subscribeOn(Schedulers.io());
+           //把上面产生的邮件内容缓存到列表中，并每隔3秒通知订阅者
+           endlessMail.buffer(3, TimeUnit.SECONDS).subscribe(new Action1<List<String>>() {
+               @Override
+               public void call(List<String> list) {
+
+                   System.out.println(String.format("You've got %d new messages!  Here they are!", list.size()));
+                   for (int i = 0; i < list.size(); i++)
+                       System.out.println("**" + list.get(i).toString());
+               }
+           });
+
+
+ flatMap操作符
+   flatMap操作符是把Observable产生的结果转换成多个Observable，
+   然后把这多个Observable“扁平化”成一个Observable，并依次提交产生的结果给订阅者。
+    private Observable<File> listFiles(File f){
+            if(f.isDirectory()){
+                return Observable.from(f.listFiles()).flatMap(new Func1<File, Observable<File>>() {
+                    @Override
+                    public Observable<File> call(File file) {
+                        return listFiles(f);／／file
+                    }
+                });
+            } else {
+                return Observable.just(f);
+            }
+        }
+
+
+        @Override
+        public void onClick(View v) {
+            Observable.just(getApplicationContext().getExternalCacheDir())
+                    .flatMap(new Func1<File, Observable<File>>() {
+                        @Override
+                        public Observable<File> call(File file) {
+                            //参数file是just操作符产生的结果，这里判断file是不是目录文件，如果是目录文件，
+                            则递归查找其子文件flatMap操作符神奇的地方在于，返回的结果还是一个Observable，
+                            而这个Observable其实是包含多个文件的Observable的，输出应该是ExternalCacheDir下的所有文件
+                            return listFiles(file);
+                        }
+                    })
+                    .subscribe(new Action1<File>() {
+                        @Override
+                        public void call(File file) {
+                            System.out.println(file.getAbsolutePath());
+                        }
+                    });
+
+        }
+
+concatMap操作符
+
+
+
+switchMap操作符
+
+switchMap操作符与flatMap操作符类似，都是把Observable产生的结果转换成多个Observable，
+然后把这多个Observable“扁平化”成一个Observable，并依次提交产生的结果给订阅者。
+
+//flatMap操作符的运行结果
+        Observable.just(10, 20, 30).flatMap(new Func1<Integer, Observable<Integer>>() {
+            @Override
+            public Observable<Integer> call(Integer integer) {
+                //10的延迟执行时间为200毫秒、20和30的延迟执行时间为180毫秒
+                int delay = 200;
+                if (integer > 10)
+                    delay = 180;
+
+                return Observable.from(new Integer[]{integer, integer / 2}).delay(delay, TimeUnit.MILLISECONDS);
+            }
+        }).observeOn(AndroidSchedulers.mainThread()).subscribe(new Action1<Integer>() {
+            @Override
+            public void call(Integer integer) {
+                System.out.println("flatMap Next:" + integer);
+            }
+        });
+
+        //concatMap操作符的运行结果
+        Observable.just(10, 20, 30).concatMap(new Func1<Integer, Observable<Integer>>() {
+            @Override
+            public Observable<Integer> call(Integer integer) {
+                //10的延迟执行时间为200毫秒、20和30的延迟执行时间为180毫秒
+                int delay = 200;
+                if (integer > 10)
+                    delay = 180;
+
+                return Observable.from(new Integer[]{integer, integer / 2}).delay(delay, TimeUnit.MILLISECONDS);
+            }
+        }).observeOn(AndroidSchedulers.mainThread()).subscribe(new Action1<Integer>() {
+            @Override
+            public void call(Integer integer) {
+                System.out.println("concatMap Next:" + integer);
+            }
+        });
+
+        //switchMap操作符的运行结果
+        Observable.just(10, 20, 30).switchMap(new Func1<Integer, Observable<Integer>>() {
+            @Override
+            public Observable<Integer> call(Integer integer) {
+                //10的延迟执行时间为200毫秒、20和30的延迟执行时间为180毫秒
+                int delay = 200;
+                if (integer > 10)
+                    delay = 180;
+
+                return Observable.from(new Integer[]{integer, integer / 2}).delay(delay, TimeUnit.MILLISECONDS);
+            }
+        }).observeOn(AndroidSchedulers.mainThread()).subscribe(new Action1<Integer>() {
+            @Override
+            public void call(Integer integer) {
+                System.out.println("switchMap Next:" + integer);
+            }
+        });
+        运行结果如下：
+        flatMap Next:20
+        flatMap Next:10
+        flatMap Next:30
+        flatMap Next:15
+        flatMap Next:10
+        flatMap Next:5
+
+        switchMap Next:30
+        switchMap Next:15
+
+        concatMap Next:10
+        concatMap Next:5
+        concatMap Next:20
+        concatMap Next:10
+        concatMap Next:30
+        concatMap Next:15
+
+
+ groupBy操作符
+
+ groupBy操作符是对源Observable产生的结果进行分组，形成一个类型为GroupedObservable的结果集，
+ GroupedObservable中存在一个方法为getKey()，
+ 可以通过该方法获取结果集的Key值（类似于HashMap的key)。
+
+ 值得注意的是，由于结果集中的GroupedObservable是把分组结果缓存起来，
+ 如果对每一个GroupedObservable不进行处理（既不订阅执行也不对其进行别的操作符运算），
+ 就有可能出现内存泄露。因此，如果你对某个GroupedObservable不进行处理，最好是对其使用操作符take(0)处理。
+
+ Observable.interval(1, TimeUnit.SECONDS).take(10).groupBy(new Func1<Long, Long>() {
+             @Override
+             public Long call(Long value) {
+                 //按照key为0,1,2分为3组
+                 return value % 3;
+             }
+         }).subscribe(new Action1<GroupedObservable<Long, Long>>() {
+             @Override
+             public void call(GroupedObservable<Long, Long> result) {
+                 result.subscribe(new Action1<Long>() {
+                     @Override
+                     public void call(Long value) {
+                         System.out.println("key:" + result.getKey() +", value:" + value);
+                     }
+                 });
+             }
+         });
+
+        key:0, value:0
+        key:1, value:1
+        key:2, value:2
+        key:0, value:3
+        key:1, value:4
+        key:2, value:5
+        key:0, value:6
+        key:1, value:7
+        key:2, value:8
+        key:0, value:9
+
+  map操作符
+
+  cast操作符
+
+  cast操作符类似于map操作符，不同的地方在于map操作符可以通过自定义规则，把一个值A1变成另一个值A2，
+  A1和A2的类型可以一样也可以不一样；而cast操作符主要是做类型转换的，传入参数为类型class，
+  如果源Observable产生的结果不能转成指定的class，则会抛出ClassCastException运行时异常。
+    Observable.just(1,2,3,4,5,6).cast(Integer.class).subscribe(new Action1<Integer>() {
+                @Override
+                public void call(Integer value) {
+                    System.out.println("next:"+value);
+                }
+            });
+
+  scan操作符
+
+  scan操作符通过遍历源Observable产生的结果，依次对每一个结果项按照指定规则进行运算，
+  计算后的结果作为下一个迭代项参数，每一次迭代项都会把计算结果输出给订阅者。
+
+   Observable.just(1, 2, 3, 4, 5)
+       .scan(new Func2<Integer, Integer, Integer>() {
+           @Override
+           public Integer call(Integer sum, Integer item) {
+               //参数sum就是上一次的计算结果
+               return sum + item;
+           }
+       }).subscribe(new Subscriber<Integer>() {
+           @Override
+           public void onNext(Integer item) {
+               System.out.println("Next: " + item);
+           }
+
+           @Override
+           public void onError(Throwable error) {
+               System.err.println("Error: " + error.getMessage());
+           }
+
+           @Override
+           public void onCompleted() {
+               System.out.println("Sequence complete.");
+           }
+       });
+
+
+ window操作符
+
+ window操作符非常类似于buffer操作符，区别在于buffer操作符产生的结果是一个List缓存，
+ 而window操作符产生的结果是一个Observable，订阅者可以对这个结果Observable重新进行订阅处理。
+Observable.interval(1, TimeUnit.SECONDS).take(12)
+                .window(3, TimeUnit.SECONDS)
+                .subscribe(new Action1<Observable<Long>>() {
+                    @Override
+                    public void call(Observable<Long> observable) {
+                        System.out.println("subdivide begin......");
+                        observable.subscribe(new Action1<Long>() {
+                            @Override
+                            public void call(Long aLong) {
+                                System.out.println("Next:" + aLong);
+                            }
+                        });
+                    }
+                });
+
+
+  debounce操作符
+
+  debounce操作符对源Observable每产生一个结果后，如果在规定的间隔时间内没有别的结果产生，则把这个结果提交给订阅者处理，否则忽略该结果。
+
+  值得注意的是，如果源Observable产生的最后一个结果后在规定的时间间隔内调用了onCompleted，那么通过debounce操作符也会把这个结果提交给订阅者。
+
+  Observable.create(new Observable.OnSubscribe<Integer>() {
+              @Override
+              public void call(Subscriber<? super Integer> subscriber) {
+                  if(subscriber.isUnsubscribed()) return;
+                  try {
+                      //产生结果的间隔时间分别为100、200、300...900毫秒
+                      for (int i = 1; i < 10; i++) {
+                          subscriber.onNext(i);
+                          Thread.sleep(i * 100);
+                      }
+                      subscriber.onCompleted();
+                  }catch(Exception e){
+                      subscriber.onError(e);
+                  }
+              }
+          }).subscribeOn(Schedulers.newThread())
+            .debounce(400, TimeUnit.MILLISECONDS)  //超时时间为400毫秒
+            .subscribe(
+                  new Action1<Integer>() {
+                      @Override
+                      public void call(Integer integer) {
+                          System.out.println("Next:" + integer);
+                      }
+                  }, new Action1<Throwable>() {
+                      @Override
+                      public void call(Throwable throwable) {
+                          System.out.println("Error:" + throwable.getMessage());
+                      }
+                  }, new Action0() {
+                      @Override
+                      public void call() {
+                          System.out.println("completed!");
+                      }
+                  });
+
+
+    distinct操作符
+
+    distinct操作符对源Observable产生的结果进行过滤，把重复的结果过滤掉，只输出不重复的结果给订阅者，非常类似于SQL里的distinct关键字。
+
+Observable.just(1, 2, 1, 1, 2, 3)
+          .distinct()
+          .subscribe(new Subscriber<Integer>() {
+        @Override
+        public void onNext(Integer item) {
+            System.out.println("Next: " + item);
+        }
+
+        @Override
+        public void onError(Throwable error) {
+            System.err.println("Error: " + error.getMessage());
+        }
+
+        @Override
+        public void onCompleted() {
+            System.out.println("Sequence complete.");
+        }
+    });
+
+
+
+
+    elementAt操作符
+
+    elementAt操作符在源Observable产生的结果中，仅仅把指定索引的结果提交给订阅者，索引是从0开始的。
+
+
+    Observable.just(1,2,3,4,5,6).elementAt(2)
+              .subscribe(
+                    new Action1<Integer>() {
+                        @Override
+                        public void call(Integer integer) {
+                            System.out.println("Next:" + integer);
+                        }
+                    }, new Action1<Throwable>() {
+                        @Override
+                        public void call(Throwable throwable) {
+                            System.out.println("Error:" + throwable.getMessage());
+                        }
+                    }, new Action0() {
+                        @Override
+                        public void call() {
+                            System.out.println("completed!");
+                        }
+                    });
+
+
+
+    filter操作符
+
+    filter操作符是对源Observable产生的结果按照指定条件进行过滤，只有满足条件的结果才会提交给订阅者
+
+    Observable.just(1, 2, 3, 4, 5)
+              .filter(new Func1<Integer, Boolean>() {
+                  @Override
+                  public Boolean call(Integer item) {
+                    return( item < 4 );
+                  }
+              }).subscribe(new Subscriber<Integer>() {
+            @Override
+            public void onNext(Integer item) {
+                System.out.println("Next: " + item);
+            }
+
+            @Override
+            public void onError(Throwable error) {
+                System.err.println("Error: " + error.getMessage());
+            }
+
+            @Override
+            public void onCompleted() {
+                System.out.println("Sequence complete.");
+            }
+        });
+
+
+
+
+

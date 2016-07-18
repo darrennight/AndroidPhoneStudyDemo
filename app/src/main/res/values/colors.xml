@@ -3,4 +3,15 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <color name="navigationBarColor">#f46444</color>
+
+    <color name="colorPrimaryDarkTrans">#CCf57257</color>
+
+
+
+    <color name="colorWindowBackground">#f0f0f0</color>
+    <color name="colorTabNormal">#666666</color>
+    <color name="colorTabSelected">@color/colorPrimary</color>
+    <color name="color_bleack">#000000</color>
 </resources>

@@ -1,0 +1,222 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/MatchMatch">
+
+    <LinearLayout style="@style/MatchMatch.Vertical">
+
+        <zenghao.com.study.view.BGASwipeItemLayout
+            android:id="@+id/sil_swipeitem_test"
+            style="@style/SwipeItemSIL"
+            app:bga_sil_bottomMode="pullOut"
+            app:bga_sil_springDistance="20dp"
+            app:bga_sil_swipeDirection="left">
+
+            <ImageView
+                android:id="@+id/iv_swipeitem_delete"
+                style="@style/BottomViewDelete"
+                android:onClick="onClick" />
+
+            <LinearLayout style="@style/TopViewRoot">
+
+                <ImageView
+                    android:id="@+id/iv_swipeitem_avator"
+                    style="@style/TopViewAvatar"
+                    android:onClick="onClick" />
+
+                <TextView
+                    style="@style/TopViewDesc"
+                    android:text="测试Margin,Padding以及各种事件" />
+            </LinearLayout>
+        </zenghao.com.study.view.BGASwipeItemLayout>
+
+        <LinearLayout
+            style="@style/MatchWrap.Horizontal"
+            android:layout_margin="5dp"
+            android:padding="5dp">
+
+            <Button
+                android:id="@+id/btn_swipeitem_open"
+                style="@style/SwipeItemBtn"
+                android:text="开" />
+
+            <Button
+                android:id="@+id/btn_swipeitem_close"
+                style="@style/SwipeItemBtn"
+                android:text="关" />
+
+            <Button
+                android:id="@+id/btn_swipeitem_openwithanim"
+                style="@style/SwipeItemBtn"
+                android:text="动画开" />
+
+            <Button
+                android:id="@+id/btn_swipeitem_closewithanim"
+                style="@style/SwipeItemBtn"
+                android:text="动画关" />
+
+            <Button
+                android:id="@+id/btn_swipeitem_status"
+                style="@style/SwipeItemBtn"
+                android:text="状态" />
+        </LinearLayout>
+
+        <zenghao.com.study.view.BGASwipeItemLayout
+            style="@style/SwipeItemSIL"
+            app:bga_sil_bottomMode="layDown"
+            app:bga_sil_springDistance="20dp"
+            app:bga_sil_swipeAble="false"
+            app:bga_sil_swipeDirection="left">
+
+            <ImageView style="@style/BottomViewDelete" />
+
+            <LinearLayout style="@style/TopViewRoot">
+
+                <ImageView style="@style/TopViewAvatar" />
+
+                <TextView
+                    style="@style/TopViewDesc"
+                    android:text="不可滑动" />
+            </LinearLayout>
+        </zenghao.com.study.view.BGASwipeItemLayout>
+
+        <zenghao.com.study.view.BGASwipeItemLayout
+            style="@style/SwipeItemSIL"
+            app:bga_sil_bottomMode="layDown"
+            app:bga_sil_springDistance="20dp"
+            app:bga_sil_swipeDirection="left">
+
+            <ImageView style="@style/BottomViewDelete" />
+
+            <LinearLayout style="@style/TopViewRoot">
+
+                <ImageView style="@style/TopViewAvatar" />
+
+                <TextView
+                    style="@style/TopViewDesc"
+                    android:text="向左滑  ---+---  遮罩  ---+---  弹簧" />
+            </LinearLayout>
+        </zenghao.com.study.view.BGASwipeItemLayout>
+
+        <zenghao.com.study.view.BGASwipeItemLayout
+            style="@style/SwipeItemSIL"
+            app:bga_sil_bottomMode="pullOut"
+            app:bga_sil_springDistance="20dp"
+            app:bga_sil_swipeDirection="left">
+
+            <ImageView style="@style/BottomViewDelete" />
+
+            <LinearLayout style="@style/TopViewRoot">
+
+                <ImageView style="@style/TopViewAvatar" />
+
+                <TextView
+                    style="@style/TopViewDesc"
+                    android:text="向左滑  ---+---  拉出  ---+---  弹簧" />
+            </LinearLayout>
+        </zenghao.com.study.view.BGASwipeItemLayout>
+
+        <zenghao.com.study.view.BGASwipeItemLayout
+            style="@style/SwipeItemSIL"
+            app:bga_sil_bottomMode="layDown"
+            app:bga_sil_springDistance="20dp"
+            app:bga_sil_swipeDirection="right">
+
+            <ImageView style="@style/BottomViewDelete" />
+
+            <LinearLayout style="@style/TopViewRoot">
+
+                <ImageView style="@style/TopViewAvatar" />
+
+                <TextView
+                    style="@style/TopViewDesc"
+                    android:text="向右滑  ---+--- 遮罩  ---+---  弹簧" />
+            </LinearLayout>
+        </zenghao.com.study.view.BGASwipeItemLayout>
+
+        <zenghao.com.study.view.BGASwipeItemLayout
+            style="@style/SwipeItemSIL"
+            app:bga_sil_bottomMode="pullOut"
+            app:bga_sil_springDistance="20dp"
+            app:bga_sil_swipeDirection="right">
+
+            <ImageView style="@style/BottomViewDelete" />
+
+            <LinearLayout style="@style/TopViewRoot">
+
+                <ImageView style="@style/TopViewAvatar" />
+
+                <TextView
+                    style="@style/TopViewDesc"
+                    android:text="向右滑  ---+--- 拉出  ---+---  弹簧" />
+            </LinearLayout>
+        </zenghao.com.study.view.BGASwipeItemLayout>
+
+        <zenghao.com.study.view.BGASwipeItemLayout
+            style="@style/SwipeItemSIL"
+            app:bga_sil_bottomMode="layDown"
+            app:bga_sil_swipeDirection="right">
+
+            <ImageView style="@style/BottomViewDelete" />
+
+            <LinearLayout style="@style/TopViewRoot">
+
+                <ImageView style="@style/TopViewAvatar" />
+
+                <TextView
+                    style="@style/TopViewDesc"
+                    android:text="向右滑  ---+--- 遮罩" />
+            </LinearLayout>
+        </zenghao.com.study.view.BGASwipeItemLayout>
+
+        <zenghao.com.study.view.BGASwipeItemLayout
+            style="@style/SwipeItemSIL"
+            app:bga_sil_bottomMode="pullOut"
+            app:bga_sil_swipeDirection="right">
+
+            <ImageView style="@style/BottomViewDelete" />
+
+            <LinearLayout style="@style/TopViewRoot">
+
+                <ImageView style="@style/TopViewAvatar" />
+
+                <TextView
+                    style="@style/TopViewDesc"
+                    android:text="向右滑  ---+--- 拉出" />
+            </LinearLayout>
+        </zenghao.com.study.view.BGASwipeItemLayout>
+
+        <zenghao.com.study.view.BGASwipeItemLayout
+            style="@style/SwipeItemSIL"
+            app:bga_sil_bottomMode="layDown"
+            app:bga_sil_swipeDirection="left">
+
+            <ImageView style="@style/BottomViewDelete" />
+
+            <LinearLayout style="@style/TopViewRoot">
+
+                <ImageView style="@style/TopViewAvatar" />
+
+                <TextView
+                    style="@style/TopViewDesc"
+                    android:text="向左滑  ---+--- 遮罩" />
+            </LinearLayout>
+        </zenghao.com.study.view.BGASwipeItemLayout>
+
+        <zenghao.com.study.view.BGASwipeItemLayout
+            style="@style/SwipeItemSIL"
+            app:bga_sil_bottomMode="pullOut"
+            app:bga_sil_swipeDirection="left">
+
+            <ImageView style="@style/BottomViewDelete" />
+
+            <LinearLayout style="@style/TopViewRoot">
+
+                <ImageView style="@style/TopViewAvatar" />
+
+                <TextView
+                    style="@style/TopViewDesc"
+                    android:text="向左滑  ---+--- 拉出" />
+            </LinearLayout>
+        </zenghao.com.study.view.BGASwipeItemLayout>
+    </LinearLayout>
+</ScrollView>

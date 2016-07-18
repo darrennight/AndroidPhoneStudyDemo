@@ -17,4 +17,60 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
 
+
+
+
+    <style name="MainBtn" parent="MatchWrap">
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:background">@drawable/selector_btn_orange</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
+    </style>
+
+    <style name="SwipeItemBtn" parent="AutoWrap">
+        <item name="android:onClick">onClick</item>
+        <item name="android:layout_marginLeft">5dp</item>
+        <item name="android:layout_marginRight">5dp</item>
+        <item name="android:background">@drawable/selector_btn_orange</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="SwipeItemSIL" parent="MatchWrap">
+        <item name="android:layout_margin">5dp</item>
+        <item name="android:background">#38D369</item>
+        <item name="android:padding">5dp</item>
+    </style>
+
+    <style name="BottomViewDelete" parent="WrapMatch">
+        <item name="android:layout_margin">5dp</item>
+        <item name="android:background">#f00</item>
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:paddingBottom">5dp</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:paddingRight">10dp</item>
+        <item name="android:src">@mipmap/delete</item>
+    </style>
+
+    <style name="TopViewRoot" parent="MatchWrap.Horizontal">
+        <item name="android:layout_margin">5dp</item>
+        <item name="android:background">#9674FC</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:padding">5dp</item>
+    </style>
+
+    <style name="TopViewAvatar">
+        <item name="android:layout_width">50dp</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:src">@mipmap/avator</item>
+    </style>
+
+    <style name="TopViewDesc" parent="MatchWrap">
+        <item name="android:gravity">center</item>
+        <item name="android:padding">5dp</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>avator.png
+    delete.png
+    ic_launcher.png
+    list_divider.png
+
 </resources>
