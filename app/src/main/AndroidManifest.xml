@@ -73,6 +73,10 @@
             />
         <activity android:name=".bottomManger.BottomMangerActivity"/>
         <activity android:name=".VHRecyleView.VPRecyleMainActivity"/>
+        <activity android:name=".lazyFragment.LazyFragmentActivity"/>
+        <activity android:name=".StatusBar.TestStatusBarActivity"
+            android:theme="@style/testStatusBar"
+            ></activity>
     </application>
 
 </manifest>

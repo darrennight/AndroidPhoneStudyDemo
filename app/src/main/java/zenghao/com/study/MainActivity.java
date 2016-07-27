@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import zenghao.com.study.RX.RXTestActivity;
+import zenghao.com.study.StatusBar.TestStatusBarActivity;
 import zenghao.com.study.VHRecyleView.VPRecyleMainActivity;
 import zenghao.com.study.activity.CaptureActivity;
 import zenghao.com.study.activity.ItemListActivity;
@@ -27,6 +28,7 @@ import zenghao.com.study.activity.TestNotificationCompat;
 import zenghao.com.study.activity.TestSlidingPaneLayout;
 import zenghao.com.study.adapter.MyAdapter;
 import zenghao.com.study.bottomManger.BottomMangerActivity;
+import zenghao.com.study.lazyFragment.LazyFragmentActivity;
 import zenghao.com.study.suspension.MainActivityChild;
 import zenghao.com.study.viewpager.VPUpdateFragment1;
 
@@ -70,6 +72,8 @@ public class MainActivity extends AppCompatActivity {
         list.add("viewpager更新处理");
         list.add("bottom+fragment管理");
         list.add("横竖滑动");
+        list.add("lazyFragment");
+        list.add("statusBarCompat");
 
         adapter = new MyAdapter(this,list);
         mListView.setAdapter(adapter);
@@ -129,6 +133,16 @@ public class MainActivity extends AppCompatActivity {
                     case 12:
                         Intent intent12 = new Intent(MainActivity.this, VPRecyleMainActivity.class);
                         startActivity(intent12);
+                        break;
+
+                    case 13:
+                        Intent intent13 = new Intent(MainActivity.this, LazyFragmentActivity.class);
+                        startActivity(intent13);
+                        break;
+
+                    case 14:
+                        Intent intent14 = new Intent(MainActivity.this, TestStatusBarActivity.class);
+                        startActivity(intent14);
                         break;
                     default:
                         break;

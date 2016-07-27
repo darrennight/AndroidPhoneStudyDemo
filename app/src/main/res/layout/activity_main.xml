@@ -8,9 +8,11 @@
     android:fitsSystemWindows="true"
     tools:context="zenghao.com.study.MainActivity">
 
+    <!--app:elevation="0dp" 去掉标题栏下面的阴影-->
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
         android:theme="@style/AppTheme.AppBarOverlay">
 
         <android.support.v7.widget.Toolbar
