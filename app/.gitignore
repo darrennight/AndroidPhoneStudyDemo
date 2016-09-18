@@ -1,1 +1,7 @@
 /build
+#buck
+.buckconfig
+*/BUCK
+.buckd
+.okbuck
+buck-out

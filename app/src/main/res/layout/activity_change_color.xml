@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:gradient="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <SeekBar
+        android:id="@+id/sb_seek"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        />
+    <ImageView
+        android:id="@+id/iv_test_bg"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        />
+
+    <ImageView
+        android:id="@+id/iv_test_bg2"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        />
+
+    <zenghao.com.study.commonActivity.FlowingGradient
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        gradient:transition_duration = "4000"
+        gradient:transition_drawable="@drawable/trans"
+        />
+
+</LinearLayout>

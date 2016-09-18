@@ -3,9 +3,6 @@ package zenghao.com.study.MVP.presenter;
 import zenghao.com.study.MVP.bizview.BaseView;
 import zenghao.com.study.MVP.model.BaseModel;
 
-/**
- * Created by baixiaokang on 16/4/29.
- */
 public interface LoginContract {
     interface Model extends BaseModel {
         void login(String name, String pass);

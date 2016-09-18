@@ -27,7 +27,6 @@ public class RXTestActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rx_test);
 
-
     }
 
 
@@ -261,6 +260,55 @@ public class RXTestActivity extends AppCompatActivity {
 
 
 
+        /*List<Student> students = new ArrayList<Student>();
+        students.add...
+        ...
+
+        Action1<List<Course>> action1 = new Action1<List<Course>>() {
+            @Override
+            public void call(List<Course> courses) {
+                //遍历courses，输出cuouses的name
+                for (int i = 0; i < courses.size(); i++){
+                    Log.i(TAG, courses.get(i).getName());
+                }
+            }
+        };
+        Observable.from(students)
+                .map(new Func1<Student, List<Course>>() {
+                    @Override
+                    public List<Course> call(Student student) {
+                        //返回coursesList
+                        return student.getCoursesList();
+                    }
+                })
+                .subscribe(action1);
+
+     ／／／／／／／／／／／／／／／／上下对比 map 和flatMap
+      flatMap和concatMap是功能一样的 只是flatMap结果无序 concatMap结果有顺序
+
+                        List<Student> students = new ArrayList<Student>();
+        students.add...
+        ...
+
+        Observable.from(students)
+                .flatMap(new Func1<Student, Observable<Course>>() {
+                    @Override
+                    public Observable<Course> call(Student student) {
+                    //将课程继续作为事件发送
+                        return Observable.from(student.getCoursesList());
+                    }
+                })
+                .subscribe(new Action1<Course>() {
+                    @Override
+                    public void call(Course course) {
+                        Log.i(TAG, course.getName());
+                    }
+                });
+
+
+
+                */
+
     }
 
 
@@ -319,6 +367,8 @@ public class RXTestActivity extends AppCompatActivity {
         Observable.merge(observable1, observable2)
                 .subscribeOn(Schedulers.newThread())
                 .subscribe(System.out::println);*/
+
+
     }
 
 

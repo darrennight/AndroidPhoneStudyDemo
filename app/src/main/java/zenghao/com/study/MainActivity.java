@@ -16,6 +16,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import zenghao.com.study.RX.RXTestActivity;
+import zenghao.com.study.RecyclerViewDemo.TestDiffUtilActivity;
+import zenghao.com.study.RxBus.RXBusMainActivity;
 import zenghao.com.study.StatusBar.TestStatusBarActivity;
 import zenghao.com.study.VHRecyleView.VPRecyleMainActivity;
 import zenghao.com.study.activity.CaptureActivity;
@@ -24,11 +26,14 @@ import zenghao.com.study.activity.LogoFristActivity;
 import zenghao.com.study.activity.MainSwipeActivity;
 import zenghao.com.study.activity.PermissionActivity;
 import zenghao.com.study.activity.PermissionFrameworkActivity;
+import zenghao.com.study.activity.TestConstraintLayout;
 import zenghao.com.study.activity.TestNotificationCompat;
 import zenghao.com.study.activity.TestSlidingPaneLayout;
 import zenghao.com.study.adapter.MyAdapter;
 import zenghao.com.study.bottomManger.BottomMangerActivity;
+import zenghao.com.study.commonActivity.ChangeBgColor;
 import zenghao.com.study.lazyFragment.LazyFragmentActivity;
+import zenghao.com.study.permissionFramework.TestPermissionActivity;
 import zenghao.com.study.suspension.MainActivityChild;
 import zenghao.com.study.viewpager.VPUpdateFragment1;
 
@@ -74,6 +79,11 @@ public class MainActivity extends AppCompatActivity {
         list.add("横竖滑动");
         list.add("lazyFragment");
         list.add("statusBarCompat");
+        list.add("框架式动态权限申请");
+        list.add("RXBus测试");
+        list.add("testRcDiff");
+        list.add("TestConstraintLayout");
+        list.add("颜色过渡切换");
 
         adapter = new MyAdapter(this,list);
         mListView.setAdapter(adapter);
@@ -143,6 +153,29 @@ public class MainActivity extends AppCompatActivity {
                     case 14:
                         Intent intent14 = new Intent(MainActivity.this, TestStatusBarActivity.class);
                         startActivity(intent14);
+                        break;
+
+                    case 15:
+                        Intent intent15 = new Intent(MainActivity.this, TestPermissionActivity.class);
+                        startActivity(intent15);
+                        break;
+                    case 16:
+                        Intent intent16 = new Intent(MainActivity.this, RXBusMainActivity.class);
+                        startActivity(intent16);
+                        break;
+
+                    case 17:
+                        Intent intent17 = new Intent(MainActivity.this, TestDiffUtilActivity.class);
+                        startActivity(intent17);
+                        break;
+
+                    case 18:
+                        Intent intent18 = new Intent(MainActivity.this, TestConstraintLayout.class);
+                        startActivity(intent18);
+                        break;
+                    case 19:
+                        Intent intent19 = new Intent(MainActivity.this, ChangeBgColor.class);
+                        startActivity(intent19);
                         break;
                     default:
                         break;

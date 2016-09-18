@@ -353,6 +353,46 @@ switchMap操作符与flatMap操作符类似，都是把Observable产生的结果
            }
        });
 
+       Next: 1
+       Next: 3
+       Next: 6
+       Next: 10
+       Next: 15
+       Sequence complete.
+
+
+ buffer操作符
+
+       //定义邮件内容
+               final String[] mails = new String[]{"Here is an email!", "Another email!", "Yet another email!"};
+               //每隔1秒就随机发布一封邮件
+               Observable<String> endlessMail = Observable.create(new Observable.OnSubscribe<String>() {
+                   @Override
+                   public void call(Subscriber<? super String> subscriber) {
+                       try {
+                           if (subscriber.isUnsubscribed()) return;
+                           Random random = new Random();
+                           while (true) {
+                               String mail = mails[random.nextInt(mails.length)];
+                               subscriber.onNext(mail);
+                               Thread.sleep(1000);
+                           }
+                       } catch (Exception ex) {
+                           subscriber.onError(ex);
+                       }
+                   }
+               }).subscribeOn(Schedulers.io());
+               //把上面产生的邮件内容缓存到列表中，并每隔3秒通知订阅者
+               endlessMail.buffer(3, TimeUnit.SECONDS).subscribe(new Action1<List<String>>() {
+                   @Override
+                   public void call(List<String> list) {
+
+                       System.out.println(String.format("You've got %d new messages!  Here they are!", list.size()));
+                       for (int i = 0; i < list.size(); i++)
+                           System.out.println("**" + list.get(i).toString());
+                   }
+               });
+
 
  window操作符
 
@@ -495,7 +535,240 @@ Observable.just(1, 2, 1, 1, 2, 3)
             }
         });
 
+        ofType操作符
+
+        Observable.just(1, "hello world", true, 200L, 0.23f)
+                  .ofType(Float.class)
+                  .subscribe(new Subscriber<Object>() {
+                      @Override
+                      public void onNext(Object item) {
+                          System.out.println("Next: " + item);
+                      }
+
+                      @Override
+                      public void onError(Throwable error) {
+                          System.err.println("Error: " + error.getMessage());
+                      }
+
+                      @Override
+                      public void onCompleted() {
+                          System.out.println("Sequence complete.");
+                      }
+                  });
+                  运行结果如下：
+                  Next: 0.23
+                  Sequence complete.
+
+
+take操作符
+        take发送前几项
+        TakeLast发送后几项
+        last发送最后一项
+        还有一个操作符叫takeLastBuffer，它和takeLast类似，，唯一的不同是它把所有的数据项收集到一个List再发射，而不是依次发射一个。
+        使用TakeLast操作符修改原始Observable，你可以只发射Observable'发射的后N项数据，忽略前面的数据。
+
+        takeLast( ) — 只发射最后的N项数据
+        last( ) — 只发射最后的一项数据
+        lastOrDefault( ) — 只发射最后的一项数据，如果Observable为空就发射默认值
+        takeLastBuffer( ) — 将最后的N项数据当做单个数据发射
+        skip( ) — 跳过开始的N项数据
+        skipLast( ) — 跳过最后的N项数据
+        take( ) — 只发射开始的N项数据
+        first( ) and takeFirst( ) — 只发射第一项数据，或者满足某种条件的第一项数据
+        firstOrDefault( ) — 只发射第一项数据，如果Observable为空就发射默认值
+        elementAt( ) — 发射第N项数据
+        elementAtOrDefault( ) — 发射第N项数据，如果Observable数据少于N项就发射默认值
+
+
+
+        Observable.just(1, 2, 3, 4, 5, 6, 7, 8)
+                  .take(4)
+                  .subscribe(new Subscriber<Integer>() {
+                @Override
+                public void onNext(Integer item) {
+                    System.out.println("Next: " + item);
+                }
+
+                @Override
+                public void onError(Throwable error) {
+                    System.err.println("Error: " + error.getMessage());
+                }
+
+                @Override
+                public void onCompleted() {
+                    System.out.println("Sequence complete.");
+                }
+            });
+            输出
+
+            Next: 1
+            Next: 2
+            Next: 3
+            Next: 4
+            Sequence complete.
+
+
+Distinct操作符
+        过滤掉 重复的数据项
+        Distinct的过滤规则是：只允许还没有发射过的数据项通过。
+
+        distinctUntilChanged过滤连续重复
+        distinctUntilChanged(Func1)
+        如下输出1 2 1 2 3 连续1重复过滤
+
+        Observable.just(1, 2, 1, 1, 2, 3)
+                  .distinct()
+                  .subscribe(new Subscriber<Integer>() {
+                @Override
+                public void onNext(Integer item) {
+                    System.out.println("Next: " + item);
+                }
+
+                @Override
+                public void onError(Throwable error) {
+                    System.err.println("Error: " + error.getMessage());
+                }
+
+                @Override
+                public void onCompleted() {
+                    System.out.println("Sequence complete.");
+                }
+            });
+        输出
+
+        Next: 1
+        Next: 2
+        Next: 3
+        Sequence complete.
+
+
+        Observable.just(1, 2, 1, 1, 2, 3)
+                        .distinct(new Func1<Integer, Object>() {
+                            @Override
+                            public Object call(Integer integer) {
+                            //这个地方是返回 判断是否重复的标志 key  即自定义重复的规则
+                                if(integer == 1 || integer == 2){
+                                    return 1;
+                                }
+                                return integer;
+                            }
+                        })
+                        .subscribe(new Subscriber<Integer>() {
+                    @Override
+                    public void onNext(Integer item) {
+                        System.out.println("Next: " + item);
+                    }
+
+                    @Override
+                    public void onError(Throwable error) {
+                        System.err.println("Error: " + error.getMessage());
+                    }
+
+                    @Override
+                    public void onCompleted() {
+                        System.out.println("Sequence complete.");
+                    }
+                });
+
+                只输出1 3
+
+
+
+Merge操作符
+无序发送无顺序
+Merge可能会让合并的Observables发射的数据交错
+你可以将多个Observables的输出合并，就好像它们是一个单个的Observable一样。
+
+/*Observable<Integer> odds = Observable.just(1, 3, 5).subscribeOn(someScheduler);
+        Observable<Integer> evens = Observable.just(2, 4, 6);
+
+        Observable.merge(odds, evens)
+                .subscribe(new Subscriber<Integer>() {
+                    @Override
+                    public void onNext(Integer item) {
+                        System.out.println("Next: " + item);
+                    }
+
+                    @Override
+                    public void onError(Throwable error) {
+                        System.err.println("Error: " + error.getMessage());
+                    }
+
+                    @Override
+                    public void onCompleted() {
+                        System.out.println("Sequence complete.");
+                    }
+                });*/
+                Next: 1
+                Next: 3
+                Next: 5
+                Next: 2
+                Next: 4
+                Next: 6
+                Sequence complete.
 
 
 
 
+Zip操作符
+返回一个Obversable，
+它使用这个函数按顺序结合两个或多个Observables发射的数据项，
+然后它发射这个函数返回的结果。它按照严格的顺序应用这个函数。
+它只发射与发射数据项最少的那个Observable一样多的数据。
+
+Observable<Integer> observable1 = Observable.just(10,20,30);
+        Observable<Integer> observable2 = Observable.just(4, 8, 12, 16);
+        Observable.zip(observable1, observable2, new Func2<Integer, Integer, Integer>() {
+            @Override
+            public Integer call(Integer integer, Integer integer2) {
+                return integer + integer2;
+            }
+        }).subscribe(new Subscriber<Integer>() {
+            @Override
+            public void onCompleted() {
+                System.out.println("Sequence complete.");
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                System.err.println("Error: " + e.getMessage());
+            }
+
+            @Override
+            public void onNext(Integer value) {
+                System.out.println("Next:" + value);
+            }
+        });
+
+        运行结果如下：
+        Next:14
+        Next:28
+        Next:42
+        Sequence complete.
+
+
+zipWith操作符
+  Observable observable = Observable.create(new Observable.OnSubscribe<String>() {
+              @Override
+              public void call(Subscriber<? super String> subscriber) {
+                  subscriber.onNext("Hello");
+                  subscriber.onNext("Hi");
+                  subscriber.onNext("Aloha");
+                  subscriber.onNext("yeses");
+                  subscriber.onNext("nononono");
+                  subscriber.onCompleted();
+              }
+
+          });
+          observable.zipWith(Observable.just(1, 2, 3, 4), new Func2<String,Integer,String>() {
+              @Override
+              public String call(String o, Integer o2) {
+
+                  return o+o2;
+              }
+          }).subscribe(new Action1<String>() {
+              @Override
+              public void call(String o) {
+                      Log.e("=====","===="+o);
+              }
+          });

@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -45,6 +46,11 @@ public class TestNotificationCompat extends AppCompatActivity {
     }
 
     private void initView() {
+        //heard-up 风格
+        /*if (android.os.Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP) {
+            builder.setDefaults(Notification.DEFAULT_SOUND)
+                    .setPriority(android.support.v4.app.NotificationCompat.PRIORITY_MAX);
+        }*/
         mShowNotify = ((Button) this.findViewById(R.id.bt_show_notifi));
         mShowNotify.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,11 +60,24 @@ public class TestNotificationCompat extends AppCompatActivity {
                 mBuilder.setContentTitle("5 new message");
                 mBuilder.setContentText("twain@android.com");
 
-                mBuilder.setTicker("New message");//第一次提示消息的时候显示在通知栏上
+                mBuilder.setTicker("New message");//第一次提示消息的时候显示在通知栏上 5.0以后不再显示
+
                 mBuilder.setNumber(12);
                 //mBuilder.setLargeIcon(R.mipmap.ic_launcher);
+
                 mBuilder.setAutoCancel(true);//自己维护通知的消失
 
+//                mBuilder.setPriority(NotificationCompat.PRIORITY_MAX);
+                mBuilder.setUsesChronometer(true);
+
+                /*if (android.os.Build.VERSION.SDK_INT >= 21) {
+                    mBuilder.setVisibility(Notification.VISIBILITY_PUBLIC);
+                }*/
+
+                if (android.os.Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP) {
+                    mBuilder.setDefaults(Notification.DEFAULT_SOUND)
+                            .setPriority(android.support.v4.app.NotificationCompat.PRIORITY_MAX);
+                }
 
                 //构建一个Intent
                 Intent resultIntent = new Intent(TestNotificationCompat.this,
@@ -66,11 +85,19 @@ public class TestNotificationCompat extends AppCompatActivity {
                 //封装一个Intent
                 PendingIntent resultPendingIntent = PendingIntent.getActivity(
                         TestNotificationCompat.this, 0, resultIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+//                mBuilder.setFullScreenIntent(resultPendingIntent, false);
+
                 // 设置通知主题的意图
                 mBuilder.setContentIntent(resultPendingIntent);
+
+
+
                 //获取通知管理器对象
                 NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
                 Notification noti =  mBuilder.build();
+
+                new Notification();
 //                noti.icon = R.drawable.ic_dialog_info;
                 mNotificationManager.notify(0,noti);
             }

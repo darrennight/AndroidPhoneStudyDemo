@@ -3,6 +3,8 @@ package zenghao.com.study.util;
 import android.app.AppOpsManager;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
@@ -59,4 +61,23 @@ public class CommonUtil {
         }
         return false;
     }
+
+
+    /**
+     * 判断是否 有没有网络
+     * @param context
+     * @return
+     */
+    public static boolean  isNetworkConnected(Context context) {
+        if (context != null) {
+            ConnectivityManager mConnectivityManager = (ConnectivityManager) context
+                    .getSystemService(Context.CONNECTIVITY_SERVICE);
+            NetworkInfo mNetworkInfo = mConnectivityManager.getActiveNetworkInfo();
+            if (mNetworkInfo != null) {
+                return mNetworkInfo.isAvailable();
+            }
+        }
+        return false;
+    }
+
 }
