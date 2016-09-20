@@ -1,4 +1,4 @@
-package zenghao.com.study.IPC;
+package zenghao.com.study.IPC.sharePre;
 
 import android.content.ContentProvider;
 import android.content.ContentProviderClient;
@@ -15,6 +15,9 @@ import zenghao.com.study.MyApplication;
  * 用ContentProvider跨进程读取数据
  * 底层数据存储是sharedPreference
  * 也可以可以用数据库存储
+ *
+ * 使用方式 直接调用次类的 静态方法
+ * ConfigProvider.getLongValue
  */
 public class ConfigProvider extends ContentProvider {
 

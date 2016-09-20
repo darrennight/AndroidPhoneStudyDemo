@@ -63,7 +63,7 @@ public class RecyclerViewDemoActivity extends AppCompatActivity implements BGAOn
         });
 
         mDatas = DataEngine.loadNormalModelDatas();
-        mAdapter.setDatas(mDatas);
+        mAdapter.setData(mDatas);
         mDataRv.setAdapter(mAdapter);
     }
 

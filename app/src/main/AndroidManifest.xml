@@ -89,6 +89,11 @@
         <activity android:name=".RecyclerViewDemo.TestDiffUtilActivity"/>
         <activity android:name=".activity.TestConstraintLayout"/>
         <activity android:name=".commonActivity.ChangeBgColor"/>
+
+        <service android:name=".IPC.Service.MyMutilPService" android:process=":testMutil"/>
+        <activity android:name=".IPC.Service.TestMutilProcessActivity"/>
+
+        <activity android:name=".commonActivity.TestConstraintLayoutActivity"/>
     </application>
 
 </manifest>

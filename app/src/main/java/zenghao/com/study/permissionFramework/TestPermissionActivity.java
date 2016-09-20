@@ -23,6 +23,7 @@ import zenghao.com.study.R;
  * https://github.com/baiiu/BlogCode/blob/master/app/src/main/java/com/baiiu/blogcode/MPermission/permission/EasyPermission.java
  *https://github.com/tbruyelle/RxPermissions/blob/master/lib/src/main/java/com/tbruyelle/rxpermissions/RxPermissions.java
  * https://github.com/a1018875550/PermissionDispatcher
+ * https://github.com/lypeer/FcPermissions
  */
 public class TestPermissionActivity extends AppCompatActivity{
 

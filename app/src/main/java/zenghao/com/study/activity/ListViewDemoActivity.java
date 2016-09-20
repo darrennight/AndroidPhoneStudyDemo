@@ -61,7 +61,7 @@ public class ListViewDemoActivity extends AppCompatActivity implements AdapterVi
         });
 
         mDatas = DataEngine.loadNormalModelDatas();
-        mAdapter.setDatas(mDatas);
+        mAdapter.setData(mDatas);
         mDataLv.setAdapter(mAdapter);
     }
 

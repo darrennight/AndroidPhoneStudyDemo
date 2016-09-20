@@ -15,6 +15,7 @@ import android.widget.ListView;
 import java.util.ArrayList;
 import java.util.List;
 
+import zenghao.com.study.IPC.Service.TestMutilProcessActivity;
 import zenghao.com.study.RX.RXTestActivity;
 import zenghao.com.study.RecyclerViewDemo.TestDiffUtilActivity;
 import zenghao.com.study.RxBus.RXBusMainActivity;
@@ -32,6 +33,7 @@ import zenghao.com.study.activity.TestSlidingPaneLayout;
 import zenghao.com.study.adapter.MyAdapter;
 import zenghao.com.study.bottomManger.BottomMangerActivity;
 import zenghao.com.study.commonActivity.ChangeBgColor;
+import zenghao.com.study.commonActivity.TestConstraintLayoutActivity;
 import zenghao.com.study.lazyFragment.LazyFragmentActivity;
 import zenghao.com.study.permissionFramework.TestPermissionActivity;
 import zenghao.com.study.suspension.MainActivityChild;
@@ -64,26 +66,28 @@ public class MainActivity extends AppCompatActivity {
     private void initView(){
         mListView = ((ListView) this.findViewById(R.id.lv_list));
         List<String> list = new ArrayList<>();
-        list.add("权限申请");
-        list.add("分类表格");
-        list.add("testTestNotificationCompat");
-        list.add("TestSlidingPaneLayout");
-        list.add("swipeitem滑动");
-        list.add("capture");
-        list.add("权限动态申请测试");
-        list.add("splashvideo");
-        list.add("悬浮监测");
-        list.add("RXDemo");
-        list.add("viewpager更新处理");
-        list.add("bottom+fragment管理");
-        list.add("横竖滑动");
-        list.add("lazyFragment");
-        list.add("statusBarCompat");
-        list.add("框架式动态权限申请");
-        list.add("RXBus测试");
-        list.add("testRcDiff");
-        list.add("TestConstraintLayout");
-        list.add("颜色过渡切换");
+        list.add("0权限申请");
+        list.add("1分类表格");
+        list.add("2testTestNotificationCompat");
+        list.add("3TestSlidingPaneLayout");
+        list.add("4swipeitem滑动");
+        list.add("5capture");
+        list.add("6权限动态申请测试");
+        list.add("7splashvideo");
+        list.add("8悬浮监测");
+        list.add("9RXDemo");
+        list.add("10viewpager更新处理");
+        list.add("11bottom+fragment管理");
+        list.add("12横竖滑动");
+        list.add("13lazyFragment");
+        list.add("14statusBarCompat");
+        list.add("15框架式动态权限申请");
+        list.add("16RXBus测试");
+        list.add("17testRcDiff");
+        list.add("18TestConstraintLayout");
+        list.add("19颜色过渡切换");
+        list.add("20IPC测试");
+        list.add("21测试ConstraintLayout");
 
         adapter = new MyAdapter(this,list);
         mListView.setAdapter(adapter);
@@ -176,6 +180,14 @@ public class MainActivity extends AppCompatActivity {
                     case 19:
                         Intent intent19 = new Intent(MainActivity.this, ChangeBgColor.class);
                         startActivity(intent19);
+                        break;
+                    case 20:
+                        Intent intent20 = new Intent(MainActivity.this, TestMutilProcessActivity.class);
+                        startActivity(intent20);
+                        break;
+                    case 21:
+                        Intent intent21 = new Intent(MainActivity.this, TestConstraintLayoutActivity.class);
+                        startActivity(intent21);
                         break;
                     default:
                         break;

@@ -1,1 +1,94 @@
 AsyncLayoutInflater
+sticky-headers-recyclerview
+https://github.com/lucasr/twoway-view
+https://github.com/lightSky/Awesome-MaterialDesign
+
+
+
+
+面试:https://github.com/JackyAndroid/AndroidInterview-Q-A
+    http://blog.csdn.net/vfush/article/details/51508098
+    https://github.com/DiyCodes/code_news
+
+插件开发: https://segmentfault.com/a/1190000004077469
+         https://github.com/kaedea/android-dynamical-loading
+         https://segmentfault.com/a/1190000004086213
+         https://segmentfault.com/a/1190000004077469
+         https://github.com/CtripMobile/DynamicAPK
+         https://segmentfault.com/a/1190000004062972
+         https://github.com/Qihoo360/DroidPlugin
+         http://www.infoq.com/cn/articles/ctrip-android-dynamic-loading
+
+ 热修复: https://github.com/dodola/AnoleFix        instantRun插件开发方案
+
+
+
+系统下载框架: http://blog.csdn.net/zhiyi2010/article/details/19152979
+            http://www.cnblogs.com/adm1989/p/4631129.html
+            http://www.trinea.cn/android/android-downloadmanager/
+            http://www.trinea.cn/android/android-downloadmanager-pro/
+            https://github.com/yxl/DownloadProvider
+
+
+
+
+
+
+
+===================================================================================
+
+compile 'com.android.support:appcompat-v7:24.1.1'
+    compile 'com.android.support:cardview-v7:24.1.1'
+    compile 'com.android.support:design:24.1.1'
+    compile 'com.android.support.constraint:constraint-layout:1.0.0-alpha5'
+
+    //material widget
+    compile 'com.github.vajro:MaterialDesignLibrary:1.6'
+    compile 'com.github.opacapp:multiline-collapsingtoolbar:v1.2.2'
+    compile 'com.github.rengwuxian:MaterialEditText:2.1.4'
+    compile 'com.github.clans:fab:1.6.1'
+    compile 'com.balysv:material-ripple:1.0.2'
+    compile 'com.github.MiguelCatalan:MaterialSearchView:v1.4.0'
+    compile 'com.github.glomadrian:MaterialAnimatedSwitch:1.1@aar'
+    compile ('com.h6ah4i.android.widget.advrecyclerview:advrecyclerview:0.9.3@aar'){
+        transitive=true
+    }
+
+    //Pull Load More
+    compile("com.wuxiaolong.pullloadmorerecyclerview:library:1.0.9") {
+        exclude group: 'com.android.support'
+    }
+
+    //butter knife
+    compile 'com.jakewharton:butterknife:8.2.1'
+
+    //image
+    compile 'com.facebook.fresco:fresco:0.13.0'
+    compile 'com.facebook.fresco:animated-gif:0.13.0'
+    compile "com.facebook.fresco:imagepipeline-okhttp3:0.12.0+"
+    compile 'me.relex:photodraweeview:1.1.0'
+    compile 'com.nineoldandroids:library:2.4.0'
+
+    //http
+    compile 'com.squareup.okhttp3:okhttp:3.4.1'
+
+    //email
+    compile files('libs/activation.jar')
+    compile files('libs/additionnal.jar')
+    compile files('libs/mail.jar')
+    compile files('libs/commons-email-1.4.jar')
+
+    //format, gson, jsoup, etc
+    compile 'com.google.code.gson:gson:2.4'
+    compile 'com.github.jhy:jsoup:jsoup-1.9.2'
+
+    //zxing
+    compile 'com.journeyapps:zxing-android-embedded:3.0.2@aar'
+    compile 'com.google.zxing:core:3.2.0'
+
+    // directory chooser
+    compile 'com.gu:option:1.3'
+    compile ('net.rdrei.android.dirchooser:library:3.2@aar');
+
+    testCompile 'junit:junit:4.12'
+    apt 'com.jakewharton:butterknife-compiler:8.2.1'
