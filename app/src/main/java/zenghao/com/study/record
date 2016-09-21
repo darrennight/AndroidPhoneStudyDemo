@@ -9,6 +9,27 @@ https://github.com/lightSky/Awesome-MaterialDesign
 面试:https://github.com/JackyAndroid/AndroidInterview-Q-A
     http://blog.csdn.net/vfush/article/details/51508098
     https://github.com/DiyCodes/code_news
+    http://blog.csdn.net/biezhihua?viewmode=contents
+
+    Java OOP思想
+    Java 语法
+    Java 线程,线程池
+    Java 锁机制
+    Java 集合,HashMap
+
+    Android
+
+    Activity,Fragment生命周期
+    Context分类和应用场景以及异同
+    事件分发机制
+    自定义View流程,以及measure,layout,draw执行流程和源码
+    Window概念和Window和Activity等View的关系.
+    图片处理
+    MVP概念和与MVC不同之处,如何使用,不好的地方,如何通信.
+
+    计算机网络
+    TCP/UDP区别,异同
+    请求网址的过程.
 
 插件开发: https://segmentfault.com/a/1190000004077469
          https://github.com/kaedea/android-dynamical-loading
