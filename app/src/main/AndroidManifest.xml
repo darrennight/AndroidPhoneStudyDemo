@@ -92,6 +92,9 @@
 
         <service android:name=".IPC.Service.MyMutilPService" android:process=":testMutil"/>
         <activity android:name=".IPC.Service.TestMutilProcessActivity"/>
+        <provider
+            android:authorities="org.wangchenlong.book.provider"
+            android:name=".IPC.database.IPCContentProvider"/>
 
         <activity android:name=".commonActivity.TestConstraintLayoutActivity"/>
     </application>

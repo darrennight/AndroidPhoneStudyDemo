@@ -18,13 +18,14 @@
         app:layout_constraintTop_toTopOf="@+id/lay_root"
         android:contentDescription=""
         tools:ignore="ContentDescription"
-        app:layout_constraintHorizontal_bias="0.81"/>
+        app:layout_constraintHorizontal_bias="0.84"
+        />
     <TextView
         android:text="TextView"
-        android:layout_width="105dp"
-        android:layout_height="51dp"
-        tools:layout_editor_absoluteY="38dp"
-        tools:layout_editor_absoluteX="11dp"
+        android:layout_width="58dp"
+        android:layout_height="17dp"
+        tools:layout_editor_absoluteY="40dp"
+        tools:layout_editor_absoluteX="141dp"
         android:id="@+id/textView2"
         />
     <TextView

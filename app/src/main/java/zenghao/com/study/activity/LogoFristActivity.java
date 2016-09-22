@@ -106,12 +106,20 @@ public class LogoFristActivity extends AppCompatActivity implements SurfaceHolde
             e.printStackTrace();
         }
 
+        player.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+            @Override
+            public void onPrepared(MediaPlayer mp) {
+                mp.setLooping(true);//循环播放
+            }
+        });
         player.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
             @Override
             public void onCompletion(MediaPlayer mp) {
-                player.stop();
+                /*player.stop();
                 Intent intent = new Intent(LogoFristActivity.this, MainActivity.class);
-                startActivity(intent);
+                startActivity(intent);*/
+
+
 //                id_start_home_page_button.setImageResource(R.drawable.login_into);
 //                SharedPreferencesHelper.getEditor().putBoolean(SharedPreferencesConstants.ISVIDEOPLAY, true).commit();
             }
