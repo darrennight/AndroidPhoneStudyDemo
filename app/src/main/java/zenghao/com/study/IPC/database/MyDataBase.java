@@ -37,5 +37,5 @@ public class MyDataBase extends SQLiteOpenHelper {
             + BOOK_TABLE_NAME + "(_id INTEGER PRIMARY KEY, name TEXT)";
 
     private String CREATE_USER_TABLE = "CREATE TABLE IF NOT EXISTS "
-            + USER_TABLE_NAME + "(_id INTEGER PRIMARY KEY, name TEXT, sex INT)";
+            + USER_TABLE_NAME + "(_id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, sex INT)";
 }

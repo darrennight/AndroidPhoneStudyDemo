@@ -1,9 +1,11 @@
 package zenghao.com.study.IPC.Service;
 
 import android.app.Service;
+import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Bundle;
 import android.os.IBinder;
 import android.os.RemoteCallbackList;
 import android.os.RemoteException;
@@ -35,20 +37,28 @@ public class MyMutilPService extends Service {
         Log.e("====", "flag1" + flag1);
         Log.e("====", "person" + person);
 
-
         addBooks(person);
 
-
+        //call方法使用
+        calltest();
 
         return super.onStartCommand(intent, flags, startId);
+    }
+
+    public void calltest() {
+        ContentResolver contentResolver = getContentResolver();
+        Uri uri = IPCContentProvider.CALL_CONTENT_URI;
+        Bundle bundle = contentResolver.call(uri, "method", null, null);
+        String returnCall = bundle.getString("returnCall");
+        Log.i("main", "-------------->" + returnCall);
     }
 
     public void addBooks(Person person) {
         Uri bookUri = IPCContentProvider.USER_CONTENT_URI;
         ContentValues values = new ContentValues();
-        values.put("_id", person.getAge());
+        //values.put("_id", person.getAge());
         values.put("name", person.getName());
-        values.put("sex",1);
+        values.put("sex", 1);
         getContentResolver().insert(bookUri, values);
     }
 
@@ -60,7 +70,8 @@ public class MyMutilPService extends Service {
 
     class MyBinder extends IHelloInterface.Stub {
         @Override
-        public void basicTypes(int anInt, long aLong, boolean aBoolean, float aFloat, double aDouble, String aString) throws RemoteException {
+        public void basicTypes(int anInt, long aLong, boolean aBoolean, float aFloat,
+                double aDouble, String aString) throws RemoteException {
 
         }
 
@@ -106,5 +117,4 @@ public class MyMutilPService extends Service {
     }
 
     final RemoteCallbackList<IHelloCallback> mCallbacks = new RemoteCallbackList<IHelloCallback>();
-
 }

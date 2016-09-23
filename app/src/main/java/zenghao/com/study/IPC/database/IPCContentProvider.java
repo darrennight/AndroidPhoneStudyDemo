@@ -7,9 +7,12 @@ import android.content.UriMatcher;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
+import android.os.Bundle;
+import android.os.Looper;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.Log;
+import android.widget.Toast;
 
 /**
  * TODO
@@ -20,8 +23,9 @@ import android.util.Log;
  *https://github.com/SpikeKing/ContentProviderDemo
  * https://github.com/grandcentrix/tray
  * https://github.com/seven456/MultiprocessSharedPreferences
+ * http://zanelove.github.io/2016/01/06/IPC%E6%9C%BA%E5%88%B6-Android-IPC%E7%AE%80%E4%BB%8B/
  *
- * 跨进程 ContentProvider Broadcast handler socket
+ * 跨进程 ContentProvider Broadcast handlerMessage socket
  *
  * ***** ContentProvider 需要在清单文件注册
  */
@@ -32,6 +36,7 @@ public class IPCContentProvider extends ContentProvider {
     public static final String AUTHORITY = "org.wangchenlong.book.provider"; // 与AndroidManifest保持一致
     public static final Uri BOOK_CONTENT_URI = Uri.parse("content://" + AUTHORITY + "/book");
     public static final Uri USER_CONTENT_URI = Uri.parse("content://" + AUTHORITY + "/user");
+    public static final Uri CALL_CONTENT_URI = Uri.parse("content://" + AUTHORITY + "/call");
 
     public static final int BOOK_URI_CODE = 0;
     public static final int USER_URI_CODE = 1;
@@ -139,6 +144,18 @@ public class IPCContentProvider extends ContentProvider {
                 break;
         }
         return tableName;
+    }
+
+    //call 方法可以拓展操作  处理其他业务逻辑 试试通信 多进程service可以同步调用用
+    //耗时需要再子线程处理
+    @Nullable
+    @Override
+    public Bundle call(String method, String arg, Bundle extras) {
+        Log.e("======","callcalllcalll");
+        Looper.prepare();
+        Toast.makeText(getContext(),"callcallcall",Toast.LENGTH_SHORT).show();
+        Looper.loop();
+        return super.call(method, arg, extras);
     }
 
     private void showLogs(String msg) {
