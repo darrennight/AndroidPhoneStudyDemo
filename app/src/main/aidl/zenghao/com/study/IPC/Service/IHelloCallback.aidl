@@ -1,7 +1,7 @@
 // IHelloCallback.aidl
 package zenghao.com.study.IPC.Service;
 
-import zenghao.com.study.IPC.Service.Person;
+import zenghao.com.study.IPC.Service.bean.Person;
 
 // Declare any non-default types here with import statements
 //回调 service回调数据给activity

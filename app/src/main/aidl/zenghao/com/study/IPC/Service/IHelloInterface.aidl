@@ -2,7 +2,7 @@
 package zenghao.com.study.IPC.Service;
 
 // Declare any non-default types here with import statements
-import zenghao.com.study.IPC.Service.Person;
+import zenghao.com.study.IPC.Service.bean.Person;
 import zenghao.com.study.IPC.Service.IHelloCallback;
 
 //绑定service后主动获取数据
@@ -22,4 +22,13 @@ interface IHelloInterface {
 
     Person getPerson();
 
+
+
+    void addPersonIn(in Person person);
+    /*void addPersonOut(out Person person1);
+    void addPersonInOut(inout Person person2);*/
+
+    /* inout out  报错 为什么 void addINPerson(in Person p);
+    void addOUTPerson(out Person p);
+    void addINOUTPerson(inout Person p);*/
 }

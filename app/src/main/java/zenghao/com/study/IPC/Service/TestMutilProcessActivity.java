@@ -18,6 +18,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import zenghao.com.study.IPC.Service.bean.Person;
 import zenghao.com.study.IPC.database.IPCContentProvider;
 import zenghao.com.study.R;
 
@@ -185,5 +186,6 @@ public class TestMutilProcessActivity extends AppCompatActivity{
         public void onTest(Person p) throws RemoteException {
 
         }
+
     };
 }

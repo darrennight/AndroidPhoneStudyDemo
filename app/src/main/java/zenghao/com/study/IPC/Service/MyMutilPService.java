@@ -11,6 +11,7 @@ import android.os.RemoteCallbackList;
 import android.os.RemoteException;
 import android.support.annotation.Nullable;
 import android.util.Log;
+import zenghao.com.study.IPC.Service.bean.Person;
 import zenghao.com.study.IPC.database.IPCContentProvider;
 
 /**
@@ -96,6 +97,18 @@ public class MyMutilPService extends Service {
         public void unregisterCallback(IHelloCallback cb) throws RemoteException {
             mCallbacks.unregister(cb);
         }
+
+        @Override
+        public void addPersonIn(Person person) throws RemoteException {
+        }
+
+        /*@Override
+        public void addPersonOut(Person person1) throws RemoteException {
+        }
+
+        @Override
+        public void addPersonInOut(Person person2) throws RemoteException {
+        }*/
     }
 
     /***

@@ -11,7 +11,6 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.nineoldandroids.view.ViewHelper;
 
 import zenghao.com.study.R;
 import zenghao.com.study.VHRecyleView.line.LineAdapter;
@@ -56,7 +55,7 @@ public class MaterialLeanBack extends FrameLayout {
             imageBackground.setBackgroundDrawable(getContext().getResources().getDrawable(settings.backgroundId));
 
         if (settings.backgroundOverlay != null)
-            ViewHelper.setAlpha(imageBackgroundOverlay,settings.backgroundOverlay);
+            //ViewHelper.setAlpha(imageBackgroundOverlay,settings.backgroundOverlay);
         if (settings.backgroundOverlayColor != null)
             imageBackgroundOverlay.setBackgroundColor(settings.backgroundOverlayColor);
 

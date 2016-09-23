@@ -1,4 +1,4 @@
-package zenghao.com.study.IPC.Service;
+package zenghao.com.study.IPC.Service.bean;
 
 import android.os.Parcel;
 import android.os.Parcelable;
