@@ -42,4 +42,6 @@
         <attr name="transition_drawable" format="enum"/>
         <attr name="transition_duration" format="integer"/>
     </declare-styleable>
+
+    <bool name="is_rtl">false</bool>
 </resources>

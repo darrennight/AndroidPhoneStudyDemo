@@ -60,7 +60,8 @@ android {
             manifestPlaceholders = [UMENG_CHANNEL_VALUE: "wandoujia"]
         }
     }
-
+/*https://github.com/GavinCT/AndroidMultiChannelBuildTool 测试可以批量打包*/
+    //首先手动 打包  然后 放在 python 同目录 运行 python即可 测试通过
 }
 
 
@@ -68,32 +69,24 @@ android {
 
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
     compile "com.android.support:appcompat-v7:$supportVersion"
     compile "com.android.support:design:$supportVersion"
     compile "com.android.support:cardview-v7:$supportVersion"
     compile 'com.android.support:multidex:1.0.1'
-
     /*compile 'cn.bingoogolapple:bga-adapter:1.1.0@aar'*/
     compile 'com.7heaven.ioswidget:iosswitch:0.6'
-
-
     compile 'io.reactivex:rxandroid:1.1.0'
     compile 'io.reactivex:rxjava:1.1.0'
     compile 'com.trello:rxlifecycle:0.6.1'
     compile 'com.trello:rxlifecycle-components:0.6.1'
-
-//    compile 'net.grandcentrix.tray:tray:1.0.0-rc3'//最低15minsdk 跨进程sharedpreference
-
+    //    compile 'net.grandcentrix.tray:tray:1.0.0-rc3'//最低15minsdk 跨进程sharedpreference
     compile 'com.squareup.okhttp3:okhttp:3.4.1'
     compile 'com.squareup.okhttp3:logging-interceptor:3.4.1'
-
     compile 'com.squareup.retrofit2:retrofit:2.1.0'
-
     compile 'com.squareup.retrofit2:converter-gson:2.1.0'
     compile 'com.squareup.retrofit2:converter-jackson:2.1.0'
     compile 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
-
     compile 'com.android.support.constraint:constraint-layout:1.0.0-alpha1'
 }

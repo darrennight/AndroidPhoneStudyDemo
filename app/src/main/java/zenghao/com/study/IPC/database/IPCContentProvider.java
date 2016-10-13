@@ -25,7 +25,7 @@ import android.widget.Toast;
  * https://github.com/seven456/MultiprocessSharedPreferences
  * http://zanelove.github.io/2016/01/06/IPC%E6%9C%BA%E5%88%B6-Android-IPC%E7%AE%80%E4%BB%8B/
  *
- * 跨进程 ContentProvider Broadcast handlerMessage socket
+ * 跨进程 ContentProvider Broadcast handlerMessage socket  LocalSocket 文件共享机制
  *
  * ***** ContentProvider 需要在清单文件注册
  */

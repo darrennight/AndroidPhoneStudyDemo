@@ -21,12 +21,14 @@ import zenghao.com.study.RecyclerViewDemo.TestDiffUtilActivity;
 import zenghao.com.study.RxBus.RXBusMainActivity;
 import zenghao.com.study.StatusBar.TestStatusBarActivity;
 import zenghao.com.study.VHRecyleView.VPRecyleMainActivity;
+import zenghao.com.study.VHRecyleView2.VHListUIActivity;
 import zenghao.com.study.activity.CaptureActivity;
 import zenghao.com.study.activity.ItemListActivity;
 import zenghao.com.study.activity.LogoFristActivity;
 import zenghao.com.study.activity.MainSwipeActivity;
 import zenghao.com.study.activity.PermissionActivity;
 import zenghao.com.study.activity.PermissionFrameworkActivity;
+import zenghao.com.study.activity.SplashVideoActivity;
 import zenghao.com.study.activity.TestConstraintLayout;
 import zenghao.com.study.activity.TestNotificationCompat;
 import zenghao.com.study.activity.TestSlidingPaneLayout;
@@ -88,6 +90,8 @@ public class MainActivity extends AppCompatActivity {
         list.add("19颜色过渡切换");
         list.add("20IPC测试");
         list.add("21测试ConstraintLayout");
+        list.add("22水平垂直滑动列表");
+        list.add("23引导页视频");
 
         adapter = new MyAdapter(this,list);
         mListView.setAdapter(adapter);
@@ -188,6 +192,15 @@ public class MainActivity extends AppCompatActivity {
                     case 21:
                         Intent intent21 = new Intent(MainActivity.this, TestConstraintLayoutActivity.class);
                         startActivity(intent21);
+                        break;
+
+                    case 22:
+                        Intent intent22 = new Intent(MainActivity.this, VHListUIActivity.class);
+                        startActivity(intent22);
+                        break;
+                    case 23:
+                        Intent intent23 = new Intent(MainActivity.this, SplashVideoActivity.class);
+                        startActivity(intent23);
                         break;
                     default:
                         break;

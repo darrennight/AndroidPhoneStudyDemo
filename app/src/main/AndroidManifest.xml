@@ -97,6 +97,10 @@
             android:name=".IPC.database.IPCContentProvider"/>
 
         <activity android:name=".commonActivity.TestConstraintLayoutActivity"/>
+        <activity android:name=".VHRecyleView2.VHListUIActivity"/>
+        <activity android:name=".activity.SplashVideoActivity"/>
+
+        <activity android:name=".plugin.TestPluginActivity"/>
     </application>
 
 

@@ -34,4 +34,9 @@
         android:layout_margin="@dimen/fab_margin"
         android:src="@android:drawable/ic_dialog_info"/>
 
+    <SurfaceView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        />
+
 </android.support.design.widget.CoordinatorLayout>
