@@ -1,11 +1,17 @@
 package zenghao.com.study.plugin.ReSkin;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 import zenghao.com.study.R;
 import zenghao.com.study.plugin.ReSkin.base.SkinBaseActivity;
 import zenghao.com.study.plugin.ReSkin.config.SkinConfig;
@@ -30,10 +36,12 @@ import zenghao.com.study.plugin.ReSkin.utils.SkinFileUtils;
 public class ReSkinActivity extends SkinBaseActivity {
 
     private TextView mChange;
+    private ListView mListView;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_re_skin);
+        mListView = ((ListView) findViewById(R.id.lv_test_reskin));
         mChange = ((TextView) findViewById(R.id.tv_change_skin));
         mChange.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,6 +51,8 @@ public class ReSkinActivity extends SkinBaseActivity {
                 SkinManager.getInstance().loadSkin();
             }
         });
+
+        mListView.setAdapter(new MyAdapter(this));
     }
 
 
@@ -58,5 +68,51 @@ public class ReSkinActivity extends SkinBaseActivity {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    class MyAdapter extends BaseAdapter{
+
+        private Context mContext;
+        public MyAdapter(Context context){
+            this.mContext = context;
+        }
+        @Override
+        public int getCount() {
+            return 15;
+        }
+
+        @Override
+        public Object getItem(int i) {
+            return null;
+        }
+
+        @Override
+        public long getItemId(int i) {
+            return 0;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+
+            ViewHolder holder;
+            if(convertView == null){
+                convertView = LayoutInflater.from(mContext).inflate(R.layout.item_list_reskin,parent,false);
+                holder = new ViewHolder();
+                holder.textView = ((TextView) convertView.findViewById(R.id.tv_item_reskin));
+                convertView.setTag(holder);
+            }else{
+
+                holder = ((ViewHolder) convertView.getTag());
+            }
+
+            holder.textView.setText(position+"");
+
+            return convertView;
+        }
+
+
+       class ViewHolder {
+           TextView textView;
+       }
     }
 }

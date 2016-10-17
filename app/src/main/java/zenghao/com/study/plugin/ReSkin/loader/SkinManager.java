@@ -139,8 +139,8 @@ public class SkinManager implements ISkinLoader {
     }
 
     public void loadSkin() {
-        String skin = SkinConfig.getCustomSkinPath(context);
-        //String skin = "test.apk";//assets 目录皮肤名字
+        //String skin = SkinConfig.getCustomSkinPath(context);
+        String skin = "test.apk";//assets 目录皮肤名字
         loadSkin(skin, null);
     }
 
