@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:skin="http://schemas.android.com/android/skin"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <TextView
+        android:id="@+id/tv_change_skin"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="reSkin"
+        android:textColor="@color/color_skin_txt"
+        android:textSize="18sp"
+        android:gravity="center"
+        skin:enable="true"
+        android:background="@color/color_skin_bg"
+        />
+
+    <!--需要换肤的控件需要加上 skin:enable="true"-->
+
+</LinearLayout>

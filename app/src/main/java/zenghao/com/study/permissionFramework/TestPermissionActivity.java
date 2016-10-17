@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import android.widget.TextView;
 import java.util.List;
 
 import zenghao.com.study.R;
@@ -24,18 +25,21 @@ import zenghao.com.study.R;
  *https://github.com/tbruyelle/RxPermissions/blob/master/lib/src/main/java/com/tbruyelle/rxpermissions/RxPermissions.java
  * https://github.com/a1018875550/PermissionDispatcher
  * https://github.com/lypeer/FcPermissions
+ * https://github.com/holidaycheck/Permissify
  */
 public class TestPermissionActivity extends AppCompatActivity{
 
-    private Button mTest1;
+    private Button mCamera;
+    private TextView mCameraStatus;
     private Button mCheck;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test_permission);
-        mTest1 = ((Button) findViewById(R.id.btn_test1));
+        mCamera = ((Button) findViewById(R.id.btn_test1));
+        mCameraStatus = ((TextView) findViewById(R.id.tv_test1_status));
         mCheck = ((Button) findViewById(R.id.btn_test2));
-        test1Mehtod();
+        requestCamera();
         checkMethond();
     }
 
@@ -54,8 +58,9 @@ public class TestPermissionActivity extends AppCompatActivity{
         });
     }
 
-    private void test1Mehtod(){
-        mTest1.setOnClickListener(new View.OnClickListener() {
+
+    private void requestCamera(){
+        mCamera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 BreadTripPermissionsManager.

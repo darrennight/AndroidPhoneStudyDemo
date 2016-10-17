@@ -44,4 +44,10 @@
     </declare-styleable>
 
     <bool name="is_rtl">false</bool>
+
+    <!--<declare-styleable name="Reskin">
+        <attr name="enable" format="boolean"/>
+    </declare-styleable>-->
+
+    <!--<attr name="enable" format="boolean"/> -->
 </resources>

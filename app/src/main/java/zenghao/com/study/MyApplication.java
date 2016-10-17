@@ -1,11 +1,11 @@
 package zenghao.com.study;
 
-import android.app.Application;
+import zenghao.com.study.plugin.ReSkin.base.SkinBaseApplication;
 
 /**
  * Created by zenghao on 16/5/20.
  */
-public class MyApplication extends Application {
+public class MyApplication extends SkinBaseApplication {
 
     private static MyApplication mInstance;
     @Override

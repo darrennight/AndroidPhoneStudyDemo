@@ -1,4 +1,4 @@
-package zenghao.com.study.plugin;
+package zenghao.com.study.plugin.loadResours;
 
 import android.app.Dialog;
 import android.content.res.AssetManager;
@@ -37,6 +37,7 @@ public class TestPluginActivity extends AppCompatActivity implements View.OnClic
     String libPath =
             Environment.getExternalStorageDirectory().toString() + File.separator + "ResApk.apk";
 
+
     protected void loadResources() {
         try {
             AssetManager assetManager = AssetManager.class.newInstance();
@@ -49,6 +50,8 @@ public class TestPluginActivity extends AppCompatActivity implements View.OnClic
         Resources superRes = super.getResources();
         mResources = new Resources(mAssetManager, superRes.getDisplayMetrics(),
                 superRes.getConfiguration());
+
+
     }
 
     @Override

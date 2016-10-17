@@ -100,7 +100,9 @@
         <activity android:name=".VHRecyleView2.VHListUIActivity"/>
         <activity android:name=".activity.SplashVideoActivity"/>
 
-        <activity android:name=".plugin.TestPluginActivity"/>
+        <activity android:name=".plugin.loadResours.TestPluginActivity"/>
+
+        <activity android:name=".plugin.ReSkin.ReSkinActivity"/>
     </application>
 
 

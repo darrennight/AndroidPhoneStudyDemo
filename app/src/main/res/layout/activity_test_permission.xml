@@ -3,12 +3,30 @@
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
-
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/colorPrimaryDark"
+    >
     <Button
         android:id="@+id/btn_test1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="test1"/>
+        android:text="Camera"/>
+
+    <TextView
+        android:id="@+id/tv_test1_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textColor="@color/colorWindowBackground"
+        android:text="No Request"
+        android:layout_gravity="center_horizontal"
+        />
+
+</LinearLayout>
+
 
 
     <Button

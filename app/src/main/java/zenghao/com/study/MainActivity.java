@@ -38,6 +38,7 @@ import zenghao.com.study.commonActivity.ChangeBgColor;
 import zenghao.com.study.commonActivity.TestConstraintLayoutActivity;
 import zenghao.com.study.lazyFragment.LazyFragmentActivity;
 import zenghao.com.study.permissionFramework.TestPermissionActivity;
+import zenghao.com.study.plugin.ReSkin.ReSkinActivity;
 import zenghao.com.study.suspension.MainActivityChild;
 import zenghao.com.study.viewpager.VPUpdateFragment1;
 
@@ -92,6 +93,7 @@ public class MainActivity extends AppCompatActivity {
         list.add("21测试ConstraintLayout");
         list.add("22水平垂直滑动列表");
         list.add("23引导页视频");
+        list.add("24换肤");
 
         adapter = new MyAdapter(this,list);
         mListView.setAdapter(adapter);
@@ -201,6 +203,10 @@ public class MainActivity extends AppCompatActivity {
                     case 23:
                         Intent intent23 = new Intent(MainActivity.this, SplashVideoActivity.class);
                         startActivity(intent23);
+                        break;
+                    case 24:
+                        Intent intent24 = new Intent(MainActivity.this, ReSkinActivity.class);
+                        startActivity(intent24);
                         break;
                     default:
                         break;

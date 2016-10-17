@@ -1,4 +1,4 @@
-package zenghao.com.study.plugin;
+package zenghao.com.study.plugin.loadResours;
 
 import android.content.Context;
 import android.content.res.Resources;
