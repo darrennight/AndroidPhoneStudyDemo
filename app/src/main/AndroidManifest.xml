@@ -103,6 +103,20 @@
         <activity android:name=".plugin.loadResours.TestPluginActivity"/>
 
         <activity android:name=".plugin.ReSkin.ReSkinActivity"/>
+
+        <activity android:name=".localImageVideo.LocalImageActivity"/>
+        <activity android:name=".commonActivity.CaptureVideoActivity"/>
+        <activity android:name=".UI.RiseNumberActivity"/>
+        <activity android:name=".adapter.LVCommon.TestListCommonActivity"/>
+        <activity android:name=".viewpager.vpAnim.MyJazzPagerActivity"/>
+        <activity android:name=".banner.BannerActivity"/>
+
+        <provider
+            android:authorities="com.app.contentprovider"
+            android:name=".Loader.MyContentProvider"/>
+        <activity android:name=".Loader.TestLoaderActivity"/>
+
+        <activity android:name=".commonActivity.LVTextClickActivity"/>
     </application>
 
 

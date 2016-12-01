@@ -16,10 +16,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import zenghao.com.study.IPC.Service.TestMutilProcessActivity;
+import zenghao.com.study.Loader.TestLoaderActivity;
 import zenghao.com.study.RX.RXTestActivity;
 import zenghao.com.study.RecyclerViewDemo.TestDiffUtilActivity;
 import zenghao.com.study.RxBus.RXBusMainActivity;
 import zenghao.com.study.StatusBar.TestStatusBarActivity;
+import zenghao.com.study.UI.RiseNumberActivity;
 import zenghao.com.study.VHRecyleView.VPRecyleMainActivity;
 import zenghao.com.study.VHRecyleView2.VHListUIActivity;
 import zenghao.com.study.activity.CaptureActivity;
@@ -32,15 +34,21 @@ import zenghao.com.study.activity.SplashVideoActivity;
 import zenghao.com.study.activity.TestConstraintLayout;
 import zenghao.com.study.activity.TestNotificationCompat;
 import zenghao.com.study.activity.TestSlidingPaneLayout;
+import zenghao.com.study.adapter.LVCommon.TestListCommonActivity;
 import zenghao.com.study.adapter.MyAdapter;
+import zenghao.com.study.banner.BannerActivity;
 import zenghao.com.study.bottomManger.BottomMangerActivity;
+import zenghao.com.study.commonActivity.CaptureVideoActivity;
 import zenghao.com.study.commonActivity.ChangeBgColor;
+import zenghao.com.study.commonActivity.LVTextClickActivity;
 import zenghao.com.study.commonActivity.TestConstraintLayoutActivity;
 import zenghao.com.study.lazyFragment.LazyFragmentActivity;
+import zenghao.com.study.localImageVideo.LocalImageActivity;
 import zenghao.com.study.permissionFramework.TestPermissionActivity;
 import zenghao.com.study.plugin.ReSkin.ReSkinActivity;
 import zenghao.com.study.suspension.MainActivityChild;
 import zenghao.com.study.viewpager.VPUpdateFragment1;
+import zenghao.com.study.viewpager.vpAnim.MyJazzPagerActivity;
 
 public class MainActivity extends AppCompatActivity {
 // 主界面 底部导航 fragment＋viewpager
@@ -94,6 +102,14 @@ public class MainActivity extends AppCompatActivity {
         list.add("22水平垂直滑动列表");
         list.add("23引导页视频");
         list.add("24换肤");
+        list.add("25本地图片扫描");
+        list.add("26视频截图&标签文字跟随");
+        list.add("27支付宝金额变化");
+        list.add("28listview通用adapter&holder");
+        list.add("29viewpager切换动画");
+        list.add("30banner");
+        list.add("31testLoader");
+        list.add("32ListView中item文字点击");
 
         adapter = new MyAdapter(this,list);
         mListView.setAdapter(adapter);
@@ -207,6 +223,39 @@ public class MainActivity extends AppCompatActivity {
                     case 24:
                         Intent intent24 = new Intent(MainActivity.this, ReSkinActivity.class);
                         startActivity(intent24);
+                        break;
+                    case 25:
+                        Intent intent25 = new Intent(MainActivity.this, LocalImageActivity.class);
+                        startActivity(intent25);
+                        break;
+
+                    case 26:
+                        Intent intent26 = new Intent(MainActivity.this, CaptureVideoActivity.class);
+                        startActivity(intent26);
+                        break;
+                    case 27:
+                        Intent intent27 = new Intent(MainActivity.this, RiseNumberActivity.class);
+                        startActivity(intent27);
+                        break;
+                    case 28:
+                        Intent intent28 = new Intent(MainActivity.this, TestListCommonActivity.class);
+                        startActivity(intent28);
+                        break;
+                    case 29:
+                        Intent intent29 = new Intent(MainActivity.this, MyJazzPagerActivity.class);
+                        startActivity(intent29);
+                        break;
+                    case 30:
+                        Intent intent30 = new Intent(MainActivity.this, BannerActivity.class);
+                        startActivity(intent30);
+                        break;
+                    case 31:
+                        Intent intent31 = new Intent(MainActivity.this, TestLoaderActivity.class);
+                        startActivity(intent31);
+                        break;
+                    case 32:
+                        Intent intent32 = new Intent(MainActivity.this, LVTextClickActivity.class);
+                        startActivity(intent32);
                         break;
                     default:
                         break;

@@ -17,4 +17,6 @@
 
     <color name="color_skin_txt">#3F51B5</color>
     <color name="color_skin_bg">#000000</color>
+
+    <color name="holo_blue">#FF33E5B5</color>
 </resources>

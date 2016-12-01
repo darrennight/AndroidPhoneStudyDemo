@@ -9,6 +9,11 @@ import android.widget.TextView;
 
 import zenghao.com.study.R;
 
+/***
+ * https://github.com/pengjianbo/FloatViewFinal
+ * https://github.com/YuanKJ-/ExToast
+ * https://github.com/liaohuqiu/android-UCToast
+ */
 public class MyWindowManager {
 
     private MyWindowManager(){};
@@ -40,6 +45,15 @@ public class MyWindowManager {
             mContent = ((TextView) mLayoutWindow.findViewById(R.id.tv_ac_name));
             mContent.setText(mCurentTxt);
             WindowManager.LayoutParams param=new WindowManager.LayoutParams();
+
+            /*
+            7.1.1之前可以使用TYPE_TOAST 之后需要使用TYPE_SYSTEM_ALERT并且申请权限
+
+            //target23 开始需要权限申请 使用TYPE_TOAST就不需要 但是
+            //7.1.1系统做了修改TYPE_TOAST 只能显示Toast时长就消失
+            //param.type=WindowManager.LayoutParams.TYPE_TOAST;
+            param.type=WindowManager.LayoutParams.TYPE_SYSTEM_ALERT;*/
+
             param.type=WindowManager.LayoutParams.TYPE_TOAST;
             param.format=1;
             param.flags = WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE; // 不能抢占聚焦点

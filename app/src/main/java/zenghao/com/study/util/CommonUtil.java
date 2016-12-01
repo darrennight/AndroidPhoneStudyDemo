@@ -13,7 +13,7 @@ import java.lang.reflect.Method;
 /**
  * Created by zenghao on 16/5/12.
  * 工具类
- *
+ *https://github.com/Blankj/AndroidUtilCode 万千工具
  */
 public class CommonUtil {
 
