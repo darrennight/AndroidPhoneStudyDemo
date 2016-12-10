@@ -117,6 +117,8 @@
         <activity android:name=".Loader.TestLoaderActivity"/>
 
         <activity android:name=".commonActivity.LVTextClickActivity"/>
+        <activity android:name=".listStatusSwitch.LoadingActivity"/>
+        <activity android:name=".DownLoad.DownLoadActivity"/>
     </application>
 
 

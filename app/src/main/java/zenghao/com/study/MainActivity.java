@@ -15,6 +15,7 @@ import android.widget.ListView;
 import java.util.ArrayList;
 import java.util.List;
 
+import zenghao.com.study.DownLoad.DownLoadActivity;
 import zenghao.com.study.IPC.Service.TestMutilProcessActivity;
 import zenghao.com.study.Loader.TestLoaderActivity;
 import zenghao.com.study.RX.RXTestActivity;
@@ -43,6 +44,7 @@ import zenghao.com.study.commonActivity.ChangeBgColor;
 import zenghao.com.study.commonActivity.LVTextClickActivity;
 import zenghao.com.study.commonActivity.TestConstraintLayoutActivity;
 import zenghao.com.study.lazyFragment.LazyFragmentActivity;
+import zenghao.com.study.listStatusSwitch.LoadingActivity;
 import zenghao.com.study.localImageVideo.LocalImageActivity;
 import zenghao.com.study.permissionFramework.TestPermissionActivity;
 import zenghao.com.study.plugin.ReSkin.ReSkinActivity;
@@ -110,6 +112,8 @@ public class MainActivity extends AppCompatActivity {
         list.add("30banner");
         list.add("31testLoader");
         list.add("32ListView中item文字点击");
+        list.add("33页面加载状态切换");
+        list.add("34下载框架测试");
 
         adapter = new MyAdapter(this,list);
         mListView.setAdapter(adapter);
@@ -256,6 +260,14 @@ public class MainActivity extends AppCompatActivity {
                     case 32:
                         Intent intent32 = new Intent(MainActivity.this, LVTextClickActivity.class);
                         startActivity(intent32);
+                        break;
+                    case 33:
+                        Intent intent33 = new Intent(MainActivity.this, LoadingActivity.class);
+                        startActivity(intent33);
+                        break;
+                    case 34:
+                        Intent intent34 = new Intent(MainActivity.this, DownLoadActivity.class);
+                        startActivity(intent34);
                         break;
                     default:
                         break;

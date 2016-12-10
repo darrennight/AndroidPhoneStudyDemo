@@ -80,4 +80,16 @@ public class CommonUtil {
         return false;
     }
 
+    public static String normalizeMimeType(String type) {
+        if (type == null) {
+            return null;
+        }
+        type = type.trim().toLowerCase();
+        final int semicolonIndex = type.indexOf(';');
+        if (semicolonIndex != -1) {
+            type = type.substring(0, semicolonIndex);
+        }
+        return type;
+    }
+
 }
