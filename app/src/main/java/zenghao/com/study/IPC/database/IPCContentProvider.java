@@ -24,6 +24,7 @@ import android.widget.Toast;
  * https://github.com/grandcentrix/tray
  * https://github.com/seven456/MultiprocessSharedPreferences
  * http://zanelove.github.io/2016/01/06/IPC%E6%9C%BA%E5%88%B6-Android-IPC%E7%AE%80%E4%BB%8B/
+ *http://www.jianshu.com/p/d30e333d6e2e/comments/4093674
  *
  * 跨进程 ContentProvider Broadcast handlerMessage socket  LocalSocket 文件共享机制
  *
@@ -95,7 +96,7 @@ public class IPCContentProvider extends ContentProvider {
         }
         mDb.insert(table, null, values);
 
-        // 插入数据后通知改变
+        // TODO 插入数据后通知改变 增删查改 都需notify
         mContext.getContentResolver().notifyChange(uri, null);
         return null;
     }
@@ -148,6 +149,7 @@ public class IPCContentProvider extends ContentProvider {
 
     //call 方法可以拓展操作  处理其他业务逻辑 试试通信 多进程service可以同步调用用
     //耗时需要再子线程处理
+    //另外需要注意的call接口在跨进程中并没有使用虚拟共享内存，而是和普通AIDL一样使用了Binder框架，所以这个接口的使用一样存在普通AIDL的数据超大问题。
     @Nullable
     @Override
     public Bundle call(String method, String arg, Bundle extras) {

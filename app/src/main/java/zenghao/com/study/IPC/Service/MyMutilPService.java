@@ -11,6 +11,7 @@ import android.os.RemoteCallbackList;
 import android.os.RemoteException;
 import android.support.annotation.Nullable;
 import android.util.Log;
+import zenghao.com.study.DownLoadV2.provider.DownLoadProviderV2;
 import zenghao.com.study.IPC.Service.bean.Person;
 import zenghao.com.study.IPC.database.IPCContentProvider;
 
@@ -41,7 +42,9 @@ public class MyMutilPService extends Service {
         addBooks(person);
 
         //call方法使用
-        calltest();
+        // TODO 目前调用这个方法会阻塞主线程 导致在此startservice 无法执行onStartCommand 后期查找原因
+        // 正确使用 call 方式http://www.jianshu.com/p/d30e333d6e2e/comments/4093674
+        //calltest();
 
         return super.onStartCommand(intent, flags, startId);
     }
@@ -52,6 +55,26 @@ public class MyMutilPService extends Service {
         Bundle bundle = contentResolver.call(uri, "method", null, null);
         String returnCall = bundle.getString("returnCall");
         Log.i("main", "-------------->" + returnCall);
+    }
+
+
+    private void useCall(){
+        //这种方式调用才行 自定义bean需要下面设置classloader 但是call方法需要返回一个bundle
+        android.os.Bundle bundleArgs = new android.os.Bundle();
+        bundleArgs.putString("key","test");
+
+        android.os.Bundle bundleResult = getContentResolver().call(
+                DownLoadProviderV2.TASK_CONTENT_URI,
+                "", null, bundleArgs);
+
+        if (bundleResult == null) {
+            Log.e("====","bundleResultbundleResultnullnullnull");
+        }
+        //bundleResult.setClassLoader(CallArgs.class.getClassLoader());
+        //CallArgs result = bundleResult.getParcelable(METHOD_CALL_RESULT);
+
+        String s = bundleResult.getString("key");
+        Log.e("====","===ss"+s);
     }
 
     public void addBooks(Person person) {

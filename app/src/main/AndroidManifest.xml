@@ -119,6 +119,12 @@
         <activity android:name=".commonActivity.LVTextClickActivity"/>
         <activity android:name=".listStatusSwitch.LoadingActivity"/>
         <activity android:name=".DownLoad.DownLoadActivity"/>
+
+        <activity android:name=".DownLoadV2.DownLoadV2ActivityV2"/>
+        <provider
+            android:authorities="com.zeng.down.v2"
+            android:name=".DownLoadV2.provider.DownLoadProviderV2"/>
+        <service android:name=".DownLoadV2.service.DownLoadServiceV2" android:process=":testDownLoad"/>
     </application>
 
 

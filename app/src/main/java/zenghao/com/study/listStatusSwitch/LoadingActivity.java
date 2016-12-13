@@ -9,6 +9,9 @@ import zenghao.com.study.R;
 /***
  * 可以试试ViewStub其他状态 加载失败和错误
  * 节省资源
+ *
+ * 其他借鉴
+ * https://github.com/hongyangAndroid/LoadingAndRetryManager
  */
 public class LoadingActivity extends AppCompatActivity implements View.OnClickListener  {
  

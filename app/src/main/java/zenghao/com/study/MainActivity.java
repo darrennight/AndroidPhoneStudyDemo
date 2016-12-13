@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import zenghao.com.study.DownLoad.DownLoadActivity;
+import zenghao.com.study.DownLoadV2.DownLoadV2ActivityV2;
 import zenghao.com.study.IPC.Service.TestMutilProcessActivity;
 import zenghao.com.study.Loader.TestLoaderActivity;
 import zenghao.com.study.RX.RXTestActivity;
@@ -114,6 +115,7 @@ public class MainActivity extends AppCompatActivity {
         list.add("32ListView中item文字点击");
         list.add("33页面加载状态切换");
         list.add("34下载框架测试");
+        list.add("35下载框架V2多进程进度处理测试");
 
         adapter = new MyAdapter(this,list);
         mListView.setAdapter(adapter);
@@ -268,6 +270,10 @@ public class MainActivity extends AppCompatActivity {
                     case 34:
                         Intent intent34 = new Intent(MainActivity.this, DownLoadActivity.class);
                         startActivity(intent34);
+                        break;
+                    case 35:
+                        Intent intent35 = new Intent(MainActivity.this, DownLoadV2ActivityV2.class);
+                        startActivity(intent35);
                         break;
                     default:
                         break;

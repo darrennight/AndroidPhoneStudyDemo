@@ -90,6 +90,7 @@ public class TestMutilProcessActivity extends AppCompatActivity{
             }
         });
 
+        /**bindservice后调用*/
         mShow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -154,12 +155,16 @@ public class TestMutilProcessActivity extends AppCompatActivity{
     protected void onDestroy() {
         super.onDestroy();
         try {
-            iHello.unregisterCallback(callback);
+            if(iHello!=null){
+                iHello.unregisterCallback(callback);
+                unbindService(connection);
+            }
+
         } catch (RemoteException e) {
             e.printStackTrace();
         }
 
-        unbindService(connection);
+
         getContentResolver().unregisterContentObserver(mObserver);
     }
 

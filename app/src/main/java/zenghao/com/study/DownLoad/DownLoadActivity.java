@@ -28,7 +28,34 @@ import zenghao.com.study.R;
  * 200M :http://down.tech.sina.com.cn/download/d_load.php?d_id=49535&down_id=1&ip=42.81.45.159
  * @author zenghao
  * @since 16/12/4 下午7:57
+ *
+ * service下载 广播发送进度
+ * https://github.com/youngWM/Download
+ *
+ * lsitener回调进度 但是adapter notify更新不好
+ * https://github.com/zhuiji7/FileDownloader
+ *
+ *listener回调进度 通过adapter settag  findviewByTag 对应更新
+ * https://github.com/shichaohui/FileDownloadDemo
+ *
+ * listener进度回调 okhttp 下载
+ * https://github.com/shaohui10086/DownloadManager
+ *
+ * listener回调进度 okhttp下载 多个http下载一个任务  (这三个http应该不是同时执行等)
+ * https://github.com/AigeStudio/MultiThreadDownloader
+ *
+ *
+ *
+ * https://github.com/smanikandan14/ThinDownloadManager/tree/master/ThinDownloadManager
+ *https://github.com/yanzhenjie/NoHttp
+ * https://github.com/majidgolshadi/Android-Download-Manager-Pro
+ *
+ *
+ * 感觉最好的下载框架 还没有看
+ * https://github.com/lingochamp/FileDownloader
  */
+//TODO 尝试拆分info 回调更好方式实现 存储进度到数据库时机和位置 目前是单任务单线程 尝试单任务多线程(一个线程里面三个http请求例如:https://github.com/AigeStudio/MultiThreadDownloader)等
+//TODO 通过contentProvider 存储 contentObserver监听数据库变化 读取数据库 差分发(recycler)局部更新
 public class DownLoadActivity extends AppCompatActivity implements DownLoadManger.TestCallback{
 
     private Button mStart;

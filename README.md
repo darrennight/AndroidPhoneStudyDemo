@@ -1,38 +1,3 @@
 # AndroidStudyDemo
 android知识点学习测试demo
 # AndroidPhoneStudyDemo
-
-
-
-
-vim fileName 进入文件编辑模式  输入i 编辑  esc 不能编辑  》》shift＋：》》输入wq 回车退出
-
-
-github 授权使用
-github新建项目 勾选init  通过设置添加授权的其他github账号
-在pc创建本地储存路径 git clone 代码
-进入该项目的根路径  cat .git/config 将其拷贝复制给本地新建的项目
-
-本地新建的项目
-git init
-git add空格.   添加所有
-git commit -m “注释”提交到本地仓库
-cat .git/config   vim .git/config  esc o修改  esc :wq 保存退出
-
-https://github.com/darrennight/AndroidTVStudyDemo.git
-修改为
-https://darrennight@github.com/darrennight/AndroidTVStudyDemo.git
-
-git pull 下拉项目
-git push 推送项目
-
-git fetch
-git rebase
-git rebase — -continue
-
-
-提交代码
-git add 空格.
-git commit -m “注释”提交到本地仓库
-git push 推送项目
-

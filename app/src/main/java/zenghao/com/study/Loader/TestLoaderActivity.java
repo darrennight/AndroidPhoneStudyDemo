@@ -39,7 +39,8 @@ public class TestLoaderActivity extends AppCompatActivity implements
         //manager.destroyLoader();
 
 
-        //使用CursorLoader 时 监听数据库的变化重新通过loader加载数据 自定义的就不用这段代码
+        //使用CursorLoader 时 监听数据库的变化重新通过loader加载数据 需要下面到observer
+        // 自定义的CursorLoader就不用这段代码
         /*getContentResolver().registerContentObserver(MyContentProvider.uri, true, new ContentObserver(new Handler()) {
             @Override
             public void onChange(boolean selfChange, Uri uri) {

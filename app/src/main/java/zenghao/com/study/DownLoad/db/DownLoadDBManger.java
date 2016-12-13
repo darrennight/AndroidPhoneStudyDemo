@@ -8,6 +8,7 @@ import android.provider.BaseColumns;
 import android.util.Log;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 import zenghao.com.study.DownLoad.DownLoadInfo;
 import zenghao.com.study.DownLoad.DownStatus;
 import zenghao.com.study.DownLoad.IDownLoadInfo;
@@ -19,10 +20,11 @@ import zenghao.com.study.DownLoad.IDownLoadInfo;
  * @since 16/12/8 下午7:10
  */
 public class DownLoadDBManger {
-
+    private AtomicInteger mOpenCounter = new AtomicInteger();
     private static DownLoadDBManger mInstance = null;
     private Context mContext;
     private DownLoadDBHelp mDownDB;
+    private SQLiteDatabase mDatabase;
 
     private DownLoadDBManger(Context context) {
         this.mContext = context;
@@ -36,12 +38,30 @@ public class DownLoadDBManger {
         return mInstance;
     }
 
+
+    private synchronized SQLiteDatabase openDatabase() {
+        if (mOpenCounter.incrementAndGet() == 1) {
+            // Opening new database
+            mDatabase = mDownDB.getWritableDatabase();
+        }
+        return mDatabase;
+    }
+
+    private synchronized void closeDatabase() {
+        if (mOpenCounter.decrementAndGet() == 0) {
+            // Closing database
+            mDatabase.close();
+
+        }
+    }
+
     /***
      * 添加断点现在info
      * @param info
      */
     public void addDownInfo(IDownLoadInfo info) {
-        SQLiteDatabase sql = mDownDB.getWritableDatabase();
+        //SQLiteDatabase sql = mDownDB.getWritableDatabase();
+        SQLiteDatabase sql = openDatabase();
 
         ContentValues values = new ContentValues();
         values.put(DownLoadDBHelp.DL_FILE_NAME,info.getFileName());
@@ -66,7 +86,8 @@ public class DownLoadDBManger {
      * @param info
      */
     public void updateDownInfo(IDownLoadInfo info){
-        SQLiteDatabase sql = mDownDB.getWritableDatabase();
+        //SQLiteDatabase sql = mDownDB.getWritableDatabase();
+        SQLiteDatabase sql = openDatabase();
 
         ContentValues values = new ContentValues();
         values.put(DownLoadDBHelp.DL_FILE_NAME,info.getFileName());
@@ -92,7 +113,8 @@ public class DownLoadDBManger {
      */
     public List<IDownLoadInfo> getDownInfo(String status){
         List<IDownLoadInfo> list = new ArrayList<>();
-        SQLiteDatabase sql = mDownDB.getWritableDatabase();
+        //SQLiteDatabase sql = mDownDB.getWritableDatabase();
+        SQLiteDatabase sql = openDatabase();
         Cursor cursor = sql.query(DownLoadDBHelp.TB_DOWN_INFO,null
                         ,DownLoadDBHelp.DL_FILE_STATUS+" = ? "
                         ,new String[]{status},null,null,null);
@@ -120,7 +142,8 @@ public class DownLoadDBManger {
 
     public List<IDownLoadInfo> getDownInfo(){
         List<IDownLoadInfo> list = new ArrayList<>();
-        SQLiteDatabase sql = mDownDB.getWritableDatabase();
+        //SQLiteDatabase sql = mDownDB.getWritableDatabase();
+        SQLiteDatabase sql = openDatabase();
         Cursor cursor = sql.query(DownLoadDBHelp.TB_DOWN_INFO,null
                 ,null
                 ,null,null,null,null);
