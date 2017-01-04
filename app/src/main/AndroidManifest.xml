@@ -5,7 +5,7 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
-    <uses-permission android:name="android.permission.CAMERA"/><!--没有在次注册 直接权限申请拒绝-->
+    <uses-permission android:name="android.permission.CAMERA"/><!--没有在此注册 直接权限申请拒绝-->
 
     <uses-permission android:name="android.permission.INTERNET"/>
 
@@ -125,6 +125,8 @@
             android:authorities="com.zeng.down.v2"
             android:name=".DownLoadV2.provider.DownLoadProviderV2"/>
         <service android:name=".DownLoadV2.service.DownLoadServiceV2" android:process=":testDownLoad"/>
+
+        <activity android:name=".Map.TestMapActivity"/>
     </application>
 
 

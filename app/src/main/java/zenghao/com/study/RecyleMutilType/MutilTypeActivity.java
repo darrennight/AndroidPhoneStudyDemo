@@ -11,6 +11,10 @@ import android.app.Activity;
  * @author zenghao
  * @since 16/11/7 下午4:34
  *
+ * 通用holder完善上面的holder
+ * http://www.open-open.com/lib/view/open1455671659714.html
+ * https://github.com/TellH/RecyclerViewDemo
+ *
  */
 public class MutilTypeActivity extends Activity {
 }

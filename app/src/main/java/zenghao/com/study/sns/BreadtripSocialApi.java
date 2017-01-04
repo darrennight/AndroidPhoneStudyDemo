@@ -45,6 +45,9 @@ import zenghao.com.study.sns.share.ISNSShareConent;
  * http://www.jianshu.com/p/71b6be4d1e0b
  *
  * https://github.com/tsy12321/SocialSDKAndroid
+ *
+ * https://github.com/shaohui10086/ShareUtil
+ * https://github.com/lingochamp/ShareLoginLib
  */
 public class BreadtripSocialApi {
 

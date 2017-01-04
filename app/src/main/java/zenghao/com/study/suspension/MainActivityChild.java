@@ -21,6 +21,9 @@ import com.sevenheaven.iosswitch.ShSwitchView;
 
 import zenghao.com.study.R;
 
+/***
+ * 悬浮窗兼容库https://github.com/czy1121/overlaypermission
+ */
 public class MainActivityChild extends AppCompatActivity {
 
     private Button mStart;

@@ -56,6 +56,7 @@ import zenghao.com.study.R;
  */
 //TODO 尝试拆分info 回调更好方式实现 存储进度到数据库时机和位置 目前是单任务单线程 尝试单任务多线程(一个线程里面三个http请求例如:https://github.com/AigeStudio/MultiThreadDownloader)等
 //TODO 通过contentProvider 存储 contentObserver监听数据库变化 读取数据库 差分发(recycler)局部更新
+//    TODO 单任务单线程 进度不需要实时存储到数据库可以读取文件作为进度 这条下载速度会快点(多线程但任务需要 记住断点?不知道存文件会不会快点)
 public class DownLoadActivity extends AppCompatActivity implements DownLoadManger.TestCallback{
 
     private Button mStart;
