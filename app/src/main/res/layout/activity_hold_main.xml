@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:id="@+id/sv_root"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ffffff"
+        android:overScrollMode="never"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!--车城头条-->
+            <FrameLayout
+                android:id="@+id/fr_carHead"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <!--车城服务-->
+            <FrameLayout
+                android:id="@+id/fr_carService"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <!--认证专区-->
+            <FrameLayout
+                android:id="@+id/fr_authRegion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <!--热门推荐-->
+            <FrameLayout
+                android:id="@+id/fr_hotRecommend"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <!--购车攻略-->
+            <FrameLayout
+                android:id="@+id/fr_buyGuide"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <!--顶部导航栏-->
+    <FrameLayout
+        android:id="@+id/fr_searchbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</FrameLayout>

@@ -127,6 +127,14 @@
         <service android:name=".DownLoadV2.service.DownLoadServiceV2" android:process=":testDownLoad"/>
 
         <activity android:name=".Map.TestMapActivity"/>
+        <activity android:name=".IME.TestHideIme"/>
+        <activity android:name=".IME.TestHideIme2"/>
+        <activity android:name=".commonActivity.RoundProgress"/>
+        <activity android:name=".commonActivity.ListVideoActivity"/>
+        <activity android:name=".commonActivity.TestPercentLayoutActivity"/>
+        <activity android:name=".commonActivity.CommonModifyActivity"/>
+        <activity android:name=".commonActivity.ModifyActivity"/>
+        <activity android:name=".holdStyle.HoldMainActivity"/>
     </application>
 
 

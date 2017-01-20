@@ -22,4 +22,12 @@
         android:text="截图啊"
         />
 
+    <Button
+        android:id="@+id/btn_screen2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="截图啊2"
+        android:layout_toRightOf="@+id/btn_screen"
+        />
+
 </RelativeLayout>

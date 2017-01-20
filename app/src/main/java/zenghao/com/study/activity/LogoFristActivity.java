@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import zenghao.com.study.MainActivity;
@@ -54,11 +55,14 @@ public class LogoFristActivity extends AppCompatActivity implements SurfaceHolde
 
     public LogoFristActivity() {}
 
+    private Button mChange;
+
     @SuppressLint("NewApi")
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_logo_frist);
+        mChange = ((Button) findViewById(R.id.btn_change));
         if (getIntent() != null) {
             stopBtnFlag = getIntent().getIntExtra("first_guid", 0);
         }
@@ -110,6 +114,30 @@ public class LogoFristActivity extends AppCompatActivity implements SurfaceHolde
             id_start_home_page_button.setVisibility(View.VISIBLE);
             stopPageBtn.setVisibility(View.GONE);
         }
+
+
+        mChange.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                player.stop();
+                player.reset();
+                player.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+                    @Override
+                    public void onPrepared(MediaPlayer mp) {
+                        player.start();
+                    }
+                });
+                try{
+                    AssetFileDescriptor fileDescriptor = getAssets().openFd("my_ui2.mp4");
+                    player.setDataSource(fileDescriptor.getFileDescriptor(), fileDescriptor.getStartOffset(), fileDescriptor.getLength());
+                    player.prepareAsync();
+
+                }catch (Exception e){
+
+                }
+
+            }
+        });
     }
 
     @Override
@@ -129,9 +157,12 @@ public class LogoFristActivity extends AppCompatActivity implements SurfaceHolde
 
             player.setDataSource(fileDescriptor.getFileDescriptor(), fileDescriptor.getStartOffset(), fileDescriptor.getLength());
 //            player.setDataSource("http://123.56.113.202:18085/upload/mp4/e7ecdc91caed45ed80d0ef0da16244aa.mp4");
-            player.prepare();
+
+            /*player.prepare();
             player.seekTo(mPos);
-            player.start();
+            player.start();*/
+
+            player.prepareAsync();
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -141,6 +172,7 @@ public class LogoFristActivity extends AppCompatActivity implements SurfaceHolde
             @Override
             public void onPrepared(MediaPlayer mp) {
                 mp.setLooping(true);//循环播放
+                player.start();
             }
         });
         player.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {

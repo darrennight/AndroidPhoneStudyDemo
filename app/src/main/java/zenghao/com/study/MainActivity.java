@@ -6,9 +6,11 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
@@ -17,6 +19,8 @@ import java.util.List;
 
 import zenghao.com.study.DownLoad.DownLoadActivity;
 import zenghao.com.study.DownLoadV2.DownLoadV2ActivityV2;
+import zenghao.com.study.IME.TestHideIme;
+import zenghao.com.study.IME.TestHideIme2;
 import zenghao.com.study.IPC.Service.TestMutilProcessActivity;
 import zenghao.com.study.Loader.TestLoaderActivity;
 import zenghao.com.study.RX.RXTestActivity;
@@ -42,8 +46,13 @@ import zenghao.com.study.banner.BannerActivity;
 import zenghao.com.study.bottomManger.BottomMangerActivity;
 import zenghao.com.study.commonActivity.CaptureVideoActivity;
 import zenghao.com.study.commonActivity.ChangeBgColor;
+import zenghao.com.study.commonActivity.CommonModifyActivity;
 import zenghao.com.study.commonActivity.LVTextClickActivity;
+import zenghao.com.study.commonActivity.ListVideoActivity;
+import zenghao.com.study.commonActivity.RoundProgress;
 import zenghao.com.study.commonActivity.TestConstraintLayoutActivity;
+import zenghao.com.study.commonActivity.TestPercentLayoutActivity;
+import zenghao.com.study.holdStyle.HoldMainActivity;
 import zenghao.com.study.lazyFragment.LazyFragmentActivity;
 import zenghao.com.study.listStatusSwitch.LoadingActivity;
 import zenghao.com.study.localImageVideo.LocalImageActivity;
@@ -74,6 +83,10 @@ public class MainActivity extends AppCompatActivity {
         });
 
         initView();
+
+        ViewGroup contentParent = ((ViewGroup) findViewById(android.R.id.content));
+        View chile = contentParent.getChildAt(0);
+        Log.e("====view",contentParent.getClass().getName().toString()+""+chile.getClass().getName().toString());
 
     }
 
@@ -116,6 +129,13 @@ public class MainActivity extends AppCompatActivity {
         list.add("33页面加载状态切换");
         list.add("34下载框架测试");
         list.add("35下载框架V2多进程进度处理测试");
+        list.add("36测试隐藏键盘方式一");
+        list.add("37测试隐藏键盘方式二");
+        list.add("38圆角进度");
+        list.add("39listVideo");
+        list.add("40百分比布局");
+        list.add("41个人信息修改模版框架");
+        list.add("42UI界面拆分");
 
         adapter = new MyAdapter(this,list);
         mListView.setAdapter(adapter);
@@ -274,6 +294,41 @@ public class MainActivity extends AppCompatActivity {
                     case 35:
                         Intent intent35 = new Intent(MainActivity.this, DownLoadV2ActivityV2.class);
                         startActivity(intent35);
+                        break;
+
+                    case 36:
+                        Intent intent36 = new Intent(MainActivity.this, TestHideIme.class);
+                        startActivity(intent36);
+                        break;
+
+                    case 37:
+                        Intent intent37 = new Intent(MainActivity.this, TestHideIme2.class);
+                        startActivity(intent37);
+                        break;
+
+                    case 38:
+                        Intent intent38 = new Intent(MainActivity.this, RoundProgress.class);
+                        startActivity(intent38);
+                        break;
+
+                    case 39:
+                        Intent intent39 = new Intent(MainActivity.this, ListVideoActivity.class);
+                        startActivity(intent39);
+                        break;
+
+                    case 40:
+                        Intent intent40 = new Intent(MainActivity.this, TestPercentLayoutActivity.class);
+                        startActivity(intent40);
+                        break;
+
+                    case 41:
+                        Intent intent41 = new Intent(MainActivity.this, CommonModifyActivity.class);
+                        startActivity(intent41);
+                        break;
+
+                    case 42:
+                        Intent intent42 = new Intent(MainActivity.this, HoldMainActivity.class);
+                        startActivity(intent42);
                         break;
                     default:
                         break;

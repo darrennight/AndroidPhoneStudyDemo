@@ -19,4 +19,6 @@
     <color name="color_skin_bg">#000000</color>
 
     <color name="holo_blue">#FF33E5B5</color>
+
+    <color name="color_bread_blue">#FF4ABDCC</color>
 </resources>

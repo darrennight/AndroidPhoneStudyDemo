@@ -92,4 +92,5 @@ dependencies {
     compile 'com.mani:ThinDownloadManager:1.2.5'
     compile files('libs/nineoldandroids-2.4.0.jar')
     compile files('libs/libammsdk.jar')
+    compile 'com.android.support:percent:24.2.1'
 }

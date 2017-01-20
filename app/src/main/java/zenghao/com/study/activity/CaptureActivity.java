@@ -1,9 +1,11 @@
 package zenghao.com.study.activity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Picture;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
@@ -32,6 +34,7 @@ import zenghao.com.study.view.ScreenshotTask;
 public class CaptureActivity extends AppCompatActivity {
 
     private Button mScreen;
+    private Button mScreen2;
     private WebView mWebView;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -45,6 +48,8 @@ public class CaptureActivity extends AppCompatActivity {
 //        }
         setContentView(R.layout.activity_capture);
         mScreen = (Button) this.findViewById(R.id.btn_screen);
+        mScreen2 = (Button) this.findViewById(R.id.btn_screen2);
+
         mWebView = (WebView) this.findViewById(R.id.wv_webview);
         initWebView();
         initWebSettings();
@@ -54,6 +59,17 @@ public class CaptureActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
+                //失败时看看是否有操作sdcard权限
+                //webViewScreenshots();
+
+                screenshot(CaptureActivity.this,screenshot(mWebView),"testType3");
+            }
+        });
+
+        mScreen2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //失败时看看是否有操作sdcard权限
                 ScreenshotTask task = new ScreenshotTask(CaptureActivity.this, mWebView);
                 task.execute("");
             }
@@ -141,6 +157,7 @@ public class CaptureActivity extends AppCompatActivity {
     private String mBaseCache = Environment.getExternalStorageDirectory() +"/longpic" + "/";
     /**
      * webView截取长图
+     * android 7.1.0级以上会经常失败
      *方式二
      */
     public void webViewScreenshots() {
@@ -250,6 +267,45 @@ public class CaptureActivity extends AppCompatActivity {
             e.printStackTrace();
         }
         return null;
+    }
+    public static final String SUFFIX_PNG = ".png";
+    private  String screenshot(Context context, Bitmap bitmap, String name) {
+        if (bitmap == null) {
+            return null;
+        }
+
+        File dir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
+
+        if(!dir.exists()){
+            dir.mkdirs();
+        }
+
+        if (name == null || name.trim().isEmpty()) {
+            name = String.valueOf(System.currentTimeMillis());
+        }
+        name = name.trim();
+
+        int count = 0;
+        File file = new File(dir, name + SUFFIX_PNG);
+        while (file.exists()) {
+            count++;
+            file = new File(dir, name + "." + count + SUFFIX_PNG);
+        }
+
+
+        try {
+            FileOutputStream stream = new FileOutputStream(file);
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 80, stream);
+            stream.flush();
+            stream.close();
+            context.sendBroadcast(new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, Uri.fromFile(file)));
+            return file.getAbsolutePath();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+
+
     }
 
     /**
