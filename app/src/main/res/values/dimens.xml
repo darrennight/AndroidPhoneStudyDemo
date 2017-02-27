@@ -9,4 +9,8 @@
 
     <dimen name="mlb_lineSpacingTop">5dp</dimen>
     <dimen name="mlb_lineSpacingBottom">5dp</dimen>
+
+
+    <dimen name="margin">16dp</dimen>
+    <dimen name="half_margin">8dp</dimen>
 </resources>

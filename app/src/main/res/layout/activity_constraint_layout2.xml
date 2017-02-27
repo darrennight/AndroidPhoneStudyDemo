@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                             xmlns:app="http://schemas.android.com/apk/res-auto"
+                                             android:layout_width="match_parent"
+                                             android:layout_height="match_parent"
+                                                android:id="@+id/layout_clroot">
+    <!--SPREAD：均与分布控件。元素将被展开
+    CHAIN_SPREAD_INSIDE，同上，但是边上的控件不均匀分布。
+    packed：控件紧挨在一起。还可以通过bias属性设置偏移量。
+    https://developer.android.google.cn/reference/android/support/constraint/ConstraintLayout.html
+    -->
+    <TextView
+        android:id="@+id/textView1"
+        style="@style/TextBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="textView1"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/textView2"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2"
+        style="@style/TextBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="textView2"
+        app:layout_constraintLeft_toRightOf="@+id/textView1"
+        app:layout_constraintRight_toLeftOf="@+id/textView3"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView3"
+        style="@style/TextBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="textView3"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintLeft_toRightOf="@+id/textView2"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView4"
+        style="@style/TextBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="textView4"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/textView5"
+        app:layout_constraintTop_toBottomOf="@+id/textView1" />
+
+    <TextView
+        android:id="@+id/textView5"
+        style="@style/TextBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="textView5"
+        app:layout_constraintLeft_toRightOf="@+id/textView4"
+        app:layout_constraintRight_toLeftOf="@+id/textView6"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <TextView
+        android:id="@+id/textView6"
+        style="@style/TextBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="textView6"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintLeft_toRightOf="@+id/textView5"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <TextView
+        android:id="@+id/textView7"
+        style="@style/TextBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="textView7"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/textView8"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+    <TextView
+        android:id="@+id/textView8"
+        style="@style/TextBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="textView8"
+        app:layout_constraintLeft_toRightOf="@+id/textView7"
+        app:layout_constraintRight_toLeftOf="@+id/textView9"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+    <TextView
+        android:id="@+id/textView9"
+        style="@style/TextBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="textView9"
+        app:layout_constraintLeft_toRightOf="@+id/textView8"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+    <TextView
+        android:id="@+id/textView10"
+        style="@style/TextBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="textView10"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/textView11"
+        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+    <TextView
+        android:id="@+id/textView11"
+        style="@style/TextBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="textView11"
+        app:layout_constraintLeft_toRightOf="@+id/textView10"
+        app:layout_constraintRight_toLeftOf="@+id/textView12"
+        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+    <TextView
+        android:id="@+id/textView12"
+        style="@style/TextBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="textView12"
+        app:layout_constraintLeft_toRightOf="@+id/textView11"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+    <TextView
+        android:id="@+id/textView13"
+        style="@style/TextBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="textView13"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintHorizontal_bias="0.25"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/textView14"
+        app:layout_constraintTop_toBottomOf="@+id/textView10" />
+
+    <TextView
+        android:id="@+id/textView14"
+        style="@style/TextBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="textView14"
+        app:layout_constraintLeft_toRightOf="@+id/textView13"
+        app:layout_constraintRight_toLeftOf="@+id/textView15"
+        app:layout_constraintTop_toBottomOf="@+id/textView11" />
+
+    <TextView
+        android:id="@+id/textView15"
+        style="@style/TextBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="textView15"
+        app:layout_constraintLeft_toRightOf="@+id/textView14"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView12" />
+
+</android.support.constraint.ConstraintLayout>

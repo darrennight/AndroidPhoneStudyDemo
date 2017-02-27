@@ -21,4 +21,8 @@
     <color name="holo_blue">#FF33E5B5</color>
 
     <color name="color_bread_blue">#FF4ABDCC</color>
+    <color name="white">#ffffff</color>
+
+    <color name="unselect">#FF2</color>
+    <color name="select">#FF08</color>
 </resources>

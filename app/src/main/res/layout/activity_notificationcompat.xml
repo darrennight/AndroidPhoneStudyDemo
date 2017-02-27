@@ -22,4 +22,19 @@
         android:layout_height="wrap_content"
         android:text="showProgressNotifi"/>
 
+    <Button
+        android:id="@+id/btn_test_build"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="框架测试"/>
+
+
+    <Button
+        android:id="@+id/btn_test_build2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="build框架测试"/>
+
+
+
 </LinearLayout>

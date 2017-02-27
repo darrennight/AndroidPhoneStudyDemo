@@ -79,15 +79,22 @@ public class SLooperAdapter extends PagerAdapter {
         //viewPager真正的可用的个数
         int realCount = getInnerCount();
         //内层没有可用的Item则换回为零
-        if (realCount == 0)
+        if (realCount == 0){
             return 0;
+        }
+
         int realPosition = (position - 1) % realCount;
-        if (realPosition < 0)
+        if (realPosition < 0){
+            //外层为0 返回内层count 因为外层0对应内层最后一个
             realPosition += realCount;
+        }
+
         return realPosition;
     }
 
     /**
+     * 外层为+2 内层没有+2
+     * adapter 真正个数 没有+2的个数
      * @return 内层ViewPager中可用的item个数
      */
     public int getInnerCount() {

@@ -18,6 +18,9 @@ import zenghao.com.study.bean.User;
 
 /**
  * Created by zenghao on 16/5/25.
+ * 使用场景
+ * http://blog.csdn.net/theone10211024/article/details/50435325
+ * https://github.com/THEONE10211024/RxJavaSamples
  */
 public class RXTestActivity extends AppCompatActivity {
 

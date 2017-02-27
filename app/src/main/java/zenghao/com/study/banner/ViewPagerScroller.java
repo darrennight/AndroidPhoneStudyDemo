@@ -9,7 +9,7 @@ import java.lang.reflect.Field;
 
 public class ViewPagerScroller extends Scroller {
 
-    private int mPagerChangeDuration = 800;
+    private int mPagerChangeDuration = 5000;
 
     public ViewPagerScroller(Context context) {
         super(context);
@@ -34,6 +34,8 @@ public class ViewPagerScroller extends Scroller {
         super.startScroll(startX, startY, dx, dy, mPagerChangeDuration);
     }
 
+
+
     public void changScrollDuration (ViewPager viewPager,int duration) {
         mPagerChangeDuration = duration;
 
@@ -44,5 +46,19 @@ public class ViewPagerScroller extends Scroller {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+
+        /*try {
+            Field scrollerField = ViewPager.class.getDeclaredField("mScroller");
+            scrollerField.setAccessible(true);
+
+            Field interpolatorField = ViewPager.class.getDeclaredField("sInterpolator");
+            interpolatorField.setAccessible(true);
+
+            scroller = new CustomDurationScroller(getContext(), (Interpolator)interpolatorField.get(null));
+            scrollerField.set(this, scroller);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }*/
     }
 }

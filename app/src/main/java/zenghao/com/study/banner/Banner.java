@@ -9,6 +9,7 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -18,12 +19,14 @@ import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Interpolator;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.lang.ref.WeakReference;
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Executors;
@@ -247,8 +250,26 @@ public class Banner extends RelativeLayout {
         mPageChangeDuration =  mPageChangeDuration>(mAutoPlayInterval*1000)?(mAutoPlayInterval*1000):mPageChangeDuration;
 
         // 设置banner轮播的切换时间
+
+
+        /*try {
+            Field scrollerField = ViewPager.class.getDeclaredField("mScroller");
+            scrollerField.setAccessible(true);
+
+            Field interpolatorField = ViewPager.class.getDeclaredField("sInterpolator");
+            interpolatorField.setAccessible(true);
+
+            ViewPagerScroller pagerScroller = new ViewPagerScroller(getContext(), (Interpolator)interpolatorField.get(null));
+            scrollerField.set(this, pagerScroller);
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }*/
+
         ViewPagerScroller pagerScroller = new ViewPagerScroller(mContext);
-        pagerScroller.changScrollDuration(mViewPager,mPageChangeDuration);
+        //mPageChangeDuration 如果设置3000 5000 导致页面强制切换时出现bug
+        pagerScroller.changScrollDuration(mViewPager,3000);
 
 
 

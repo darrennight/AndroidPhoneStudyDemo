@@ -24,6 +24,10 @@ import zenghao.com.study.R;
  * https://github.com/ToxicBakery/ViewPagerTransforms
  * https://github.com/JakeWharton/salvage
  * https://github.com/imbryk/LoopingViewPager
+ *
+ * http://blog.csdn.net/verzqli/article/details/54620327
+ *
+ * 新方式实现
  * @author zenghao
  * @since 16/11/28 上午11:11
  */

@@ -59,6 +59,8 @@ android {
         wandoujia {
             manifestPlaceholders = [UMENG_CHANNEL_VALUE: "wandoujia"]
         }
+        /*http://www.jianshu.com/p/8b8fdd37bf26
+        * http://stormzhang.com/devtools/2015/01/15/android-studio-tutorial6/*/
     }
 /*https://github.com/GavinCT/AndroidMultiChannelBuildTool 测试可以批量打包*/
     //首先手动 打包  然后 放在 python 同目录 运行 python即可 测试通过
@@ -88,9 +90,19 @@ dependencies {
     compile 'com.squareup.retrofit2:converter-gson:2.1.0'
     compile 'com.squareup.retrofit2:converter-jackson:2.1.0'
     compile 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
-    compile 'com.android.support.constraint:constraint-layout:1.0.0-alpha8'
+    compile 'com.android.support.constraint:constraint-layout:1.0.0-beta4'
     compile 'com.mani:ThinDownloadManager:1.2.5'
     compile files('libs/nineoldandroids-2.4.0.jar')
     compile files('libs/libammsdk.jar')
     compile 'com.android.support:percent:24.2.1'
+
+    compile 'com.jakewharton:butterknife:7.0.1'
+    compile 'com.mikhaellopez:circularprogressbar:1.1.1'
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile ('com.github.bumptech.glide:okhttp3-integration:1.4.0'){
+        exclude group: 'glide-parent'
+    }
+
+//    compile 'com.bobomee.android:drawableindicator:1.6'
+
 }

@@ -48,7 +48,7 @@ public class SLooperViewPager extends ViewPager {
         //但是对于外层ViewPager而言，他需要的位置范围应该是映射后的位置切换，即：出去两边映射的页面
         //应该是从1到映射后的倒数第二个位置
 
-        super.setCurrentItem(mAdapter.toLooperPosition(position), smoothScroll);
+        super.setCurrentItem(mAdapter.toLooperPosition(position), true);
     }
 
 
@@ -96,7 +96,7 @@ public class SLooperViewPager extends ViewPager {
 
     }
 
-
+    //这个listener传递给系统 回调时 调用mOnPageChangeListeners中的listener此listener我们自定义的
     private OnPageChangeListener mOnPageChangeListener = new OnPageChangeListener() {
         //上一次的偏移量
         private float mPreviousOffset = -1;
@@ -114,7 +114,7 @@ public class SLooperViewPager extends ViewPager {
                     position =mAdapter.getCount()-1:结束的边界
                  */
                 if (positionOffset == 0 && mPreviousOffset == 0 && (position == 0 || position == mAdapter.getCount() - 1)) {
-                    //强制回到映射位置
+                    //强制回到映射位置  首 尾 的item 回到映射位置
                     setCurrentItem(innerPosition, false);
                 }
                 mPreviousOffset = positionOffset;

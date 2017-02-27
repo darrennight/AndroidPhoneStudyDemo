@@ -57,6 +57,18 @@ public class LocalImageActivity extends AppCompatActivity {
         //getThumbnail();
 
         getVideoAndImage();
+
+
+        /*
+        指定某个目录查询 有待验证
+        //selection: 指定查询条件
+        String selection = MediaStore.Images.Media.DATA + " like %?";
+        //设定查询目录
+        String path="/mnt/sdcard/youpicpath";
+        //定义selectionArgs：
+        String[] selectionArgs = {path+"%"};
+        c = this.getContentResolver().query(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, null,
+                selection, selectionArgs, null);*/
     }
 
     /**
@@ -278,6 +290,19 @@ public class LocalImageActivity extends AppCompatActivity {
                 + " OR "
                 + MediaStore.Files.FileColumns.MEDIA_TYPE + "="
                 + MediaStore.Files.FileColumns.MEDIA_TYPE_VIDEO;
+
+
+        /*
+         并且条件
+        selection = MediaStore.Files.FileColumns.MEDIA_TYPE + "="
+                + MediaStore.Files.FileColumns.MEDIA_TYPE_IMAGE
+                + " AND "
+                + MediaStore.Files.FileColumns.PARENT + "=" +"14742"
+                + " OR "
+                + MediaStore.Files.FileColumns.MEDIA_TYPE + "="
+                + MediaStore.Files.FileColumns.MEDIA_TYPE_VIDEO
+                + " AND "
+                + MediaStore.Files.FileColumns.PARENT + "=" +"14742";*/
 
         Uri queryUri = MediaStore.Files.getContentUri("external");
 

@@ -5,6 +5,11 @@
     <string name="menu_toggle_sticky">Sticky Headers</string>
 
 
+    <string name="recycled">Recycled?</string>
+    <string name="position">Position</string>
+    <string name="word">Word</string>
+
+
     <string-array name="jazzy_effects">
         <item>Standard</item>
         <item>Tablet</item>
@@ -19,4 +24,15 @@
         <item>RotateDown</item>
         <item>Accordion</item>
     </string-array>
+
+
+    <string name="spread_chain">Spread Chain</string>
+    <string name="spread_chain_with_weights">Spread Chain with Weights</string>
+    <string name="inside_spread_chain">Inside Spread Chain</string>
+    <string name="packed_chain">Packed Chain</string>
+    <string name="packed_chain_with_bias">Packed Chain with Bias</string>
+
+
+    <string name="verification_code">Verification code</string>
+    <string name="verify">Verify</string>
 </resources>

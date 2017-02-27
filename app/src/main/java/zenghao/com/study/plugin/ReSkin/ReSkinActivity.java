@@ -32,6 +32,8 @@ import zenghao.com.study.plugin.ReSkin.utils.SkinFileUtils;
  * https://github.com/burgessjp/ThemeSkinning
  * http://blog.zhaiyifan.cn/2015/09/10/Android%E6%8D%A2%E8%82%A4%E6%8A%80%E6%9C%AF%E6%80%BB%E7%BB%93/
  * https://github.com/fengjundev/Android-Skin-Loader
+ *
+ * https://github.com/ximsfei/Android-skin-support
  */
 public class ReSkinActivity extends SkinBaseActivity {
 

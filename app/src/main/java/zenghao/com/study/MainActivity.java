@@ -47,11 +47,14 @@ import zenghao.com.study.bottomManger.BottomMangerActivity;
 import zenghao.com.study.commonActivity.CaptureVideoActivity;
 import zenghao.com.study.commonActivity.ChangeBgColor;
 import zenghao.com.study.commonActivity.CommonModifyActivity;
+import zenghao.com.study.commonActivity.EditTextContactsActivity;
+import zenghao.com.study.commonActivity.FullScreenActivity;
 import zenghao.com.study.commonActivity.LVTextClickActivity;
 import zenghao.com.study.commonActivity.ListVideoActivity;
 import zenghao.com.study.commonActivity.RoundProgress;
 import zenghao.com.study.commonActivity.TestConstraintLayoutActivity;
 import zenghao.com.study.commonActivity.TestPercentLayoutActivity;
+import zenghao.com.study.commonActivity.ThemeActivity;
 import zenghao.com.study.holdStyle.HoldMainActivity;
 import zenghao.com.study.lazyFragment.LazyFragmentActivity;
 import zenghao.com.study.listStatusSwitch.LoadingActivity;
@@ -59,6 +62,7 @@ import zenghao.com.study.localImageVideo.LocalImageActivity;
 import zenghao.com.study.permissionFramework.TestPermissionActivity;
 import zenghao.com.study.plugin.ReSkin.ReSkinActivity;
 import zenghao.com.study.suspension.MainActivityChild;
+import zenghao.com.study.viewpager.NewBaseAdapter.SimpleActivity;
 import zenghao.com.study.viewpager.VPUpdateFragment1;
 import zenghao.com.study.viewpager.vpAnim.MyJazzPagerActivity;
 
@@ -136,6 +140,11 @@ public class MainActivity extends AppCompatActivity {
         list.add("40百分比布局");
         list.add("41个人信息修改模版框架");
         list.add("42UI界面拆分");
+        list.add("43pagerAdapter封装JakeWharton");
+        list.add("44testFullScreen");
+        list.add("45testThemeActivity");
+        list.add("46EditText分块显示联系人");
+        list.add("47短信验证码读取");
 
         adapter = new MyAdapter(this,list);
         mListView.setAdapter(adapter);
@@ -329,6 +338,31 @@ public class MainActivity extends AppCompatActivity {
                     case 42:
                         Intent intent42 = new Intent(MainActivity.this, HoldMainActivity.class);
                         startActivity(intent42);
+                        break;
+
+                    case 43:
+                        Intent intent43 = new Intent(MainActivity.this, SimpleActivity.class);
+                        startActivity(intent43);
+                        break;
+
+                    case 44:
+                        Intent intent44 = new Intent(MainActivity.this, FullScreenActivity.class);
+                        startActivity(intent44);
+                        break;
+
+                    case 45:
+                        Intent intent45 = new Intent(MainActivity.this, ThemeActivity.class);
+                        startActivity(intent45);
+                        break;
+
+                    case 46:
+                        Intent intent46 = new Intent(MainActivity.this, EditTextContactsActivity.class);
+                        startActivity(intent46);
+                        break;
+
+                    case 47:
+                        Intent intent47 = new Intent(MainActivity.this, zenghao.com.study.commonActivity.sms.MainActivity.class);
+                        startActivity(intent47);
                         break;
                     default:
                         break;
