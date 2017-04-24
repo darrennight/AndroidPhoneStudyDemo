@@ -6,6 +6,8 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <uses-permission android:name="android.permission.CAMERA"/><!--没有在此注册 直接权限申请拒绝-->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"></uses-permission>
+    <uses-permission android:name="android.permission.CAMERA"></uses-permission>
 
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.RECEIVE_SMS"/>
@@ -18,11 +20,14 @@
                      android:name="android.permission.PACKAGE_USAGE_STATS"
                      tools:ignore="ProtectedPermissions" />
 
+    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
+        android:name=".MyApplication"
         android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"
@@ -146,6 +151,32 @@
         <activity android:name=".view.notifyUtil.TestNotifyBuildActivity"/>
         <activity android:name=".commonActivity.EditTextContactsActivity"/>
         <activity android:name=".commonActivity.sms.MainActivity"/>
+        <activity android:name=".permissionBuilder.XPermissionTestActivity"/>
+
+        <!--动态修改appLauncherIcon icon为我们需要替换的图片 然后在MainActivity中代码处理-->
+        <activity-alias
+            android:name=".TestAndroidAlias"
+            android:targetActivity=".MainActivity"
+            android:label="testAndroidlias"
+            android:enabled="false"
+            android:icon="@drawable/ic_launcher">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
+        <activity android:name=".commonActivity.SnackBarActivity"/>
+        <activity android:name=".commonActivity.GuidePopTisActivity"/>
+        <activity android:name=".commonActivity.MoneyCovertActivity"/>
+        <activity android:name=".commonActivity.CountDownActivity"/>
+        <activity android:name=".commonActivity.TestFlowLayoutActivity"/>
+        <activity android:name=".commonActivity.CustomToastActivity"/>
+        <activity android:name=".listStatusSwitch.state.StateMainActivity"/>
+        <activity android:name=".retrofit.TestRetrofitActivity"/>
+        <service android:name=".retrofit.updateApk.DownLoadService"/>
+
     </application>
 
 

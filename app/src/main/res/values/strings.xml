@@ -35,4 +35,39 @@
 
     <string name="verification_code">Verification code</string>
     <string name="verify">Verify</string>
+
+    <string name="calendar">查看日历</string>
+    <string name="camera">使用拍照和查看相册</string>
+    <string name="contacts">查看联系人</string>
+    <string name="location">定位</string>
+    <string name="microphone">使用麦克风</string>
+    <string name="phone">读取联系人</string>
+    <string name="sensors">使用传感器</string>
+    <string name="sms">使用短信功能</string>
+    <string name="storage">存储</string>
+
+
+    <string name="demo_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
+
+
+    <string name="normal_toast_with_icon">NORMAL TOAST (WITH ICON)</string>
+    <string name="normal_toast_without_icon">NORMAL TOAST (WITHOUT ICON)</string>
+    <string name="warning_toast">WARNING TOAST</string>
+    <string name="info_toast">INFO TOAST</string>
+    <string name="info_toast_with_formatting">INFO TOAST WITH FORMATTING</string>
+    <string name="error_toast">ERROR TOAST</string>
+    <string name="success_toast">SUCCESS TOAST</string>
+
+
+
+    <string name="stfErrorMessage">An error occurred please try again later</string>
+    <string name="stfOfflineMessage">Please check your connection</string>
+    <string name="stfLocationOffMessage">Please enable location services</string>
+    <string name="stfEmptyMessage">There are no items</string>
+    <string name="stfLoadingMessage">Loading..</string>
+    <string name="stfButtonText">Retry</string>
 </resources>

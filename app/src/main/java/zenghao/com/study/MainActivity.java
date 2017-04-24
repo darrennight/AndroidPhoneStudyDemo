@@ -1,6 +1,11 @@
 package zenghao.com.study;
 
+import android.app.Activity;
+import android.app.ActivityManager;
+import android.content.ComponentName;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -14,6 +19,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -47,21 +53,31 @@ import zenghao.com.study.bottomManger.BottomMangerActivity;
 import zenghao.com.study.commonActivity.CaptureVideoActivity;
 import zenghao.com.study.commonActivity.ChangeBgColor;
 import zenghao.com.study.commonActivity.CommonModifyActivity;
+import zenghao.com.study.commonActivity.CountDownActivity;
+import zenghao.com.study.commonActivity.CustomToastActivity;
 import zenghao.com.study.commonActivity.EditTextContactsActivity;
 import zenghao.com.study.commonActivity.FullScreenActivity;
+import zenghao.com.study.commonActivity.GuidePopTisActivity;
 import zenghao.com.study.commonActivity.LVTextClickActivity;
 import zenghao.com.study.commonActivity.ListVideoActivity;
+import zenghao.com.study.commonActivity.MoneyCovertActivity;
 import zenghao.com.study.commonActivity.RoundProgress;
+import zenghao.com.study.commonActivity.SnackBarActivity;
 import zenghao.com.study.commonActivity.TestConstraintLayoutActivity;
+import zenghao.com.study.commonActivity.TestFlowLayoutActivity;
 import zenghao.com.study.commonActivity.TestPercentLayoutActivity;
 import zenghao.com.study.commonActivity.ThemeActivity;
 import zenghao.com.study.holdStyle.HoldMainActivity;
 import zenghao.com.study.lazyFragment.LazyFragmentActivity;
 import zenghao.com.study.listStatusSwitch.LoadingActivity;
+import zenghao.com.study.listStatusSwitch.state.StateMainActivity;
 import zenghao.com.study.localImageVideo.LocalImageActivity;
+import zenghao.com.study.permissionBuilder.XPermissionTestActivity;
 import zenghao.com.study.permissionFramework.TestPermissionActivity;
 import zenghao.com.study.plugin.ReSkin.ReSkinActivity;
+import zenghao.com.study.retrofit.TestRetrofitActivity;
 import zenghao.com.study.suspension.MainActivityChild;
+import zenghao.com.study.util.CommonUtil;
 import zenghao.com.study.viewpager.NewBaseAdapter.SimpleActivity;
 import zenghao.com.study.viewpager.VPUpdateFragment1;
 import zenghao.com.study.viewpager.vpAnim.MyJazzPagerActivity;
@@ -70,6 +86,10 @@ public class MainActivity extends AppCompatActivity {
 // 主界面 底部导航 fragment＋viewpager
     private ListView mListView;
     private MyAdapter adapter;
+    private PackageManager mPm;
+    private ComponentName mDefault;
+    private ComponentName mDouble11;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -92,6 +112,29 @@ public class MainActivity extends AppCompatActivity {
         View chile = contentParent.getChildAt(0);
         Log.e("====view",contentParent.getClass().getName().toString()+""+chile.getClass().getName().toString());
 
+        mPm = getApplicationContext().getPackageManager();
+
+        mDefault = getComponentName();
+        mDouble11 = new ComponentName(getBaseContext(),"zenghao.com.study.TestAndroidAlias");
+
+        /*修改启动icon
+            bug 1.app会被清理kill 2.切换后马上退出app到home点击icon启动无法启动
+            disableComponent(mDefault);
+        enableComponent(mDouble11);*/
+
+    }
+
+
+    private void enableComponent(ComponentName componentName) {
+        mPm.setComponentEnabledSetting(componentName,
+                PackageManager.COMPONENT_ENABLED_STATE_ENABLED,
+                PackageManager.DONT_KILL_APP);
+    }
+
+    private void disableComponent(ComponentName componentName) {
+        mPm.setComponentEnabledSetting(componentName,
+                PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
+                PackageManager.DONT_KILL_APP);
     }
 
     private void initView(){
@@ -145,6 +188,16 @@ public class MainActivity extends AppCompatActivity {
         list.add("45testThemeActivity");
         list.add("46EditText分块显示联系人");
         list.add("47短信验证码读取");
+        list.add("48权限框架XPermission");
+        list.add("49changeIcon");
+        list.add("50snackbar封装");
+        list.add("51新手引导");
+        list.add("52金额转化");
+        list.add("53倒计时");
+        list.add("54flowlayout");
+        list.add("55自定义toast");
+        list.add("56页面加载状态切换");
+        list.add("57retrofit+APK升级");
 
         adapter = new MyAdapter(this,list);
         mListView.setAdapter(adapter);
@@ -364,6 +417,70 @@ public class MainActivity extends AppCompatActivity {
                         Intent intent47 = new Intent(MainActivity.this, zenghao.com.study.commonActivity.sms.MainActivity.class);
                         startActivity(intent47);
                         break;
+
+                    case 48:
+                        Intent intent48 = new Intent(MainActivity.this, XPermissionTestActivity.class);
+                        startActivity(intent48);
+                        break;
+
+
+                    case 49:
+                        disableComponent(mDefault);
+                        enableComponent(mDouble11);
+                        /*//主动干掉桌面app，让它自动重启。
+                        ActivityManager am = (ActivityManager)getSystemService(Activity.ACTIVITY_SERVICE);
+                        Intent i = new Intent(Intent.ACTION_MAIN);
+                        i.addCategory(Intent.CATEGORY_HOME);
+                        i.addCategory(Intent.CATEGORY_DEFAULT);
+                        List<ResolveInfo> resolves = mPm.queryIntentActivities(i, 0);
+                        for (ResolveInfo res : resolves) {
+                            if (res.activityInfo != null) {
+                                am.killBackgroundProcesses(res.activityInfo.packageName);
+                            }
+                        }*/
+                        break;
+
+                    case 50:
+                        Intent intent50 = new Intent(MainActivity.this, SnackBarActivity.class);
+                        startActivity(intent50);
+                        break;
+
+                    case 51:
+                        Intent intent51 = new Intent(MainActivity.this, GuidePopTisActivity.class);
+                        startActivity(intent51);
+                        break;
+
+                    case 52:
+                        Intent intent52 = new Intent(MainActivity.this, MoneyCovertActivity.class);
+                        startActivity(intent52);
+                        break;
+
+
+                    case 53:
+                        Intent intent53 = new Intent(MainActivity.this, CountDownActivity.class);
+                        startActivity(intent53);
+                        break;
+
+                    case 54:
+                        Intent intent54 = new Intent(MainActivity.this, TestFlowLayoutActivity.class);
+                        startActivity(intent54);
+                        break;
+
+
+                    case 55:
+                        Intent intent55 = new Intent(MainActivity.this, CustomToastActivity.class);
+                        startActivity(intent55);
+                        break;
+
+                    case 56:
+                        Intent intent56 = new Intent(MainActivity.this, StateMainActivity.class);
+                        startActivity(intent56);
+                        break;
+
+                    case 57:
+                        Intent intent57 = new Intent(MainActivity.this, TestRetrofitActivity.class);
+                        startActivity(intent57);
+                        break;
                     default:
                         break;
                 }
@@ -397,5 +514,13 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        boolean permis = CommonUtil.isNotifyEnable(this);
+        Log.e("=====perm",permis+"");
+        Toast.makeText(this,""+permis,Toast.LENGTH_SHORT).show();
     }
 }

@@ -6,9 +6,12 @@ import android.content.pm.ApplicationInfo;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
+import android.support.v4.app.AppOpsManagerCompat;
+import android.support.v4.app.NotificationManagerCompat;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.Random;
 
 /**
  * Created by zenghao on 16/5/12.
@@ -39,7 +42,7 @@ public class CommonUtil {
 
         try {
 
-            appOpsClass = Class.forName(AppOpsManager.class.getName());
+            appOpsClass = Class.forName(AppOpsManagerCompat.class.getName());
 
             Method checkOpNoThrowMethod = appOpsClass.getMethod(CHECK_OP_NO_THROW, Integer.TYPE, Integer.TYPE, String.class);
 
@@ -59,7 +62,17 @@ public class CommonUtil {
         } catch (IllegalAccessException e) {
             e.printStackTrace();
         }
+        //NotificationManagerCompat.from(context).areNotificationsEnabled();
         return false;
+    }
+
+    /***
+     * 通知栏是否能显示
+     * @param context
+     * @return
+     */
+    public static boolean isNotifyEnable(Context context){
+        return NotificationManagerCompat.from(context).areNotificationsEnabled();
     }
 
 
@@ -90,6 +103,22 @@ public class CommonUtil {
             type = type.substring(0, semicolonIndex);
         }
         return type;
+    }
+
+    /**
+     * 随机获取指定库中的字符
+     * @param length
+     * @return
+     */
+    public static String getRandomString(int length) {
+        StringBuffer buffer = new StringBuffer("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ");
+        StringBuffer sb = new StringBuffer();
+        Random r = new Random();
+        int range = buffer.length();
+        for (int i = 0; i < length; i ++) {
+            sb.append(buffer.charAt(r.nextInt(range)));
+        }
+        return sb.toString();
     }
 
 }

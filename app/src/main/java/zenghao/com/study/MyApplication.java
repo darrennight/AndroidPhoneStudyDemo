@@ -1,5 +1,6 @@
 package zenghao.com.study;
 
+import com.facebook.stetho.Stetho;
 import zenghao.com.study.plugin.ReSkin.base.SkinBaseApplication;
 
 /**
@@ -12,6 +13,10 @@ public class MyApplication extends SkinBaseApplication {
     public void onCreate() {
         super.onCreate();
         mInstance = this;
+        //http://blog.csdn.net/sbsujjbcy/article/details/45420475
+        //http://www.jianshu.com/p/a7fdcb2641e8
+        //chrome://inspect/
+        Stetho.initializeWithDefaults(this);
     }
 
     public static MyApplication getApplication() {

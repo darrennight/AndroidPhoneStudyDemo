@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <!--app:childSpacing="auto | 10dp"-->
+    <zenghao.com.study.view.FlowLayout
+        android:id="@+id/flow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:childSpacing="auto"
+        app:rowSpacing="8dp"
+        />
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <zenghao.com.study.view.OkFlowLayout
+            android:id="@+id/flowlayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="-10dp"
+            android:paddingRight="-10dp"
+            app:lineSpacing="10dp"
+            app:maxLine="3"
+            android:background="#F0F0F0">
+
+        </zenghao.com.study.view.OkFlowLayout>
+    </ScrollView>
+
+
+        <TextView
+            android:id="@+id/btn_add_random"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:text="add"
+            android:padding="10dp"
+            android:background="#48a0a3"
+            android:layout_alignParentBottom="true"/>
+        <TextView
+            android:id="@+id/btn_remove_all"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/btn_add_random"
+            android:textAllCaps="false"
+            android:text="clean"
+            android:padding="10dp"
+            android:background="#48a0a3"
+            android:layout_marginLeft="5dp"
+            android:layout_alignParentBottom="true"/>
+        <TextView
+            android:id="@+id/btn_relayout1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/btn_remove_all"
+            android:textAllCaps="false"
+            android:text="compress"
+            android:padding="10dp"
+            android:background="#48a0a3"
+            android:layout_marginLeft="5dp"
+            android:layout_alignParentBottom="true"/>
+        <TextView
+            android:id="@+id/btn_relayout2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/btn_relayout1"
+            android:textAllCaps="false"
+            android:text="align"
+            android:padding="10dp"
+            android:background="#48a0a3"
+            android:layout_marginLeft="5dp"
+            android:layout_alignParentBottom="true"/>
+        <TextView
+            android:id="@+id/btn_specify_line"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/btn_relayout2"
+            android:textAllCaps="false"
+            android:text="line=3"
+            android:padding="10dp"
+            android:background="#48a0a3"
+            android:layout_marginLeft="5dp"
+            android:layout_alignParentBottom="true"/>
+
+    </RelativeLayout>
+</LinearLayout>

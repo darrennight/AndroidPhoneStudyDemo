@@ -25,4 +25,10 @@
 
     <color name="unselect">#FF2</color>
     <color name="select">#FF08</color>
+
+    <color name="cafebar_action_button_ripple">#44000000</color>
+    <color name="cafebar_action_button_ripple_dark">#44FFFFFF</color>
+
+    <color name="stfImageColor">#FF4081</color>
+
 </resources>

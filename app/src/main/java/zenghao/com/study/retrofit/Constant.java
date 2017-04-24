@@ -5,5 +5,5 @@ package zenghao.com.study.retrofit;
  * 常量配置
  */
 public class Constant {
-    public final static String APIHOST = "http://api.breadtrip.com/";
+    public final static String APIHOST = "http://54.223.185.144:8125/";
 }

@@ -26,6 +26,10 @@ import zenghao.com.study.R;
  * https://github.com/a1018875550/PermissionDispatcher
  * https://github.com/lypeer/FcPermissions
  * https://github.com/holidaycheck/Permissify
+ *
+ * 这个兼容国产手机问题参考
+ * https://github.com/yanzhenjie/AndPermission
+ * http://www.jianshu.com/p/cdcbd3038902?utm_source=gank.io&utm_medium=email
  */
 public class TestPermissionActivity extends AppCompatActivity{
 

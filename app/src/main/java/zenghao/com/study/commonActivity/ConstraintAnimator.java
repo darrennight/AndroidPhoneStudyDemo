@@ -86,9 +86,7 @@ public class ConstraintAnimator extends AppCompatActivity {
         applyConstraintSet.connect(R.id.button2, ConstraintSet.RIGHT, R.id.button3, ConstraintSet.LEFT, 0);
         applyConstraintSet.connect(R.id.button3, ConstraintSet.LEFT, R.id.button2, ConstraintSet.RIGHT, 0);
  
-        applyConstraintSet.createHorizontalChain(R.id.button1,
-                R.id.button3,
-                new int[]{R.id.button1, R.id.button3}, null, ConstraintWidget.CHAIN_PACKED);
+        //新sdk这句从新修改 applyConstraintSet.createHorizontalChain(R.id.button1,R.id.button3,new int[]{R.id.button1, R.id.button3}, null, ConstraintWidget.CHAIN_PACKED);
  
         applyConstraintSet.constrainWidth(R.id.button1, ConstraintSet.WRAP_CONTENT);
         applyConstraintSet.constrainWidth(R.id.button2, ConstraintSet.WRAP_CONTENT);

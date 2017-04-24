@@ -1,16 +1,28 @@
 package zenghao.com.study.activity;
 
 import android.Manifest;
+import android.annotation.TargetApi;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.drawable.BitmapDrawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.renderscript.Allocation;
+import android.renderscript.RenderScript;
+import android.renderscript.ScriptIntrinsicBlur;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.ViewTreeObserver;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.File;
@@ -27,12 +39,27 @@ public class PermissionActivity extends AppCompatActivity  {
 
     public static final int EXTERNAL_STORAGE_REQ_CODE = 10 ;
     private Button btn_write;
-
+    ImageView img;
+    TextView testtxt;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_permission);
         initView();
+
+         img = ((ImageView) findViewById(R.id.iv_blur));
+        testtxt = ((TextView) findViewById(R.id.tv_test));
+        img.getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener() {
+            @Override
+            public boolean onPreDraw() {
+                img.getViewTreeObserver().removeOnPreDrawListener(this);
+                img.buildDrawingCache();
+
+                Bitmap bmp = img.getDrawingCache();
+                blur(bmp, testtxt);
+                return true;
+            }
+        });
 
     }
 
@@ -115,6 +142,47 @@ public class PermissionActivity extends AppCompatActivity  {
         }
     }
 
+    @TargetApi(Build.VERSION_CODES.KITKAT)
+    private void blur(Bitmap bkg, View view) {
 
+        float scaleFactor = 1;
+        float radius = 20;
+
+        //scaleFactor = 8;
+        //radius = 2;
+
+        Bitmap overlay = Bitmap.createBitmap((int) (view.getMeasuredWidth() / scaleFactor),
+                (int) (view.getMeasuredHeight() / scaleFactor), Bitmap.Config.ARGB_8888);
+
+        Canvas canvas = new Canvas(overlay);
+
+        canvas.translate(-view.getLeft() / scaleFactor, -view.getTop() / scaleFactor);
+        canvas.scale(1 / scaleFactor, 1 / scaleFactor);
+        Paint paint = new Paint();
+        paint.setFlags(Paint.FILTER_BITMAP_FLAG);
+        canvas.drawBitmap(bkg, 0, 0, paint);
+
+        RenderScript rs = RenderScript.create(this);
+
+        Allocation overlayAlloc = Allocation.createFromBitmap(
+                rs, overlay);
+
+        ScriptIntrinsicBlur blur = ScriptIntrinsicBlur.create(
+                rs, overlayAlloc.getElement());
+
+        blur.setInput(overlayAlloc);
+
+        blur.setRadius(radius);
+
+        blur.forEach(overlayAlloc);
+
+        overlayAlloc.copyTo(overlay);
+
+        view.setBackground(new BitmapDrawable(
+                getResources(), overlay));
+
+        rs.destroy();
+
+    }
 
 }

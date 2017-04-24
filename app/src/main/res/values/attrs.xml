@@ -112,4 +112,32 @@
     <declare-styleable name="ConvenientBanner">
         <attr name="canLoop" format="boolean" />
     </declare-styleable>
+
+    <declare-styleable name="FlowLayout">
+        <attr name="flow" format="boolean"/>
+        <attr name="childSpacing" format="enum|dimension">
+            <enum name="auto" value="-65536"/>
+        </attr>
+        <attr name="childSpacingForLastRow" format="enum|dimension">
+            <enum name="auto" value="-65536"/>
+            <enum name="align" value="-65537"/>
+        </attr>
+        <attr name="rowSpacing" format="enum|dimension">
+            <enum name="auto" value="-65536"/>
+        </attr>
+        <attr name="rtl" format="boolean"/>
+    </declare-styleable>
+
+
+
+    <declare-styleable name="OkFlowLayout">
+        <attr name="lineSpacing" format="dimension" />
+        <attr name="maxLine" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="stfStatefulLayout">
+        <attr name="stfAnimationEnabled" format="boolean" />
+        <attr name="stfInAnimation" format="reference" />
+        <attr name="stfOutAnimation" format="reference" />
+    </declare-styleable>
 </resources>

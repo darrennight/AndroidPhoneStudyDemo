@@ -2,6 +2,7 @@ package zenghao.com.study.retrofit;
 
 import java.util.Map;
 
+import java.util.Objects;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
@@ -114,4 +115,14 @@ public interface TestApi {
 //    params.put("picture\"; filename=\"" + picture.getName() + "", requestFile);
 //    //调接口
 //    create(pictureNameBody, params);
+
+
+
+
+    @GET("check_update/")
+    Call<Object> getcheckUpdate();
+
+
+    @GET("/mobilesafe/shouji360/360safesis/360MobileSafe_6.2.3.1060.apk")
+    Call<ResponseBody> retrofitDownload();
 }
