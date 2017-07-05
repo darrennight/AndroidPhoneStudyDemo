@@ -1,5 +1,6 @@
 package zenghao.com.study;
 
+import android.support.multidex.MultiDex;
 import com.facebook.stetho.Stetho;
 import zenghao.com.study.plugin.ReSkin.base.SkinBaseApplication;
 
@@ -17,6 +18,7 @@ public class MyApplication extends SkinBaseApplication {
         //http://www.jianshu.com/p/a7fdcb2641e8
         //chrome://inspect/
         Stetho.initializeWithDefaults(this);
+        MultiDex.install(this);
     }
 
     public static MyApplication getApplication() {

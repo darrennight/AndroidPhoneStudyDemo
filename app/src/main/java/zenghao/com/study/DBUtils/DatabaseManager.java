@@ -6,7 +6,7 @@ import android.util.Log;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
- * 多现场并发数据库处理
+ * 多线程并发数据库处理
  */
 public class DatabaseManager {
 

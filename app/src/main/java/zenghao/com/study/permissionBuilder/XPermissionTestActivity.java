@@ -33,7 +33,8 @@ public class XPermissionTestActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                XPermissions.requestPermissions().setRequestCode(203).setShouldShow(false).setPermissions(new String[]{
+                XPermissions.requestPermissions().setRequestCode(203)
+                        .setShouldShow(false).setPermissions(new String[]{
                         //Manifest.permission.READ_PHONE_STATE
                         Manifest.permission.WRITE_EXTERNAL_STORAGE,
                         Manifest.permission.CAMERA}).setOnXPermissionsListener(new XPermissionsListener() {

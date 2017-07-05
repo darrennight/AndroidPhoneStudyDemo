@@ -56,6 +56,9 @@ import zenghao.com.study.R;
  *
  * 下载框架okhttp使用 架构感觉可以没有仔细看
  * https://github.com/Othershe/DUtil
+ *
+ * 很好下载框架 没有研究找时间研究
+ * https://github.com/AriaLyy/Aria
  */
 //TODO 尝试拆分info 回调更好方式实现 存储进度到数据库时机和位置 目前是单任务单线程 尝试单任务多线程(一个线程里面三个http请求例如:https://github.com/AigeStudio/MultiThreadDownloader)等
 //TODO 通过contentProvider 存储 contentObserver监听数据库变化 读取数据库 差分发(recycler)局部更新

@@ -9,9 +9,11 @@ import android.content.pm.ResolveInfo;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.util.SparseArray;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -23,12 +25,15 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
+import zenghao.com.study.DBUtils.use.TestDBFrameActivity;
+import zenghao.com.study.DaemonService.TestDaemonActivity;
 import zenghao.com.study.DownLoad.DownLoadActivity;
 import zenghao.com.study.DownLoadV2.DownLoadV2ActivityV2;
 import zenghao.com.study.IME.TestHideIme;
 import zenghao.com.study.IME.TestHideIme2;
 import zenghao.com.study.IPC.Service.TestMutilProcessActivity;
 import zenghao.com.study.Loader.TestLoaderActivity;
+import zenghao.com.study.PullFresh.method1.activity.PullFreshMainActivity;
 import zenghao.com.study.RX.RXTestActivity;
 import zenghao.com.study.RecyclerViewDemo.TestDiffUtilActivity;
 import zenghao.com.study.RxBus.RXBusMainActivity;
@@ -50,6 +55,7 @@ import zenghao.com.study.adapter.LVCommon.TestListCommonActivity;
 import zenghao.com.study.adapter.MyAdapter;
 import zenghao.com.study.banner.BannerActivity;
 import zenghao.com.study.bottomManger.BottomMangerActivity;
+import zenghao.com.study.bottomManger.other.BottomMangerOtherActivity;
 import zenghao.com.study.commonActivity.CaptureVideoActivity;
 import zenghao.com.study.commonActivity.ChangeBgColor;
 import zenghao.com.study.commonActivity.CommonModifyActivity;
@@ -64,11 +70,13 @@ import zenghao.com.study.commonActivity.MoneyCovertActivity;
 import zenghao.com.study.commonActivity.RoundProgress;
 import zenghao.com.study.commonActivity.SnackBarActivity;
 import zenghao.com.study.commonActivity.TestConstraintLayoutActivity;
+import zenghao.com.study.commonActivity.TestFileProviderActivity;
 import zenghao.com.study.commonActivity.TestFlowLayoutActivity;
 import zenghao.com.study.commonActivity.TestPercentLayoutActivity;
 import zenghao.com.study.commonActivity.ThemeActivity;
 import zenghao.com.study.holdStyle.HoldMainActivity;
 import zenghao.com.study.lazyFragment.LazyFragmentActivity;
+import zenghao.com.study.listActivityFragment.ListMainActvity;
 import zenghao.com.study.listStatusSwitch.LoadingActivity;
 import zenghao.com.study.listStatusSwitch.state.StateMainActivity;
 import zenghao.com.study.localImageVideo.LocalImageActivity;
@@ -198,6 +206,12 @@ public class MainActivity extends AppCompatActivity {
         list.add("55自定义toast");
         list.add("56页面加载状态切换");
         list.add("57retrofit+APK升级");
+        list.add("58daemon保活长驻");
+        list.add("59底部导航框架");
+        list.add("60刷新加载更多");
+        list.add("61内容列表框架封装");
+        list.add("62数据库框架");
+        list.add("63Android7.0FileProvider兼容问题");
 
         adapter = new MyAdapter(this,list);
         mListView.setAdapter(adapter);
@@ -480,6 +494,37 @@ public class MainActivity extends AppCompatActivity {
                     case 57:
                         Intent intent57 = new Intent(MainActivity.this, TestRetrofitActivity.class);
                         startActivity(intent57);
+                        break;
+
+                    case 58:
+                        Intent intent58 = new Intent(MainActivity.this, TestDaemonActivity.class);
+                        startActivity(intent58);
+                        break;
+
+                    case 59:
+                        Intent intent59 = new Intent(MainActivity.this, BottomMangerOtherActivity.class);
+                        startActivity(intent59);
+                        break;
+
+                    case 60:
+                        Intent intent60 = new Intent(MainActivity.this, PullFreshMainActivity.class);
+                        startActivity(intent60);
+                        break;
+
+                    case 61:
+                        Intent intent61 = new Intent(MainActivity.this, ListMainActvity.class);
+                        startActivity(intent61);
+                        break;
+
+                    case 62:
+                        Intent intent62 = new Intent(MainActivity.this, TestDBFrameActivity.class);
+                        startActivity(intent62);
+                        break;
+
+
+                    case 63:
+                        Intent intent63 = new Intent(MainActivity.this, TestFileProviderActivity.class);
+                        startActivity(intent63);
                         break;
                     default:
                         break;

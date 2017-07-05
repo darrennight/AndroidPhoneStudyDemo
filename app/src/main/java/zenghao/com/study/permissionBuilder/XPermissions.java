@@ -107,7 +107,7 @@ public class XPermissions {
 	    		 */
 	    		shouldMap.put(permission, isShould);
 	    		
-	    		deniedList.add(permission);
+	    		deniedList.add(permission);//拒绝的
 	    		
 	    		if(isShould){
 	    			//保存可以重试获取的权限
@@ -128,7 +128,7 @@ public class XPermissions {
 	    	for(Entry<String, Boolean> entry : shouldMap.entrySet()){
 	    		
 	    		if(false == entry.getValue()){
-	    			
+	    			//改权限的提示框不能展示出来
 	    			//打开应用的设置界面去打开权限
 	    			
 	    			new Tips(activity).setTitle("去设置权限").setMessage(PermissionsHelper.getPermissionMsg(activity,deniedList))
@@ -161,7 +161,7 @@ public class XPermissions {
 				@Override
 				public void onOk() {
 					// TODO Auto-generated method stub
-
+						//重试刚刚申请的权限
 					    permissionsBuilder.setRequestCode(requestCode);
 					    permissionsBuilder.setPermissions(shouldShowList.toArray(new String[shouldShowList.size()]));
 					    permissionsBuilder.setShouldShow(false);

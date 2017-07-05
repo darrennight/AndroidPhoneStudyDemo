@@ -16,6 +16,9 @@
     <uses-permission android:name="android.permission.GET_TASKS" />
     <uses-permission android:name="android.permission.REAL_GET_TASKS" />
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
     <uses-permission xmlns:tools="http://schemas.android.com/tools"
                      android:name="android.permission.PACKAGE_USAGE_STATS"
                      tools:ignore="ProtectedPermissions" />
@@ -176,6 +179,120 @@
         <activity android:name=".listStatusSwitch.state.StateMainActivity"/>
         <activity android:name=".retrofit.TestRetrofitActivity"/>
         <service android:name=".retrofit.updateApk.DownLoadService"/>
+
+        <!--支付宝-->
+        <activity
+            android:name="com.alipay.sdk.app.H5PayActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:exported="false"
+            android:screenOrientation="behind" >
+        </activity>
+        <activity
+            android:name="com.alipay.sdk.auth.AuthActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:exported="false"
+            android:screenOrientation="behind" >
+        </activity>
+
+        <!--保活相关测试 start-->
+
+        <receiver
+            android:name=".DaemonService.WakeReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.wake.gray" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name=".DaemonService.WhiteService"
+            android:enabled="true"
+            android:exported="true"
+            android:process=":white" />
+        <service
+            android:name=".DaemonService.GrayService"
+            android:enabled="true"
+            android:exported="true"
+            android:process=":gray" />
+        <service
+            android:name=".DaemonService.GrayService$GrayInnerService"
+            android:enabled="true"
+            android:exported="true"
+            android:process=":gray" />
+        <service
+            android:name=".DaemonService.BackgroundService"
+            android:enabled="true"
+            android:exported="true"
+            android:process=":bg" />
+        <service
+            android:name=".DaemonService.WakeReceiver$WakeNotifyService"
+            android:enabled="true"
+            android:exported="true" />
+
+        <service
+            android:name=".DaemonService.WakeReceiver$WakeGrayInnerService"
+            android:enabled="true"
+            android:exported="true" />
+        <activity android:name=".DaemonService.TestDaemonActivity"/>
+
+        <receiver android:name=".DaemonService.TestPresentReceiver">
+            <intent-filter android:priority="90000">
+                <action android:name="android.intent.action.USER_PRESENT" />
+            </intent-filter>
+        </receiver>
+
+
+        <!--保活相关测试 end-->
+
+
+        <activity android:name=".bottomManger.other.BottomMangerOtherActivity"/>
+
+        <activity android:name=".PullFresh.method1.activity.PullFreshMainActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".PullFresh.method1.activity.Demo1Activity"
+            android:theme="@style/AppTheme.NoActionBar"
+            />
+        <activity android:name=".PullFresh.method1.activity.Demo2Activity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".PullFresh.method1.activity.Demo3Activity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".PullFresh.method1.activity.Demo4Activity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".PullFresh.method1.activity.Demo5Activity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".PullFresh.method1.activity.Demo6Activity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".PullFresh.method1.activity.Demo7Activity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".PullFresh.method1.activity.Demo8Activity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".PullFresh.method1.activity.TestActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".PullFresh.method1.activity.WarningActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
+        <activity android:name=".listActivityFragment.ListMainActvity"/>
+
+        <provider
+            android:name="zenghao.com.study.DBUtils.use.SampleDB"
+            android:authorities="sampledb"
+            android:exported="false"/>
+
+        <activity android:name=".DBUtils.use.TestDBFrameActivity"/>
+
+        <!--7.0file://文件共享-->
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="${applicationId}.android7.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <activity android:name=".commonActivity.TestFileProviderActivity"/>
 
     </application>
 

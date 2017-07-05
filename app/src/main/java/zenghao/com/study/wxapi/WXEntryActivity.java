@@ -45,7 +45,7 @@ public class WXEntryActivity extends Activity implements IWXAPIEventHandler {
             try {
                 this.mWXRequest.getWXEventHandler().onResp(baseResp);
             } catch (Exception var3) {
-                ;
+
             }
         }
 

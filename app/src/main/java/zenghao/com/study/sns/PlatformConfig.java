@@ -19,6 +19,7 @@ public class PlatformConfig {
         configs.put(PlatformType.WEIXIN_CIRCLE, new PlatformConfig.Weixin(PlatformType.WEIXIN_CIRCLE));
         configs.put(PlatformType.QQ, new PlatformConfig.QQ(PlatformType.QQ));
         configs.put(PlatformType.SINA_WB, new PlatformConfig.SinaWeiBo(PlatformType.SINA_WB));
+        configs.put(PlatformType.ALIPAY, new PlatformConfig.SinaWeiBo(PlatformType.ALIPAY));
     }
 
 
@@ -110,6 +111,19 @@ public class PlatformConfig {
     public static void setSinaWB(String appKey) {
         PlatformConfig.SinaWeiBo sinaWB = (PlatformConfig.SinaWeiBo)configs.get(PlatformType.SINA_WB);
         sinaWB.appKey = appKey;
+    }
+
+
+    public static class AliPay implements PlatformConfig.Platform{
+        private final PlatformType mPlatformType;
+        public AliPay(PlatformType type) {
+            this.mPlatformType = type;
+        }
+
+        @Override
+        public PlatformType getPlatformType() {
+            return mPlatformType;
+        }
     }
 
     public static Platform getPlatformConfig(PlatformType platformType) {

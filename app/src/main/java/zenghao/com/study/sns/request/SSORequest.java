@@ -5,7 +5,9 @@ import android.content.Context;
 import android.content.Intent;
 import zenghao.com.study.sns.PlatformConfig;
 import zenghao.com.study.sns.listener.AuthListener;
+import zenghao.com.study.sns.listener.PayListener;
 import zenghao.com.study.sns.listener.SNSShareListener;
+import zenghao.com.study.sns.pay.IPayInfo;
 import zenghao.com.study.sns.share.ISNSShareConent;
 
 /**
@@ -18,6 +20,7 @@ public abstract class SSORequest {
 
     public static final int SHARE_TYPE = 0;
     public static final int LOGIN_TYPE = 1;
+    public static final int PAY_TYPE = 2;
 
     /**
      * 初始化
@@ -42,6 +45,10 @@ public abstract class SSORequest {
      * @param shareListener 分享回调
      */
     public void share(Activity activity, ISNSShareConent shareMedia, SNSShareListener shareListener) {
+
+    }
+
+    public void pay(Context context ,IPayInfo info,PayListener payListener){
 
     }
 

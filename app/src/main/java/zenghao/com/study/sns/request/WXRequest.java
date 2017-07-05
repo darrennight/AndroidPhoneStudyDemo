@@ -11,24 +11,30 @@ import com.tencent.mm.sdk.modelmsg.SendMessageToWX;
 import com.tencent.mm.sdk.modelmsg.WXMediaMessage;
 import com.tencent.mm.sdk.modelmsg.WXTextObject;
 import com.tencent.mm.sdk.modelmsg.WXWebpageObject;
+import com.tencent.mm.sdk.modelpay.PayReq;
+import com.tencent.mm.sdk.modelpay.PayResp;
 import com.tencent.mm.sdk.openapi.IWXAPI;
 import com.tencent.mm.sdk.openapi.IWXAPIEventHandler;
 import com.tencent.mm.sdk.openapi.WXAPIFactory;
 import java.util.HashMap;
 import java.util.Map;
 import zenghao.com.study.R;
+import zenghao.com.study.retrofit.Constant;
 import zenghao.com.study.sns.PlatformConfig;
 import zenghao.com.study.sns.PlatformType;
 import zenghao.com.study.sns.config.AppConfig;
 import zenghao.com.study.sns.listener.AuthListener;
+import zenghao.com.study.sns.listener.PayListener;
 import zenghao.com.study.sns.listener.SNSShareListener;
+import zenghao.com.study.sns.pay.IPayInfo;
+import zenghao.com.study.sns.pay.WXPayInfo;
 import zenghao.com.study.sns.share.ISNSShareConent;
 import zenghao.com.study.sns.share.ShareTextContent;
 import zenghao.com.study.sns.share.ShareWebContent;
 import zenghao.com.study.util.BitmapUtils;
 
 /**
- * 微信登陆相关
+ * 微信登陆分享相关
  *
  * @author zenghao
  * @since 16/9/26 下午5:56
@@ -39,6 +45,7 @@ public class WXRequest extends SSORequest {
     private IWXAPIEventHandler mEventHandler;
     private AuthListener mAuthListener;
     private SNSShareListener mShareListener;
+    private PayListener mPayListener;
     private PlatformConfig.Weixin mConfig;
     private IWXAPI mWXApi;
     private String mScope = "snsapi_userinfo";
@@ -64,7 +71,9 @@ public class WXRequest extends SSORequest {
                     case ConstantsAPI.COMMAND_SENDMESSAGE_TO_WX:        //分享返回
                         onShareCallback((SendMessageToWX.Resp) baseResp);
                         break;
-
+                    case ConstantsAPI.COMMAND_PAY_BY_WX://支付回调
+                        onPayCallback(((PayResp) baseResp));
+                        break;
                     default:
                         break;
                 }
@@ -123,7 +132,7 @@ public class WXRequest extends SSORequest {
         this.mShareListener = shareListener;
 
         if (!isInstall()) {
-            this.mShareListener.onError(this.mConfig.getPlatformType(),"没有按照");
+            this.mShareListener.onError(this.mConfig.getPlatformType(),"没有安装");
             return;
         }
 
@@ -235,5 +244,52 @@ public class WXRequest extends SSORequest {
                 }
                 break;
         }
+    }
+    /**支付回调*/
+    protected void onPayCallback(PayResp resp){
+        switch (resp.errCode) {
+            case BaseResp.ErrCode.ERR_OK:       //支付成功
+                if (this.mShareListener != null) {
+                    this.mShareListener.onComplete(this.mConfig.getPlatformType());
+                }
+                break;
+
+            case BaseResp.ErrCode.ERR_USER_CANCEL:      //支付取消
+                if (this.mShareListener != null) {
+                    this.mShareListener.onCancel(this.mConfig.getPlatformType());
+                }
+                break;
+
+            default:    //支付失败
+                if (mShareListener != null) {
+                    mShareListener.onError(this.mConfig.getPlatformType(), resp.errStr);
+                }
+                break;
+        }
+    }
+
+
+
+
+    @Override
+    public void pay(Context context, IPayInfo info, PayListener payListener) {
+        super.pay(context, info, payListener);
+        mPayListener = payListener;
+        if(!isInstall()){
+            mPayListener.onError(this.mConfig.getPlatformType(),"没有安装");
+            return;
+        }
+        WXPayInfo payInfo = ((WXPayInfo) info);
+
+        PayReq req = new PayReq();
+        req.appId = TextUtils.isEmpty(this.mConfig.appId) ? AppConfig.APP_ID : this.mConfig.appId;
+        req.sign = payInfo.getSign();
+        req.nonceStr = payInfo.getNonceStr();
+        req.packageValue = payInfo.getPackageValue();
+        req.partnerId = payInfo.getPartnerId();
+        req.prepayId = payInfo.getPrepayId();
+        req.timeStamp = payInfo.getTimeStamp();
+        mWXApi.sendReq(req);
+
     }
 }

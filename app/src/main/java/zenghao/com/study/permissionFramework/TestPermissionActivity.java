@@ -17,12 +17,12 @@ import zenghao.com.study.R;
 /**
  * Created by zenghao on 16/7/29.
  * 参考资料
- * https://github.com/anthonycr/Grant/blob/master/sample/src/main/java/com/anthonycr/sample/MainActivity.java
- * https://github.com/k0shk0sh/PermissionHelper/blob/master/permission/src/main/java/com/fastaccess/permission/base/PermissionHelper.java
- *https://github.com/googlesamples/android-RuntimePermissions/blob/master/Application/src/main/java/com/example/android/system/runtimepermissions/RuntimePermissionsFragment.java
- *https://github.com/lovedise/PermissionGen/blob/master/permissiongen/src/main/java/kr/co/namee/permissiongen/PermissionGen.java
+ * https://github.com/anthonycr/Grant
+ * https://github.com/k0shk0sh/PermissionHelper
+ *https://github.com/googlesamples/android-RuntimePermissions
+ *https://github.com/lovedise/PermissionGen
  * https://github.com/baiiu/BlogCode/blob/master/app/src/main/java/com/baiiu/blogcode/MPermission/permission/EasyPermission.java
- *https://github.com/tbruyelle/RxPermissions/blob/master/lib/src/main/java/com/tbruyelle/rxpermissions/RxPermissions.java
+ *https://github.com/tbruyelle/RxPermissions
  * https://github.com/a1018875550/PermissionDispatcher
  * https://github.com/lypeer/FcPermissions
  * https://github.com/holidaycheck/Permissify

@@ -9,6 +9,7 @@ import android.view.View;
 import zenghao.com.study.R;
 
 /**
+ * https://github.com/bufferapp/AdaptableBottomNavigation
  * Created by zenghao on 16/7/14.
  * 底部导航＋fragment整体框架使用
  */

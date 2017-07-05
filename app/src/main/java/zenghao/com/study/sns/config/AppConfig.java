@@ -24,4 +24,6 @@ public class AppConfig {
     public static final String QQ_APP_ID = "100411421";
 
     public final static String SALT = "2fwf*#&*2j32_sd";
+
+    public final static String ALIPAY_NOTIFY = "http://%s/payment/alipay/wap/notify/%s/";
 }

@@ -10,8 +10,11 @@ import com.tencent.connect.common.Constants;
 import zenghao.com.study.sns.request.SinaRequest;
 
 /**
+ * SINASDK有更新
  *用于SNS分享的基类activity
- * 需要分享的activity继承此类
+ * 需要分享的activity继承此类 哪个activity里面需要分享继承此类 活着这些写在baseActively里面
+ * 或者启动这个activity来分享 分享相关在这里调用
+ * 或者该activity继承baseactivity 需要分享的继承该activity
  * @author zenghao
  * @since 16/9/29 下午3:39
  * 需要分享功能的activity需要在清单文件添加
@@ -51,6 +54,7 @@ public class SNSShareActivity extends Activity implements IWeiboHandler.Response
     @Override
     public void onResponse(BaseResponse baseResponse) {
         ((SinaRequest)BreadtripSocialApi.get(this).getSSORequest(PlatformType.SINA_WB)).onResponse(baseResponse);
+        finish();
     }
 
 

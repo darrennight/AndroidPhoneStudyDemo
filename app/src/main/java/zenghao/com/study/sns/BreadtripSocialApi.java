@@ -2,10 +2,15 @@ package zenghao.com.study.sns;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import java.util.HashMap;
 import java.util.Map;
 import zenghao.com.study.sns.listener.AuthListener;
+import zenghao.com.study.sns.listener.PayListener;
 import zenghao.com.study.sns.listener.SNSShareListener;
+import zenghao.com.study.sns.pay.IPayInfo;
+import zenghao.com.study.sns.pay.PayAcitivity;
+import zenghao.com.study.sns.request.AlipayRequest;
 import zenghao.com.study.sns.request.QQRequest;
 import zenghao.com.study.sns.request.SSORequest;
 import zenghao.com.study.sns.request.SinaRequest;
@@ -13,6 +18,7 @@ import zenghao.com.study.sns.request.WXRequest;
 import zenghao.com.study.sns.share.ISNSShareConent;
 
 /**
+ * 注意各个API混淆问题
  *SNS使用API
  * 分享继承SNSShareActivity
  * @author zenghao
@@ -37,7 +43,8 @@ import zenghao.com.study.sns.share.ISNSShareConent;
  * http://open.weibo.com/wiki/%E6%8E%88%E6%9D%83%E6%9C%BA%E5%88%B6
  * https://github.com/sinaweibosdk/weibo_android_sdk
  *
- *
+ * 支付宝
+ * https://doc.open.alipay.com/docs/doc.htm?spm=a219a.7629140.0.0.rYUuVE&treeId=204&articleId=105296&docType=1
  *
  * 框架借鉴
  * https://github.com/xinzy/Social-lib
@@ -48,6 +55,8 @@ import zenghao.com.study.sns.share.ISNSShareConent;
  *
  * https://github.com/shaohui10086/ShareUtil
  * https://github.com/lingochamp/ShareLoginLib
+ *
+ * https://github.com/mayubao/Android-Pay
  */
 public class BreadtripSocialApi {
 
@@ -89,6 +98,8 @@ public class BreadtripSocialApi {
                 case SINA_WB:
                     mMapSSORequest.put(platformType, new SinaRequest());
                     break;
+                case ALIPAY:
+                    mMapSSORequest.put(platformType,new AlipayRequest());
                 default:
                     break;
             }
@@ -123,6 +134,30 @@ public class BreadtripSocialApi {
         ssoHandler.init(mContext, PlatformConfig.getPlatformConfig(platformType));
         ssoHandler.actionType(SSORequest.SHARE_TYPE);
         ssoHandler.share(activity, shareMedia, shareListener);
+    }
+
+    /***
+     * 第三方支付跳转到支付界面 需要输入支付金额
+     * @param context
+     */
+    public void doPayLaunch(Context context){
+        Intent intent = new Intent(context, PayAcitivity.class);
+        context.startActivity(intent);
+    }
+
+
+    /**
+     * 第三方支付 不需要输入金额直接支付
+     * @param context
+     * @param platformType
+     * @param info
+     * @param listener
+     */
+    public void doPay(Context context,PlatformType platformType,IPayInfo info,PayListener listener){
+        SSORequest ssoHandler = getSSORequest(platformType);
+        ssoHandler.init(mContext,PlatformConfig.getPlatformConfig(platformType));
+        ssoHandler.actionType(SSORequest.PAY_TYPE);
+        ssoHandler.pay(context,info,listener);
     }
 
 

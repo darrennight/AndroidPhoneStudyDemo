@@ -3,6 +3,7 @@ package zenghao.com.study.MVP.presenter;
 import android.content.Context;
 
 /***
+ * 通用形式
  * presenter 用泛型 不用写多个IPresenter
  * @param <E>
  * @param <T>

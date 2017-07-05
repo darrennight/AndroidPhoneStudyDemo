@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--name：uri路径片段。为了执行安全，这个值隐藏你所共享的子目录名。此值的子目录名包含在路径属性中。
+    path：你所共享的子目录。虽然name属性是一个URI路径片段，但是path是一个真实的子目录名。注意，path是一个子目录，而不是单个文件或者多个文件。-->
+
+    <!--path里面填写内容代表该路径下的子路径-->
+
+    <!---->
+    <root-path
+        name="root"
+        path="" />
+
+    <!--Context.getFileDir() + ／-->
+    <files-path
+        name="files"
+        path="" />
+
+    <!--Context.getCacheDir() + ／-->
+    <cache-path
+        name="cache"
+        path="" />
+    <!--sdcard Environment.getExternalStorageDirectory() + /-->
+    <external-path
+        name="external"
+        path="" />
+    <!--Context.getExternalFilesDir(String) + /-->
+    <external-files-path
+        name="external_file_path"
+        path="" />
+    <!--Context.getExternalCacheDir() + /-->
+    <external-cache-path
+        name="external_cache_path"
+        path="" />
+
+</paths>
