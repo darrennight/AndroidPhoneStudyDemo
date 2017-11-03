@@ -61,6 +61,7 @@ import zenghao.com.study.commonActivity.ChangeBgColor;
 import zenghao.com.study.commonActivity.CommonModifyActivity;
 import zenghao.com.study.commonActivity.CountDownActivity;
 import zenghao.com.study.commonActivity.CustomToastActivity;
+import zenghao.com.study.commonActivity.DeepScrollViewActivity;
 import zenghao.com.study.commonActivity.EditTextContactsActivity;
 import zenghao.com.study.commonActivity.FullScreenActivity;
 import zenghao.com.study.commonActivity.GuidePopTisActivity;
@@ -212,9 +213,11 @@ public class MainActivity extends AppCompatActivity {
         list.add("61内容列表框架封装");
         list.add("62数据库框架");
         list.add("63Android7.0FileProvider兼容问题");
+        list.add("64scrollview");
 
         adapter = new MyAdapter(this,list);
         mListView.setAdapter(adapter);
+        mListView.setSelection(list.size()-1);
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -525,6 +528,11 @@ public class MainActivity extends AppCompatActivity {
                     case 63:
                         Intent intent63 = new Intent(MainActivity.this, TestFileProviderActivity.class);
                         startActivity(intent63);
+                        break;
+
+                    case 64:
+                        Intent intent64 = new Intent(MainActivity.this, DeepScrollViewActivity.class);
+                        startActivity(intent64);
                         break;
                     default:
                         break;

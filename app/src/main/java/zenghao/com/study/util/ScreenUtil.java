@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Point;
 import android.os.Build;
+import android.util.DisplayMetrics;
 import android.view.ViewConfiguration;
 
 import java.lang.reflect.Field;
@@ -12,12 +13,17 @@ import java.lang.reflect.Method;
 
 public class ScreenUtil {
  
-    private int getScreenHight(Activity activity) {
+    public static int getScreenHight(Activity activity) {
         // 获取屏幕高 
         Point point = new Point();
         activity.getWindowManager().getDefaultDisplay().getSize(point);
         return point.y + (isMeizu() ? 0 : getNavigationBarHeight(activity));
-    } 
+    }
+
+    public static int getSHight(Context context){
+        DisplayMetrics dm =  context.getResources().getDisplayMetrics();
+        return dm.heightPixels;
+    }
  
     /** 
      * 获取虚拟按键栏高度 

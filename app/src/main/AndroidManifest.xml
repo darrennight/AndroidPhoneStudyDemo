@@ -32,16 +32,31 @@
         android:supportsRtl="true"
         android:name=".MyApplication"
         android:theme="@style/AppTheme">
-        <activity
-            android:name=".MainActivity"
+
+        <activity android:name=".SplashActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/Theme.Center">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+
+
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar">
+            <!--<intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>-->
+        </activity>
+
+
+
         <activity android:name=".activity.PermissionActivity"/>
         <activity android:name=".activity.ItemListActivity"/>
         <activity android:name=".activity.TestNotificationCompat"/>
@@ -293,7 +308,12 @@
         </provider>
 
         <activity android:name=".commonActivity.TestFileProviderActivity"/>
-
+        <activity android:name=".listActivityFragment.sample.SampleListActivity"/>
+        <activity android:name=".listActivityFragment.sample.HomeActivity"/>
+        <activity android:name=".listActivityFragment.sample.SampleListFragmentActivity"/>
+        <activity android:name=".listActivityFragment.sample.SampleSectionListActivity"/>
+        <activity android:name=".listActivityFragment.sample.SampleSectionListFragmentActivity"/>
+        <activity android:name=".commonActivity.DeepScrollViewActivity"/>
     </application>
 
 

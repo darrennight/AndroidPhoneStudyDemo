@@ -15,4 +15,13 @@
     <item name="cafebar_button_neutral" type="id"/>
 
     <item name="high_light_view" type="id"/>
+
+
+
+
+    <item name="toolbar" type="id" />
+    <item name="toolbar_title" type="id" />
+    <item name="swipeRefreshLayout" type="id" />
+    <item name="recyclerView" type="id" />
+    <item name="pullRecycler" type="id" />
 </resources>

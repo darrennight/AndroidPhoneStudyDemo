@@ -1,5 +1,6 @@
 package zenghao.com.study.viewpager;
 
+import android.annotation.SuppressLint;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -108,7 +109,7 @@ public class MyFragment1Adapter extends FragmentPagerAdapter {
         }
 
     }
-
+    @SuppressLint("RestrictedApi")
     public void updateViewTwo(){
         List<Fragment> fragments =   manager.getFragments();
         if(fragments!=null && !fragments.isEmpty()){
