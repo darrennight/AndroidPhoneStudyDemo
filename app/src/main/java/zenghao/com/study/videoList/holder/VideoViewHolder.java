@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.OnClick;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
@@ -28,16 +28,16 @@ import zenghao.com.study.videoList.widget.TextureVideoView;
 public class VideoViewHolder extends BaseViewHolder<VideoItem>
         implements VideoLoadMvpView, ViewPropertyAnimatorListener, ListItem {
  
-    @Bind(R.id.video_view)
+    @BindView(R.id.video_view)
     public TextureVideoView videoView;
  
-    @Bind(R.id.video_text)
+    @BindView(R.id.video_text)
     public TextView videoTitle;
  
-    @Bind(R.id.video_cover)
+    @BindView(R.id.video_cover)
     public ImageView videoCover;
- 
-    @Bind(R.id.video_progress)
+
+    @BindView(R.id.video_progress)
     public CircularProgressBar progressBar;
  
     private int videoState = STATE_IDLE;

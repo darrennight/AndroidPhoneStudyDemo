@@ -156,4 +156,88 @@
         <attr name="header" format="reference"/>
         <attr name="footer" format="reference"/>
     </declare-styleable>
+
+    <declare-styleable name="pickerview">
+        <attr name="pickerview_gravity">
+            <enum name="center" value="17"/>
+            <enum name="left" value="3"/>
+            <enum name="right" value="5"/>
+        </attr>
+        <attr name="pickerview_textSize" format="dimension"/>
+        <attr name="pickerview_textColorOut" format="color"/>
+        <attr name="pickerview_textColorCenter" format="color"/>
+        <attr name="pickerview_dividerColor" format="color"/>
+        <attr name="pickerview_lineSpacingMultiplier" format="float"/>
+    </declare-styleable>
+
+    <declare-styleable name="SaleProgressView">
+        <attr name="sideColor" format="color" />
+        <attr name="textColor" format="color" />
+        <attr name="sideWidth" format="dimension" />
+        <attr name="overText" format="string" />
+        <attr name="nearOverText" format="string" />
+        <attr name="textSize" format="dimension" />
+        <attr name="isNeedAnim" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="ClassifyView">
+        <attr name="SubRatio" format="fraction"/>
+        <attr name="MainSpanCount" format="integer"/>
+        <attr name="SubSpanCount" format="integer"/>
+        <attr name="ShadowColor" format="color"/>
+        <attr name="AnimationDuration" format="integer"/>
+        <attr name="EdgeWidth" format="dimension"/>
+        <attr name="MainPaddingLeft" format="dimension"/>
+        <attr name="MainPaddingTop" format="dimension"/>
+        <attr name="MainPaddingRight" format="dimension"/>
+        <attr name="MainPaddingBottom" format="dimension"/>
+        <attr name="MainPadding" format="dimension"/>
+        <attr name="MainClipToPadding" format="boolean"/>
+        <attr name="SubPaddingLeft" format="dimension"/>
+        <attr name="SubPaddingTop" format="dimension"/>
+        <attr name="SubPaddingRight" format="dimension"/>
+        <attr name="SubPaddingBottom" format="dimension"/>
+        <attr name="SubPadding" format="dimension"/>
+        <attr name="SubClipToPadding" format="boolean"/>
+        <attr name="DragScaleX" format="float"/>
+        <attr name="DragScaleY" format="float"/>
+        <attr name="DragInMergeScaleX" format="float"/>
+        <attr name="DragInMergeScaleY" format="float"/>
+        <attr name="DragScalePivotGravity" format="enum">
+            <enum name="leftTop" value="0"/>
+            <enum name="rightTop" value="1"/>
+            <enum name="leftBottom" value="2"/>
+            <enum name="rightBottom" value="3"/>
+            <enum name="center" value="4"/>
+        </attr>
+    </declare-styleable>
+    <declare-styleable name="InsertAbleGridView">
+        <attr name="RowCount" format="integer"/>
+        <attr name="ColumnCount" format="integer"/>
+        <attr name="RowGap" format="dimension"/>
+        <attr name="ColumnGap" format="dimension"/>
+        <attr name="InnerPadding" format="dimension"/>
+        <attr name="OutlinePadding" format="dimension"/>
+        <attr name="OutlineWidth" format="dimension"/>
+        <attr name="OutlineColor" format="color"/>
+    </declare-styleable>
+
+    <declare-styleable name="IReaderGridLayout">
+        <attr name="iReaderRowCount" format="integer"/>
+        <attr name="iReaderColumnCount" format="integer"/>
+        <attr name="iReaderGap" format="dimension"/>
+    </declare-styleable>
+
+    <declare-styleable name="lwvWheelView">
+        <attr name="lwvHighlightColor" format="color|reference"/>
+        <attr name="lwvMarkColor" format="color|reference"/>
+        <attr name="lwvMarkTextColor" format="color|reference"/>
+        <attr name="lwvIntervalFactor" format="float"/>
+        <attr name="lwvMarkRatio" format="float"/>
+        <attr name="lwvCursorSize" format="dimension"/>
+        <attr name="lwvMarkTextSize" format="dimension"/>
+        <attr name="lwvCenterMarkTextSize" format="dimension"/>
+        <attr name="lwvAdditionalCenterMark" format="string|reference"/>
+    </declare-styleable>
+
 </resources>

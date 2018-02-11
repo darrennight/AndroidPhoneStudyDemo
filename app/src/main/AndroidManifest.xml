@@ -314,6 +314,17 @@
         <activity android:name=".listActivityFragment.sample.SampleSectionListActivity"/>
         <activity android:name=".listActivityFragment.sample.SampleSectionListFragmentActivity"/>
         <activity android:name=".commonActivity.DeepScrollViewActivity"/>
+        <activity android:name=".picker.MainPickerActivity"/>
+        <activity android:name=".activity.CustomProgressActivity"/>
+        <activity android:name=".activity.RandomTextActivity"/>
+        <activity android:name=".activity.ClassifyView.ClassMainActivity"/>
+        <activity android:name=".activity.ClassifyView.ContentActivity"/>
+        <activity android:name=".activity.WheelSelectActivity"/>
+        <activity android:name=".activity.FilpProgressActivity"/>
+        <activity android:name=".activity.ResideLayoutActivity"/>
+        <activity android:name=".activity.SwitchTextActivity"/>
+        <activity android:name=".activity.CalibrationActivity"/>
+
     </application>
 
 

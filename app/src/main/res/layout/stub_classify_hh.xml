@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <zenghao.com.study.activity.ClassifyView.LinearHHClassifyView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/classify_view_hh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </zenghao.com.study.activity.ClassifyView.LinearHHClassifyView>
+</layout>

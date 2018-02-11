@@ -41,18 +41,27 @@ import zenghao.com.study.StatusBar.TestStatusBarActivity;
 import zenghao.com.study.UI.RiseNumberActivity;
 import zenghao.com.study.VHRecyleView.VPRecyleMainActivity;
 import zenghao.com.study.VHRecyleView2.VHListUIActivity;
+import zenghao.com.study.activity.CalibrationActivity;
 import zenghao.com.study.activity.CaptureActivity;
+import zenghao.com.study.activity.ClassifyView.ClassMainActivity;
+import zenghao.com.study.activity.CustomProgressActivity;
+import zenghao.com.study.activity.FilpProgressActivity;
 import zenghao.com.study.activity.ItemListActivity;
 import zenghao.com.study.activity.LogoFristActivity;
 import zenghao.com.study.activity.MainSwipeActivity;
 import zenghao.com.study.activity.PermissionActivity;
 import zenghao.com.study.activity.PermissionFrameworkActivity;
+import zenghao.com.study.activity.RandomTextActivity;
+import zenghao.com.study.activity.ResideLayoutActivity;
 import zenghao.com.study.activity.SplashVideoActivity;
+import zenghao.com.study.activity.SwitchTextActivity;
 import zenghao.com.study.activity.TestConstraintLayout;
 import zenghao.com.study.activity.TestNotificationCompat;
 import zenghao.com.study.activity.TestSlidingPaneLayout;
+import zenghao.com.study.activity.WheelSelectActivity;
 import zenghao.com.study.adapter.LVCommon.TestListCommonActivity;
 import zenghao.com.study.adapter.MyAdapter;
+import zenghao.com.study.adapter.WheelSelectAdapter;
 import zenghao.com.study.banner.BannerActivity;
 import zenghao.com.study.bottomManger.BottomMangerActivity;
 import zenghao.com.study.bottomManger.other.BottomMangerOtherActivity;
@@ -83,6 +92,7 @@ import zenghao.com.study.listStatusSwitch.state.StateMainActivity;
 import zenghao.com.study.localImageVideo.LocalImageActivity;
 import zenghao.com.study.permissionBuilder.XPermissionTestActivity;
 import zenghao.com.study.permissionFramework.TestPermissionActivity;
+import zenghao.com.study.picker.MainPickerActivity;
 import zenghao.com.study.plugin.ReSkin.ReSkinActivity;
 import zenghao.com.study.retrofit.TestRetrofitActivity;
 import zenghao.com.study.suspension.MainActivityChild;
@@ -154,7 +164,7 @@ public class MainActivity extends AppCompatActivity {
         list.add("2testTestNotificationCompat");
         list.add("3TestSlidingPaneLayout");
         list.add("4swipeitem滑动");
-        list.add("5capture");
+        list.add("5capture截图");
         list.add("6权限动态申请测试");
         list.add("7splashvideo");
         list.add("8悬浮监测");
@@ -214,6 +224,15 @@ public class MainActivity extends AppCompatActivity {
         list.add("62数据库框架");
         list.add("63Android7.0FileProvider兼容问题");
         list.add("64scrollview");
+        list.add("65滑动选择器");
+        list.add("66自定义进度条");
+        list.add("67数字随机切换");
+        list.add("68recycleItem拖动");
+        list.add("69横行滚动数字选择");
+        list.add("70loading动画");
+        list.add("71主界面左右滑动菜单");
+        list.add("72文字切换");
+        list.add("77刻度尺样式");
 
         adapter = new MyAdapter(this,list);
         mListView.setAdapter(adapter);
@@ -533,6 +552,49 @@ public class MainActivity extends AppCompatActivity {
                     case 64:
                         Intent intent64 = new Intent(MainActivity.this, DeepScrollViewActivity.class);
                         startActivity(intent64);
+
+                    case 65:
+                        Intent intent65 = new Intent(MainActivity.this, MainPickerActivity.class);
+                        startActivity(intent65);
+                        break;
+
+                    case 66:
+                        Intent intent66 = new Intent(MainActivity.this, CustomProgressActivity.class);
+                        startActivity(intent66);
+
+                    case 67:
+                        Intent intent67 = new Intent(MainActivity.this, RandomTextActivity.class);
+                        startActivity(intent67);
+                        break;
+
+                    case 68:
+                        Intent intent68 = new Intent(MainActivity.this, ClassMainActivity.class);
+                        startActivity(intent68);
+                        break;
+
+                    case 69:
+                        Intent intent69 = new Intent(MainActivity.this, WheelSelectActivity.class);
+                        startActivity(intent69);
+                        break;
+
+                    case 70:
+                        Intent intent70 = new Intent(MainActivity.this, FilpProgressActivity.class);
+                        startActivity(intent70);
+                        break;
+
+                    case 71:
+                        Intent intent71 = new Intent(MainActivity.this, ResideLayoutActivity.class);
+                        startActivity(intent71);
+                        break;
+
+                    case 72:
+                        Intent intent72 = new Intent(MainActivity.this, SwitchTextActivity.class);
+                        startActivity(intent72);
+                        break;
+
+                    case 73:
+                        Intent intent73 = new Intent(MainActivity.this, CalibrationActivity.class);
+                        startActivity(intent73);
                         break;
                     default:
                         break;

@@ -83,4 +83,33 @@
     <string name="title_recycler_section_fragment">SectionRecyclerFragment</string>
 
 
+    <string name="pickerview_cancel">取消</string>
+<string name="pickerview_submit">确定</string>
+<string name="pickerview_year">年</string>
+<string name="pickerview_month">月</string>
+<string name="pickerview_day">日</string>
+<string name="pickerview_hours">时</string>
+<string name="pickerview_minutes">分</string>
+<string name="pickerview_seconds">秒</string>
+
+    <string name="nearOverText">即将售罄</string>
+    <string name="overText">已售罄</string>
+    <string name="sub_container">sub_container</string>
+    <string name="i_reader_title">模拟掌阅书架</string>
+    <string name="i_reader_finish">完成</string>
+    <string name="i_reader_last_read">最近阅读</string>
+    <string name="i_reader_all_select">全选</string>
+    <string name="i_reader_delete">删除</string>
+    <string name="i_reader_move">移动至</string>
+    <string name="i_reader_share">分享</string>
+    <string name="i_reader_book_order">加入书单</string>
+    <string name="i_reader_detail">详情</string>
+    <string name="i_reader_category_title_edit_hint">分类名称最多显示10个字符</string>
+    <string-array name="list_name">
+        <item>基本效果</item>
+        <item>使用演示</item>
+    </string-array>
+
+
+
 </resources>

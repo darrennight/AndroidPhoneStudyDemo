@@ -4,7 +4,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.2.0'
+        classpath 'com.android.tools.build:gradle:3.0.0'
         classpath "com.github.piasy:okbuck-gradle-plugin:0.2.3"
 //        classpath 'com.github.okbuilds:okbuild-gradle-plugin:0.4.2'
 
@@ -16,6 +16,7 @@ buildscript {
 
 allprojects {
     repositories {
+        maven { url 'https://dl.google.com/dl/android/maven2/' }
         jcenter()
     }
 

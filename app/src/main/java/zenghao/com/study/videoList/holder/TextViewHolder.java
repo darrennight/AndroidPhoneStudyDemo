@@ -2,9 +2,8 @@ package zenghao.com.study.videoList.holder;
  
 import android.view.View;
 import android.widget.TextView;
- 
 
-import butterknife.Bind;
+import butterknife.BindView;
 import zenghao.com.study.R;
 import zenghao.com.study.videoList.model.TextItem;
 
@@ -13,7 +12,7 @@ import zenghao.com.study.videoList.model.TextItem;
  */ 
 public class TextViewHolder extends BaseViewHolder<TextItem> {
  
-    @Bind(R.id.text_view)
+    @BindView(R.id.text_view)
     TextView mTextView;
  
     public TextViewHolder(View itemView) {

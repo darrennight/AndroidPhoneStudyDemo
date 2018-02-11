@@ -27,6 +27,9 @@ import zenghao.com.study.view.notifyUtil.TestNotifyBuildActivity;
 /**
  * Created by zenghao on 15/12/30.
  * 5.0以后需要设置大小icon  需要设计透明icon 否则线上不出来图标
+ *
+ * NotificationAdapter 通过这个来设置通知栏颜色适配不同手机
+ * https://blog.dreamtobe.cn/2016/01/09/notification_best_practise/
  */
 public class TestNotificationCompat extends AppCompatActivity {
 
