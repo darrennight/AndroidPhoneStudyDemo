@@ -4,8 +4,7 @@ import android.Manifest;
  
 /** 
  * 目前谷歌的9种权限组 
- * @author Flyjun 
- * 
+ *
  */ 
 public class PermissionsGroup {
 

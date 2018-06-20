@@ -38,6 +38,7 @@ import zenghao.com.study.RX.RXTestActivity;
 import zenghao.com.study.RecyclerViewDemo.TestDiffUtilActivity;
 import zenghao.com.study.RxBus.RXBusMainActivity;
 import zenghao.com.study.StatusBar.TestStatusBarActivity;
+import zenghao.com.study.ToastCompat.ToastMainActivity;
 import zenghao.com.study.UI.RiseNumberActivity;
 import zenghao.com.study.VHRecyleView.VPRecyleMainActivity;
 import zenghao.com.study.VHRecyleView2.VHListUIActivity;
@@ -90,6 +91,7 @@ import zenghao.com.study.listActivityFragment.ListMainActvity;
 import zenghao.com.study.listStatusSwitch.LoadingActivity;
 import zenghao.com.study.listStatusSwitch.state.StateMainActivity;
 import zenghao.com.study.localImageVideo.LocalImageActivity;
+import zenghao.com.study.measureUI.sample.UeToolMainActivity;
 import zenghao.com.study.permissionBuilder.XPermissionTestActivity;
 import zenghao.com.study.permissionFramework.TestPermissionActivity;
 import zenghao.com.study.picker.MainPickerActivity;
@@ -232,7 +234,9 @@ public class MainActivity extends AppCompatActivity {
         list.add("70loading动画");
         list.add("71主界面左右滑动菜单");
         list.add("72文字切换");
-        list.add("77刻度尺样式");
+        list.add("73刻度尺样式");
+        list.add("74测量控件");
+        list.add("75Toast BadTokenException 解决");
 
         adapter = new MyAdapter(this,list);
         mListView.setAdapter(adapter);
@@ -552,6 +556,7 @@ public class MainActivity extends AppCompatActivity {
                     case 64:
                         Intent intent64 = new Intent(MainActivity.this, DeepScrollViewActivity.class);
                         startActivity(intent64);
+                        break;
 
                     case 65:
                         Intent intent65 = new Intent(MainActivity.this, MainPickerActivity.class);
@@ -561,6 +566,7 @@ public class MainActivity extends AppCompatActivity {
                     case 66:
                         Intent intent66 = new Intent(MainActivity.this, CustomProgressActivity.class);
                         startActivity(intent66);
+                        break;
 
                     case 67:
                         Intent intent67 = new Intent(MainActivity.this, RandomTextActivity.class);
@@ -595,6 +601,16 @@ public class MainActivity extends AppCompatActivity {
                     case 73:
                         Intent intent73 = new Intent(MainActivity.this, CalibrationActivity.class);
                         startActivity(intent73);
+                        break;
+
+                    case 74:
+                        Intent intent74 = new Intent(MainActivity.this, UeToolMainActivity.class);
+                        startActivity(intent74);
+                        break;
+
+                    case 75:
+                        Intent intent75 = new Intent(MainActivity.this, ToastMainActivity.class);
+                        startActivity(intent75);
                         break;
                     default:
                         break;

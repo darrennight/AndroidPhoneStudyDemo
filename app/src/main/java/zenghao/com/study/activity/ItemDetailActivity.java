@@ -19,7 +19,7 @@ package zenghao.com.study.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
 import zenghao.com.study.R;
@@ -34,7 +34,7 @@ import zenghao.com.study.R;
  * 
  * @author Tonic Artos
  */
-public class ItemDetailActivity extends ActionBarActivity {
+public class ItemDetailActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {

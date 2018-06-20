@@ -18,8 +18,8 @@ package zenghao.com.study.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 
+import android.support.v7.app.AppCompatActivity;
 import zenghao.com.study.R;
 
 /**
@@ -39,7 +39,7 @@ import zenghao.com.study.R;
  * 
  * @author Tonic Artos
  */
-public class ItemListActivity extends ActionBarActivity implements ItemListFragment.Callbacks {
+public class ItemListActivity extends AppCompatActivity implements ItemListFragment.Callbacks {
     /**
      * Whether or not the activity is in two-pane mode, i.e. running on a tablet
      * device.

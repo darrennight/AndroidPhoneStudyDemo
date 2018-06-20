@@ -1,7 +1,6 @@
 package zenghao.com.study.view.classify;
 
 import android.support.annotation.NonNull;
-import android.support.v4.animation.AnimatorCompatHelper;
 import android.support.v4.view.ViewCompat;
 import android.support.v4.view.ViewPropertyAnimatorCompat;
 import android.support.v4.view.ViewPropertyAnimatorListener;
@@ -496,7 +495,7 @@ public class ClassifyItemAnimator extends SimpleItemAnimator {
     }
 
     private void resetAnimation(RecyclerView.ViewHolder holder) {
-        AnimatorCompatHelper.clearInterpolator(holder.itemView);
+        //AnimatorCompatHelper.clearInterpolator(holder.itemView);
         endAnimation(holder);
     }
 

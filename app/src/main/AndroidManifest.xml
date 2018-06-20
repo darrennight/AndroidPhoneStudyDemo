@@ -25,6 +25,13 @@
 
     <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES" />
 
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+
+    <!-- 显示系统窗口权限 -->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <!-- 在 屏幕最顶部显示addview-->
+    <uses-permission android:name="android.permission.SYSTEM_OVERLAY_WINDOW" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -58,7 +65,9 @@
 
 
         <activity android:name=".activity.PermissionActivity"/>
+
         <activity android:name=".activity.ItemListActivity"/>
+
         <activity android:name=".activity.TestNotificationCompat"/>
         <activity android:name=".activity.TestSlidingPaneLayout"/>
         <activity android:name=".activity.MainSwipeActivity"/>
@@ -324,6 +333,17 @@
         <activity android:name=".activity.ResideLayoutActivity"/>
         <activity android:name=".activity.SwitchTextActivity"/>
         <activity android:name=".activity.CalibrationActivity"/>
+
+        <activity android:name=".measureUI.sample.UeToolMainActivity"/>
+        <activity android:name=".measureUI.sample.SecondActivity"/>
+
+        <activity
+            android:name=".measureUI.uetool.TransparentActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/uet_Theme.AppCompat.Translucent"/>
+
+        <activity android:name=".ToastCompat.ToastMainActivity"/>
 
     </application>
 
