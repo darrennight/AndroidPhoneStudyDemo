@@ -1,19 +1,23 @@
 apply plugin: 'com.android.application'
 
-def supportVersion = '26.0.0'
+def supportVersion = '28.0.0'
 
 android {
-    compileSdkVersion 26
-    buildToolsVersion "26.0.2"
+    compileSdkVersion 28
+    buildToolsVersion "28.0.3"
 
     defaultConfig {
         applicationId "zenghao.com.study"
         minSdkVersion 14
-        targetSdkVersion 26
+        targetSdkVersion 28
         versionCode 1
         versionName "1.0"
         multiDexEnabled true
         vectorDrawables.useSupportLibrary = true
+    }
+
+    dataBinding{
+        enabled = true
     }
 
     signingConfigs {
@@ -106,54 +110,55 @@ android {
 
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    testCompile 'junit:junit:4.12'
-    compile "com.android.support:appcompat-v7:$supportVersion"
-    compile "com.android.support:design:$supportVersion"
-    compile "com.android.support:cardview-v7:$supportVersion"
-    compile 'com.android.support:multidex:1.0.1'
-    compile "com.android.support:percent:$supportVersion"
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    testImplementation 'junit:junit:4.12'
+    implementation "com.android.support:appcompat-v7:$supportVersion"
+    implementation "com.android.support:design:$supportVersion"
+    implementation "com.android.support:cardview-v7:$supportVersion"
+    implementation 'com.android.support:multidex:1.0.1'
+    implementation "com.android.support:percent:$supportVersion"
+    implementation "com.android.support:support-media-compat:$supportVersion"
 //    compile 'com.android.support:percent:24.2.1'
     /*compile 'cn.bingoogolapple:bga-adapter:1.1.0@aar'*/
-    compile 'com.7heaven.ioswidget:iosswitch:0.6'
-    compile 'io.reactivex:rxandroid:1.1.0'
-    compile 'io.reactivex:rxjava:1.1.0'
-    compile 'com.trello:rxlifecycle:0.6.1'
-    compile 'com.trello:rxlifecycle-components:0.6.1'
+    implementation 'com.7heaven.ioswidget:iosswitch:0.6'
+    implementation 'io.reactivex:rxandroid:1.1.0'
+    implementation 'io.reactivex:rxjava:1.1.0'
+    implementation 'com.trello:rxlifecycle:0.6.1'
+    implementation 'com.trello:rxlifecycle-components:0.6.1'
     //    compile 'net.grandcentrix.tray:tray:1.0.0-rc3'//最低15minsdk 跨进程sharedpreference
-    compile 'com.squareup.okhttp3:okhttp:3.4.1'
-    compile 'com.squareup.okhttp3:logging-interceptor:3.4.1'
-    compile 'com.squareup.retrofit2:retrofit:2.1.0'
-    compile 'com.squareup.retrofit2:converter-gson:2.1.0'
-    compile 'com.squareup.retrofit2:converter-jackson:2.1.0'
-    compile 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
-    compile 'com.android.support.constraint:constraint-layout:1.0.1'
-    compile 'com.mani:ThinDownloadManager:1.2.5'
-    compile files('libs/nineoldandroids-2.4.0.jar')
-    compile files('libs/libammsdk.jar')
+    implementation 'com.squareup.okhttp3:okhttp:3.4.1'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.4.1'
+    implementation 'com.squareup.retrofit2:retrofit:2.1.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.1.0'
+    implementation 'com.squareup.retrofit2:converter-jackson:2.1.0'
+    implementation 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    implementation 'com.mani:ThinDownloadManager:1.2.5'
+    implementation files('libs/nineoldandroids-2.4.0.jar')
+    implementation files('libs/libammsdk.jar')
 
 
     /*compile 'com.jakewharton:butterknife:7.0.1'*/
-    compile 'com.jakewharton:butterknife:8.8.1'
+    implementation 'com.jakewharton:butterknife:8.8.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
 
-    compile 'com.mikhaellopez:circularprogressbar:1.1.1'
-    compile 'com.github.bumptech.glide:glide:3.7.0'
-    compile('com.github.bumptech.glide:okhttp3-integration:1.4.0') {
+    implementation 'com.mikhaellopez:circularprogressbar:1.1.1'
+    implementation 'com.github.bumptech.glide:glide:3.7.0'
+    implementation('com.github.bumptech.glide:okhttp3-integration:1.4.0') {
         exclude group: 'glide-parent'
     }
     //    compile 'com.bobomee.android:drawableindicator:1.6'
-    compile 'com.facebook.stetho:stetho:1.4.2'
-    compile 'com.google.android:flexbox:0.2.5'
-    compile files('libs/alipaySdk-20170407.jar')
+    implementation 'com.facebook.stetho:stetho:1.4.2'
+    implementation 'com.google.android:flexbox:0.2.5'
+    implementation files('libs/alipaySdk-20170407.jar')
     //recycleView header
-    compile 'com.bartoszlipinski:recyclerviewheader2:2.0.1'
+    implementation 'com.bartoszlipinski:recyclerviewheader2:2.0.1'
 
     //compile 'com.contrarywind:Android-PickerView:3.2.7'
-    compile 'com.squareup.picasso:picasso:2.5.2'
+    implementation 'com.squareup.picasso:picasso:2.5.2'
 
     implementation 'com.facebook.fresco:fresco:1.9.0'
-    compile 'com.facebook.fresco:animated-gif:1.9.0'
+    implementation 'com.facebook.fresco:animated-gif:1.9.0'
 
 
 
@@ -164,8 +169,8 @@ dependencies {
     debugCompile 'me.ele:uetool-fresco:1.0.12'*/
 
     //For Lifecycles, LiveData, and ViewModel, add:
-    /*compile 'android.arch.lifecycle:runtime:1.1.1'
-    compile 'android.arch.lifecycle:extensions:1.1.1'
+    /*implementation 'android.arch.lifecycle:runtime:1.1.1'
+    implementation 'android.arch.lifecycle:extensions:1.1.1'
     annotationProcessor "android.arch.lifecycle:compiler:1.1.1"*/
 
     //For Room, add:

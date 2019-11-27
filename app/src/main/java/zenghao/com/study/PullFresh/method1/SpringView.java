@@ -171,7 +171,7 @@ public class SpringView extends ViewGroup{
     @Override
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
         if (contentView!=null) {
-            if(type==Type.OVERLAP){
+            if(type==Type.OVERLAP){//重叠
                 if (header!=null) {
                     header.layout(0, 0, getWidth(), header.getMeasuredHeight());
                 }

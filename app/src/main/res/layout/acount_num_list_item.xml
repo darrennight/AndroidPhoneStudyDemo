@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<zenghao.com.study.scaleview.ScaleLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_gravity="center_vertical"
+    android:background="@drawable/item_selector"
+    android:orientation="vertical" >
+
+        <zenghao.com.study.scaleview.ScaleTextView
+            android:id="@+id/record_account"
+            android:layout_width="wrap_content"
+            android:layout_height="50dip"
+            android:paddingTop="11dip"
+            android:paddingLeft="42dip"
+            android:singleLine="true"
+            android:textColor="#ffffff"
+            android:textSize="18dip" />
+        
+            <zenghao.com.study.scaleview.ScaleTextView
+         android:layout_width="fill_parent"
+         android:layout_height="0.1dip"
+         android:background="@color/white"
+         android:alpha="0.8"
+        />
+
+</zenghao.com.study.scaleview.ScaleLinearLayout>

@@ -1,0 +1,92 @@
+导入
+<data>
+    <import type="android.view.View"/>
+</data>
+
+<TextView
+   android:text="@{user.lastName}"
+   android:layout_width="wrap_content"
+   android:layout_height="wrap_content"
+   android:visibility="@{user.isAdult ? View.VISIBLE : View.GONE}"/>
+
+别名
+<import type="android.view.View"/>
+<import type="com.example.real.estate.View"
+        alias="Vista"/>
+
+
+
+导入的类型也可以用于变量的类型引用和表达式中：
+
+<data>
+    <import type="com.example.User"/>
+    <import type="java.util.List"/>
+    <variable name="user" type="User"/>
+    <variable name="userList" type="List<User>"/>
+</data>
+< >需要使用转义字符< >代替。
+在表达式中使用静态方法：
+public class StringUtils {
+
+    public static String capitalize(String word) {
+        if (word.length() > 1) {
+            return String.valueOf(word.charAt(0)).toUpperCase() + word.substring(1);
+        }
+        return word;
+    }
+}
+
+<data>
+    <import type="com.yl.databindingdemo.utils.StringUtils"/>
+    <variable name="user" type="com.yl.databindingdemo.bean.User"/>
+</data>
+
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@{StringUtils.capitalize(user.lastName)}" />
+
+
+
+
+<!-- 自定义Binding类名 -->
+<data class="ContactItem">
+    ...
+</data>
+
+<!-- 自定义Binding存放路径，.代表module根目录 -->
+<data class=".ContactItem">
+    ...
+</data>
+
+<!-- 自定义Binding存放路径，指定路径 -->
+<data class="com.example.ContactItem">
+    ...
+</data>
+
+
+
+变量可以传递到include布局中：
+
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="user"
+            type="com.yl.databindingdemo.bean.User" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include
+            layout="@layout/layout_include"
+            bind:user="@{user}" />
+
+    </LinearLayout>
+
+</layout>

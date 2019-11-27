@@ -345,6 +345,14 @@
 
         <activity android:name=".ToastCompat.ToastMainActivity"/>
 
+        <activity android:name="DataBind.TestDataBindingActivity"/>
+        <activity android:name="TouchEventAndDraw.MainEventActivity"/>
+        <activity android:name="TouchEventAndDraw.TestScrollerActivity"/>
+        <activity android:name="TouchEventAndDraw.TestScrollerLayoutActivity"/>
+        <activity android:name="TouchEventAndDraw.TestOnMeasureActivity"/>
+        <activity android:name="TouchEventAndDraw.PullToActivity01"/>
+        <activity android:name="TouchEventAndDraw.PullToActivityScroll02"/>
+
     </application>
 
 

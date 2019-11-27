@@ -29,6 +29,7 @@ import zenghao.com.study.retrofit.updateApk.UpdateManager;
 /**
  * retrofit使用连接参考学习
  *http://www.jianshu.com/p/16994e49e2f6
+ * https://github.com/shanyao0/DownLoadManager
  * @author zenghao
  * @since 2017/4/24 上午10:11
  */

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TouchEventAndDraw.TestMeasureLayout
+        android:layout_width="match_parent"
+        android:layout_height="500px"
+        android:background="@color/black"
+        >
+
+        <TouchEventAndDraw.TestOnMeasureView
+            android:layout_width="200px"
+            android:layout_height="500px"
+            android:background="@color/red"/>
+
+    </TouchEventAndDraw.TestMeasureLayout>
+
+    <TouchEventAndDraw.TestFlowLayout
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:background="@color/holo_blue">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_button_circular"
+            android:text="水果味孕妇奶粉" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_button_circular"
+            android:text="儿童洗衣机" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_button_circular"
+            android:text="洗衣机全自动" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_button_circular"
+            android:text="小度" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_button_circular"
+            android:text="儿童汽车可坐人" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_button_circular"
+            android:text="抽真空收纳袋" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_button_circular"
+            android:text="儿童滑板车" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_button_circular"
+            android:text="稳压器 电容" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_button_circular"
+            android:text="羊奶粉" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_button_circular"
+            android:text="奶粉1段" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_button_circular"
+            android:text="图书勋章日" />
+
+    </TouchEventAndDraw.TestFlowLayout>
+
+</LinearLayout>

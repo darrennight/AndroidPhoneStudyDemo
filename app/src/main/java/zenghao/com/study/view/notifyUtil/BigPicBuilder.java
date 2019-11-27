@@ -2,9 +2,9 @@ package zenghao.com.study.view.notifyUtil;
  
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.support.annotation.DrawableRes; 
-import android.support.v7.app.NotificationCompat; 
- 
+import android.support.annotation.DrawableRes;
+import android.support.v4.app.NotificationCompat;
+
 
 /** 
  * Created by Administrator on 2017/2/13 0013. 

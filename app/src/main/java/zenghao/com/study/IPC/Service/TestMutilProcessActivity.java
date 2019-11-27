@@ -131,6 +131,16 @@ public class TestMutilProcessActivity extends AppCompatActivity{
     }
 
 
+    // 非多进程 bindService 后直接调用此方法
+    //在bindService的地方onServiceConnected
+//    @Override
+//    public void onServiceConnected(ComponentName name, IBinder service) {
+//        MyBinder binder = (MyBinder)service;
+//        BindService bindService = binder.getService(); //得到service实例对象
+//        bindService.MyMethod();
+//        flag = true ;
+//    }
+
     private IHelloInterface iHello;
     private ServiceConnection connection = new ServiceConnection() {
         @Override

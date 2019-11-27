@@ -25,6 +25,8 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
+import DataBind.TestDataBindingActivity;
+import TouchEventAndDraw.MainEventActivity;
 import zenghao.com.study.DBUtils.use.TestDBFrameActivity;
 import zenghao.com.study.DaemonService.TestDaemonActivity;
 import zenghao.com.study.DownLoad.DownLoadActivity;
@@ -237,6 +239,8 @@ public class MainActivity extends AppCompatActivity {
         list.add("73刻度尺样式");
         list.add("74测量控件");
         list.add("75Toast BadTokenException 解决");
+        list.add("76DataBinding");
+        list.add("77Android Touch事件分发和绘制相关");
 
         adapter = new MyAdapter(this,list);
         mListView.setAdapter(adapter);
@@ -611,6 +615,16 @@ public class MainActivity extends AppCompatActivity {
                     case 75:
                         Intent intent75 = new Intent(MainActivity.this, ToastMainActivity.class);
                         startActivity(intent75);
+                        break;
+
+                    case 76:
+                        Intent intent76 = new Intent(MainActivity.this, TestDataBindingActivity.class);
+                        startActivity(intent76);
+                        break;
+
+                    case 77:
+                        Intent intent77 = new Intent(MainActivity.this, MainEventActivity.class);
+                        startActivity(intent77);
                         break;
                     default:
                         break;

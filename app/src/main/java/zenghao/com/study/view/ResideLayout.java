@@ -800,7 +800,8 @@ public class ResideLayout extends ViewGroup {
     protected boolean drawChild(@NonNull Canvas canvas, @NonNull View child, long drawingTime) {
         final LayoutParams lp = (LayoutParams) child.getLayoutParams();
         boolean result;
-        final int save = canvas.save(Canvas.ALL_SAVE_FLAG);
+//        final int save = canvas.save(Canvas.ALL_SAVE_FLAG);
+        final int save = canvas.save();
 
         if (mCanSlide && !lp.slideable && mSlideableView != null) {
             // Clip against the slider; no sense drawing what will immediately be covered.

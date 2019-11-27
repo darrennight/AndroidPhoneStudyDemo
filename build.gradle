@@ -2,11 +2,14 @@
 buildscript {
     repositories {
         jcenter()
+        google()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.0.0'
-        classpath "com.github.piasy:okbuck-gradle-plugin:0.2.3"
+        classpath 'com.android.tools.build:gradle:3.5.0'
+//        classpath "com.github.piasy:okbuck-gradle-plugin:0.2.3"
+//        classpath "com.github.piasy:okbuck-gradle-plugin:0.2.3-fix-issue-12"
 //        classpath 'com.github.okbuilds:okbuild-gradle-plugin:0.4.2'
+//        classpath 'com.uber:okbuck:0.48.4'
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -19,21 +22,23 @@ allprojects {
         maven { url 'https://dl.google.com/dl/android/maven2/' }
         maven { url 'https://maven.google.com' }
         jcenter()
+        google()
     }
 
 }
-
-apply plugin: 'com.github.piasy.okbuck-gradle-plugin'
+//apply plugin: 'com.uber.okbuck'
+//apply plugin: 'com.github.piasy.okbuck-gradle-plugin'
 //apply plugin: 'com.github.okbuilds.okbuck-gradle-plugin'
-okbuck {
+/*okbuck {
+    apply plugin: 'kotlin'
     target "android-23"
     overwrite true
     signConfigName "release"
     resPackages = [
             'app'    : 'zenghao.com.study',
-            /*'library': 'net.masonliu.okhttpplus'*/
+            *//*'library': 'net.masonliu.okhttpplus'*//*
     ]
-}
+}*/
 
 
 

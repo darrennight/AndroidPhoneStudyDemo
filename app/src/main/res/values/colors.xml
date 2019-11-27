@@ -62,4 +62,7 @@
     <color name="unselected">#88000000</color>
     <color name="transWhite">#0DFFFFFF</color>
 
+    <color name="item_list">#302f2b</color>
+    <color name="item_list_select">#ffc400</color>
+
 </resources>

@@ -25,6 +25,23 @@ public class MyMutilPService extends Service {
 
     private String time;
 
+    private static final String TAG = " BindService " ;
+
+    // 非多进程 bindService 后直接调用此方法
+    //在bindService的地方onServiceConnected
+//    @Override
+//    public void onServiceConnected(ComponentName name, IBinder service) {
+//        MyBinder binder = (MyBinder)service;
+//        BindService bindService = binder.getService();
+//        bindService.MyMethod();
+//        flag = true ;
+//    }
+    public void MyMethod(){
+        Log.i(TAG, " BindService-->MyMethod() " );
+    }
+
+
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -154,3 +171,28 @@ public class MyMutilPService extends Service {
 
     final RemoteCallbackList<IHelloCallback> mCallbacks = new RemoteCallbackList<IHelloCallback>();
 }
+
+
+//广播也可以处理service通信//
+// class MyBinder extends Binder {
+//
+//    //向Activity返回MyService2实例
+//    MyService2 getService() {
+//        return MyService2.this;
+//    }
+//
+//    //获取从Activity传来的数据
+//    void TransferData(int mData) {
+//        data = mData;
+//    }
+//
+//    //将data数值传递给Activity
+//    int getData() {
+//        return data;
+//    }
+//
+//}
+//
+//————————————————
+//        版权声明：本文为CSDN博主「#Ekko」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。
+//        原文链接：https://blog.csdn.net/Gods_magic/article/details/84558169
