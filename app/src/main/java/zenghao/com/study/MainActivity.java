@@ -22,7 +22,10 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import android.widget.Toast;
+
+
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import DataBind.TestDataBindingActivity;
@@ -66,6 +69,7 @@ import zenghao.com.study.adapter.LVCommon.TestListCommonActivity;
 import zenghao.com.study.adapter.MyAdapter;
 import zenghao.com.study.adapter.WheelSelectAdapter;
 import zenghao.com.study.banner.BannerActivity;
+import zenghao.com.study.blur.BlurActivity;
 import zenghao.com.study.bottomManger.BottomMangerActivity;
 import zenghao.com.study.bottomManger.other.BottomMangerOtherActivity;
 import zenghao.com.study.commonActivity.CaptureVideoActivity;
@@ -97,6 +101,7 @@ import zenghao.com.study.measureUI.sample.UeToolMainActivity;
 import zenghao.com.study.permissionBuilder.XPermissionTestActivity;
 import zenghao.com.study.permissionFramework.TestPermissionActivity;
 import zenghao.com.study.picker.MainPickerActivity;
+import zenghao.com.study.picker01.PickerActivity01;
 import zenghao.com.study.plugin.ReSkin.ReSkinActivity;
 import zenghao.com.study.retrofit.TestRetrofitActivity;
 import zenghao.com.study.suspension.MainActivityChild;
@@ -144,7 +149,6 @@ public class MainActivity extends AppCompatActivity {
             bug 1.app会被清理kill 2.切换后马上退出app到home点击icon启动无法启动
             disableComponent(mDefault);
         enableComponent(mDouble11);*/
-
     }
 
 
@@ -241,6 +245,8 @@ public class MainActivity extends AppCompatActivity {
         list.add("75Toast BadTokenException 解决");
         list.add("76DataBinding");
         list.add("77Android Touch事件分发和绘制相关");
+        list.add("78滑动选择器Picker");
+        list.add("79高斯模糊");
 
         adapter = new MyAdapter(this,list);
         mListView.setAdapter(adapter);
@@ -625,6 +631,14 @@ public class MainActivity extends AppCompatActivity {
                     case 77:
                         Intent intent77 = new Intent(MainActivity.this, MainEventActivity.class);
                         startActivity(intent77);
+                        break;
+                    case 78:
+                        Intent intent78 = new Intent(MainActivity.this, PickerActivity01.class);
+                        startActivity(intent78);
+                        break;
+                    case 79:
+                        Intent intent79 = new Intent(MainActivity.this, BlurActivity.class);
+                        startActivity(intent79);
                         break;
                     default:
                         break;

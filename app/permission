@@ -38,4 +38,4 @@ android.permission.WRITE_SYNC_SETTINGS
 com.android.alarm.permission.SET_ALARM
 com.android.launcher.permission.INSTALL_SHORTCUT
 com.android.launcher.permission.UNINSTALL_SHORTCUT
-xixi
+

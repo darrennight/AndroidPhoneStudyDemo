@@ -33,7 +33,7 @@
     <uses-permission android:name="android.permission.SYSTEM_OVERLAY_WINDOW" />
 
     <application
-        android:allowBackup="true"
+        android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
@@ -352,6 +352,9 @@
         <activity android:name="TouchEventAndDraw.TestOnMeasureActivity"/>
         <activity android:name="TouchEventAndDraw.PullToActivity01"/>
         <activity android:name="TouchEventAndDraw.PullToActivityScroll02"/>
+        <activity android:name=".picker01.PickerActivity01"/>
+
+        <activity android:name=".blur.BlurActivity"/>
 
     </application>
 
